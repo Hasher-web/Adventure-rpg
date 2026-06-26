@@ -642,47 +642,80 @@
     ]
   },
 
+
   "11_explorer": {
     "type": "scenario",
-    "title": "The Repeating Symbol",
-    "text": "Months of exploration have taken you across forgotten roads, ruined watchtowers, and abandoned landmarks.\n\nMost discoveries fade into memory.\n\nOne does not.\n\nA symbol.\n\nAt first it seemed meaningless.\n\nA carving in a ruined wall.\n\nA mark on an ancient map.\n\nA faded design hidden within a damaged monument.\n\nNow it has appeared again.\n\nAnd again.\n\nDifferent locations.\n\nDifferent histories.\n\nDifferent ages.\n\nYet somehow the same symbol remains.\n\nIt should not exist in places this far apart.\n\nThe coincidence is becoming difficult to ignore.",
+    "title": "Fresh Ashes",
+    "text": "The Cartographer's directions lead you away from every marked road.\n\nBy midday you find it.\n\nA ruined watchtower stands alone atop a hill.\n\nIts upper floors have long since collapsed.\n\nThe entrance hangs open.\n\nSomeone has been here recently.\n\nAshes still glow faintly inside an old fireplace.\n\nA rope hangs from a broken window.\n\nShelves have been emptied.\n\nBooks lie scattered across the floor, many with pages deliberately torn away.\n\nWhoever searched this place wasn't looking for valuables.\n\nThey were looking for information.\n\nNear the doorway, muddy footprints continue east.\n\nYou kneel beside them.\n\nYou're not the first person chasing whatever lies beyond the known roads.\n\nYou're following someone.",
     "choices": [
       {
-        "text": "Document the symbol carefully",
+        "text": "Search the remaining books for overlooked clues.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "11_explorer_event",
-        "result": "You begin recording every appearance of the symbol."
+        "next": "11_event",
+        "result": "You carefully examine every damaged page. Whoever came before worked quickly. They missed more than they realized.",
+        "artifact_result": {
+          "journal": "One symbol burned into your journal perfectly matches a faded mark hidden inside a surviving book margin. Someone tried to erase it.",
+          "ring": "Several pages mention an unnamed noble family whose crest resembles your ring, though the final pages have all been removed.",
+          "chicken": "As you stack ruined books aside, the wooden chicken rattles loudly. Beneath the pile lies a page everyone else overlooked."
+        }
       },
       {
-        "text": "Ask locals about its meaning",
+        "text": "Examine the campsite for signs of its previous occupants.",
         "stat": "trust",
         "amount": 1,
-        "next": "11_explorer_event",
-        "result": "You gather stories and legends connected to the symbol."
+        "next": "11_event",
+        "result": "The fire has only been out for a few hours. Whoever stayed here expected company but left in a hurry.",
+        "artifact_result": {
+          "journal": "Among the ashes you find a scrap reading, 'The journal still exists.' The remaining sentence has burned away.",
+          "ring": "A discarded mug bears the same crest engraved on your ring. Someone here would have recognized it instantly.",
+          "chicken": "The chicken suddenly tips over beside an untouched bedroll. Hidden underneath is a small pouch containing dried provisions."
+        }
       },
       {
-        "text": "Investigate who may be using it",
+        "text": "Study the footprints leading east.",
         "stat": "influence",
         "amount": 1,
         "next": "11_explorer_event",
-        "result": "You search for organizations or individuals connected to the mark."
+        "result": "Several people passed through. One clearly gave orders while the others followed without question.",
+        "artifact_result": {
+          "journal": "You notice someone paused repeatedly to compare the trail against notes written in a journal almost identical to yours.",
+          "ring": "The bootprints suddenly split apart around yours, as though someone deliberately stepped aside after noticing the ring.",
+          "chicken": "Small animal tracks repeatedly cross the larger footprints before vanishing. Oddly, every dangerous trail avoids them."
+        }
       },
       {
-        "text": "Travel to another reported location",
-        "stat": "hp_stat",
-        "amount": 1,
-        "next": "11_explorer_event",
-        "result": "You continue the search despite the difficult journey."
-      },
-      {
-        "text": "Track every known location",
+        "text": "Climb the ruined tower for a better view.",
         "stat": "skill",
         "amount": 1,
         "next": "11_explorer_event",
-        "result": "You create a network of clues linking the symbol together."
+        "result": "The climb is dangerous, but the summit reveals roads stretching far beyond the horizon.",
+        "artifact_result": {
+          "journal": "Inside a cracked observation room you discover the same burned symbol carved into the stone windowsill.",
+          "ring": "Hidden beneath loose masonry rests an ancient banner displaying the same crest as your ring.",
+          "chicken": "The chicken slips from your pack halfway up. Reaching for it prevents you from stepping onto rotten wood that immediately collapses."
+        }
+      },
+      {
+        "text": "Remain until night and watch who returns.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "Hours pass in silence. The ruins grow colder, but patience often reveals what haste cannot.",
+        "artifact_result": {
+          "journal": "Moonlight reveals faint writing across one of the journal's blank pages. By dawn it has disappeared again.",
+          "ring": "A hooded traveler approaches the tower, notices your ring from a distance, and quietly leaves without entering.",
+          "chicken": "Long after sunset the chicken rattles on its own. Moments later you hear footsteps approaching, giving you just enough warning to remain hidden."
+        }
       }
     ]
+  },
+
+  "11_explorer_event": {
+    "type": "event",
+    "title": "Someone Is Ahead",
+    "text": "Morning arrives beneath a grey sky.\n\nThe watchtower falls silent once more.\n\nBefore leaving, you discover something carved into the inside of the doorway.\n\nNot a name.\n\nNot a warning.\n\nJust three words.\n\n'You're still behind.'\n\nThe carving is fresh.\n\nWhoever left it wanted the next traveler to read it.\n\nYou glance toward the eastern road.\n\nThe footprints continue.\n\nSo does your journey.",
+    "next": "12_explorer"
   },
 
   "11_settler_event": {
@@ -690,13 +723,6 @@
     "title": "The Head's Position",
     "text": "The Head attends the meeting.\n\nHe listens more than he speaks.\n\nEventually he makes a decision.\n\nExpansion will begin slowly.\n\nControlled.\n\nMeasured.\n\nNobody leaves completely satisfied.\n\nYet nobody leaves angry either.\n\nThe Head notices you watching.\n\nFor a moment, it almost seems like he's evaluating you.",
     "next": "12_settler"
-  },
-
-  "11_explorer_event": {
-    "type": "event",
-    "title": "A Pattern",
-    "text": "The more evidence you gather, the stranger the pattern becomes.\n\nThe symbol appears across regions that should have no connection to one another.\n\nDifferent cultures.\n\nDifferent histories.\n\nDifferent centuries.\n\nYet the same mark survives.\n\nNot frequently.\n\nJust enough to leave a trail.\n\nSomeone wanted it to be found.\n\nOr remembered.",
-    "next": "12_explorer"
   },
 
   "12_settler": {

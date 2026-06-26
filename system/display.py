@@ -953,6 +953,16 @@ def show_result(result):
     )
 
 
+def show_artifact_result(result):
+    show_popup(
+        "ARTIFACT RESULT",
+        result,
+        title_color=ui.GOLD,
+        width=620,
+        min_height=240
+    )
+
+
 def show_class_unlock(player_class):
     show_popup(
         "CLASS UNLOCKED",

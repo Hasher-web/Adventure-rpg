@@ -166,13 +166,14 @@ def handle_scenario(player, node, node_id):
 
     # Artifact-specific result from SQLite table
     artifact_text = node_repository.get_artifact_result(
-        selected_choice["id"],
-        player.get("artifact")
+    selected_choice["id"],
+    player.get("artifact")
     )
-    if artifact_text:
-        display.show_result(artifact_text)
 
-    next_node = selected_choice.get("next")
+    if artifact_text:
+        display.show_artifact_result(artifact_text)
+
+        next_node = selected_choice.get("next")
 
     print("[TRACE NEXT]", node_id, "->", next_node)
 
