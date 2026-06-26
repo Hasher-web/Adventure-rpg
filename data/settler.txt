@@ -1,0 +1,377 @@
+  "6_settler": {
+    "type": "scenario",
+    "title": "The Job Board",
+    "text": "The board is larger than expected.\n\nDozens of notices cover the wood.\n\nSome offer temporary work.\nOthers seek long-term employees.\n\nFor a moment, the number of choices feels overwhelming.\n\nBack home, work was simple.\nYou hunted.\nYou gathered.\nYou survived.\n\nGreyhaven is different.\n\nPeople specialize.\n\nThey build entire lives around a single profession.\n\nAfter reading through the postings, three opportunities stand out.\n\nA librarian is seeking an assistant.\n\nThe town administration is looking for a clerk.\n\nThe treasury seeks an apprentice.\n\nOne choice could shape your new life.",
+    "choices": [
+      {
+        "text": "Assist the librarian",
+        "stat": "knowledge",
+        "amount": 1,
+        "job": "librarian",
+        "next": "job_selection_event",
+        "result": "You take the library job. Quiet work, steady learning."
+      },
+      {
+        "text": "Join administration",
+        "stat": "influence",
+        "amount": 1,
+        "job": "administration",
+        "next": "job_selection_event",
+        "result": "You join administration. Decisions flow through people like this."
+      },
+      {
+        "text": "Work in treasury",
+        "stat": "trust",
+        "amount": 1,
+        "job": "treasury clerk",
+        "next": "job_selection_event",
+        "result": "You join the treasury. Trust is the real currency here."
+      }
+    ]
+  },
+
+  "job_selection_event": {
+    "type": "event",
+    "title": "A New Routine",
+    "text": "The application process is simple.\n\nWithin days, your new routine begins.\n\nGreyhaven starts to feel familiar.\n\nFor the first time since leaving home, life stabilizes.\n\nYou are no longer surviving.\nYou are becoming part of something.",
+    "next": "7_settler"
+  },
+
+  "7_settler": {
+    "type": "scenario",
+    "title": "First Days of Work",
+    "text": "Your routine begins immediately.\n\nGreyhaven doesn't wait.\n\nYou learn by doing.\n\nPeople start recognizing you.\nNot your story.\nJust your presence.\n\nYou are inside the system now.",
+    "choices": [
+      {
+        "text": "Study records and patterns",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "settler_conflict_event",
+        "result": "You study records deeply. Patterns start forming faster."
+      },
+      {
+        "text": "Coordinate workers",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "settler_conflict_event",
+        "result": "You coordinate tasks. People begin listening naturally."
+      },
+      {
+        "text": "Track resources",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "settler_conflict_event",
+        "result": "You track resources carefully. Mistakes drop quickly."
+      }
+    ]
+  },
+
+  "settler_conflict_event": {
+    "type": "event",
+    "title": "The Fence Line Dispute",
+    "text": "Two neighbors argue near the edge of town.\n\nA fence was repainted for the festival.\n\nOne claims the other crossed the property line.\n\nA small issue.\nBut it’s already spreading attention.\n\nPeople gather.\nWatching.\nWaiting.\n\nThen they notice you.\n\nThe argument slows.\nNot solved.\nJust observed.",
+    "next": "8_settler"
+  },
+
+  "8_settler": {
+    "type": "scenario",
+    "title": "Festival Night",
+    "text": "Greyhaven spends the day in preparation.\n\nStreets are cleaned.\nLanterns are hung.\nStalls are built in silence that slowly turns into anticipation.\n\nBy evening, the town transforms.\n\nThe festival begins almost without warning.\n\nLight floods the streets.\nMusic replaces conversation.\nThe same place you’ve been walking through suddenly feels unfamiliar.\n\nAlive in a different way.\n\nPeople move in celebration, but small issues still appear beneath the surface.\nNothing serious.\nJust enough to notice if you're paying attention.",
+    "choices": [
+      {
+        "text": "Notice issues early and quietly fix them",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You pick up on small problems before they grow. The festival runs smoother without anyone knowing why."
+      },
+      {
+        "text": "Step in and direct people to keep things running",
+        "stat": "influence",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You start coordinating people without formal authority. Things fall into order under your direction."
+      },
+      {
+        "text": "Join the crowd and help wherever needed",
+        "stat": "trust",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You blend into the festival, helping where needed. For once, you're not watching from the outside."
+      }
+    ]
+  },
+
+  "8_settler_event": {
+    "type": "event",
+    "title": "Afterglow",
+    "text": "The night settles slowly.\n\nLanterns dim.\nMusic fades into distance.\nStreets grow quiet again.\n\nBut something lingers.\n\nThe festival didn't just happen around people.\nIt happened because of them.\n\nAnd somehow, you were part of that system now.\nNot outside it.\nInside it.",
+    "next": "9_settler"
+  },
+
+  "9_settler": {
+    "type": "scenario",
+    "title": "The First Real Problem",
+    "text": "Greyhaven's system doesn't stay calm for long.\n\nA problem surfaces in your workplace.\n\nSomething small at first.\nA missing record.\nA misfiled document.\nA delayed approval.\n\nBut it starts affecting other departments.\n\nPeople begin asking questions.\n\nAnd your name is attached to part of the chain.",
+    "choices": [
+      {
+        "text": "Fix it directly through your job role",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "9_settler_event",
+        "result": "You dig into the records and correct the issue at its source. The system stabilizes quietly."
+      },
+      {
+        "text": "Coordinate people to resolve it quickly",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "9_settler_event",
+        "result": "You organize people across departments. The issue gets resolved faster, but it exposes weak points."
+      },
+      {
+        "text": "Take responsibility and reassure everyone involved",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "9_settler_event",
+        "result": "You step in calmly and take responsibility where needed. Trust in your role increases."
+      }
+    ]
+  },
+
+  "9_settler_event": {
+    "type": "event",
+    "title": "After the Correction",
+    "text": "The problem doesn't spread.\n\nBut it doesn't disappear either.\n\nIt gets recorded.\nTracked.\nAnalyzed.\n\nGreyhaven doesn't forget who touched what.\n\nYour involvement is now part of the system's memory.\n\nWhether it was good or bad depends on what comes next.",
+    "next": "10_settler"
+  },
+
+  "10_settler": {
+    "type": "scenario",
+    "title": "Evaluation Notice",
+    "text": "You are called in unexpectedly.\n\nNot for punishment.\nNot for praise.\n\nFor review.\n\nGreyhaven's system has been tracking your performance.\nYour consistency.\nYour decisions.\nYour alignment with your assigned role.\n\nThree departments are present in the evaluation.\nEach one represents a different path you could have taken.\n\nThey don’t ask if you succeeded.\n\nThey ask how you function inside the system.",
+    "choices": [
+      {
+        "text": "Emphasize your technical accuracy and problem-solving",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "Your precision is noted. Your ability to stabilize information systems is recognized."
+      },
+      {
+        "text": "Highlight your coordination and decision-making impact",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "Your ability to manage people and flow of decisions becomes your defining trait."
+      },
+      {
+        "text": "Focus on reliability and trust within the system",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "Your consistency and reliability become your strongest asset in their evaluation."
+      }
+    ]
+  },
+
+  "first_promotion_event": {
+    "type": "event",
+    "title": "Senior Appointment",
+    "text": "The decision takes longer this time.\n\nThe review involves multiple departments.\n\nReports.\n\nEvaluations.\n\nRecommendations.\n\nYour name appears repeatedly.\n\nEventually the conclusion is reached.\n\nYou are offered one of the highest positions available within your profession.\n\nThe responsibility is significant.\n\nMistakes made at this level affect more than a single workplace.\n\nThey affect Greyhaven itself.\n\nThe appointment comes with authority.\n\nInfluence.\n\nExpectations.\n\nYou think back to the stranger who first entered this town.\n\nThe person who knew nothing about the world beyond a forgotten village.\n\nThat person feels distant now.\n\nGreyhaven is no longer a place you live in.\n\nIt is a place you help shape.\n\nWhether that future succeeds or fails will depend partly on you.",
+    "next": "NEXT_NODE"
+  },
+
+  "second_promotion_event": {
+    "type": "event",
+    "title": "Senior Appointment",
+    "text": "The decision takes longer this time.\n\nThe review involves multiple departments.\n\nReports.\n\nEvaluations.\n\nRecommendations.\n\nYour name appears repeatedly.\n\nEventually the conclusion is reached.\n\nYou are offered one of the highest positions available within your profession.\n\nThe responsibility is significant.\n\nMistakes made at this level affect more than a single workplace.\n\nThey affect Greyhaven itself.\n\nThe appointment comes with authority.\n\nInfluence.\n\nExpectations.\n\nYou think back to the stranger who first entered this town.\n\nThe person who knew nothing about the world beyond a forgotten village.\n\nThat person feels distant now.\n\nGreyhaven is no longer a place you live in.\n\nIt is a place you help shape.\n\nWhether that future succeeds or fails will depend partly on you.",
+    "next": "NEXT_NODE"
+  },
+
+  "11_settler": {
+    "type": "scenario",
+    "title": "Familiar Faces",
+    "text": "Months have passed.\n\nGreyhaven no longer feels unfamiliar.\n\nPeople greet you by name.\n\nShopkeepers remember your orders.\n\nChildren wave when you pass.\n\nThe town has quietly accepted you.\n\nThen a concern reaches the council.\n\nSeveral families have recently arrived from smaller settlements.\n\nHousing is becoming limited.\n\nResources remain stable.\n\nSpace does not.\n\nThe council begins discussing possible solutions.\n\nArguments form quickly.\n\nSome want expansion.\n\nOthers want caution.\n\nFor the first time, people ask what you think.",
+    "choices": [
+      {
+        "text": "Support Expansion",
+        "stat": "influence",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "Greyhaven grows because people choose to come here. We should prepare for them."
+      },
+      {
+        "text": "Study the Situation First",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "Growth without planning creates problems later."
+      },
+      {
+        "text": "Focus on Existing Residents",
+        "stat": "trust",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "The people already here should not be ignored."
+      }
+    ]
+  },
+
+  "11_settler_event": {
+    "type": "event",
+    "title": "The Head's Position",
+    "text": "The Head attends the meeting.\n\nHe listens more than he speaks.\n\nEventually he makes a decision.\n\nExpansion will begin slowly.\n\nControlled.\n\nMeasured.\n\nNobody leaves completely satisfied.\n\nYet nobody leaves angry either.\n\nThe Head notices you watching.\n\nFor a moment, it almost seems like he's evaluating you.",
+    "next": "12_settler"
+  },
+
+  "12_settler": {
+    "type": "scenario",
+    "title": "Increased Responsibility",
+    "text": "The expansion project affects every department.\n\nAdditional responsibilities appear.\n\nMistakes now carry larger consequences.\n\nYour supervisor assigns you a task normally given to senior workers.\n\nThe assignment will directly affect Greyhaven's future plans.",
+    "choices": [
+      {
+        "text": "Verify Every Detail Personally",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "12_settler_event",
+        "result": "You personally verify every record and detail. Accuracy matters more than speed."
+      },
+      {
+        "text": "Coordinate Multiple Departments",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "12_settler_event",
+        "result": "You coordinate communication across departments, keeping the project moving efficiently."
+      },
+      {
+        "text": "Protect Resource Accuracy",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "12_settler_event",
+        "result": "You ensure every resource allocation is accounted for and properly documented."
+      }
+    ]
+  },
+
+  "12_settler_event": {
+    "type": "event",
+    "title": "Notice",
+    "text": "Your work succeeds.\n\nQuietly.\n\nEfficiently.\n\nThe kind of success that becomes invisible because nothing goes wrong.\n\nThe Head receives the final reports.\n\nYour name appears among them.\n\nAgain.",
+    "next": "13_settler"
+  },
+
+  "13_settler": {
+    "type": "scenario",
+    "title": "Voices of Greyhaven",
+    "text": "Greyhaven continues growing.\n\nNew workers arrive.\n\nNew merchants arrive.\n\nNew opinions arrive.\n\nThe town begins changing.\n\nSome citizens welcome it.\n\nOthers fear losing what Greyhaven once was.\n\nArguments spread through taverns.\n\nMarkets.\n\nMeetings.\n\nNo crisis exists.\n\nYet tension does.",
+    "choices": [
+      {
+        "text": "Gather Information",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You listen carefully to both sides before forming conclusions."
+      },
+      {
+        "text": "Mediate Between Groups",
+        "stat": "influence",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You encourage discussion before disagreements become divisions."
+      },
+      {
+        "text": "Keep People Calm",
+        "stat": "trust",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You focus on maintaining stability while emotions run high."
+      }
+    ]
+  },
+
+  "13_settler_event": {
+    "type": "event",
+    "title": "Rumors",
+    "text": "Rumors begin spreading.\n\nNothing dangerous.\n\nNothing proven.\n\nPeople claim the Head is planning something larger.\n\nExpansion.\n\nPolitical recognition.\n\nGreater authority.\n\nNo one knows the truth.\n\nYet people continue talking.",
+    "next": "14_settler"
+  },
+
+  "14_settler": {
+    "type": "scenario",
+    "title": "The King's Messenger",
+    "text": "A royal messenger arrives.\n\nThe kingdom has finally noticed Greyhaven.\n\nReports of growth have reached the capital.\n\nRecognition may soon follow.\n\nThe town celebrates.\n\nMost people.\n\nNot everyone.\n\nThe messenger requests private meetings with local leaders.\n\nIncluding the Head.\n\nIncluding you.\n\nQuestions are asked.\n\nAbout growth.\n\nAbout leadership.\n\nAbout Greyhaven's future.\n\nSomething feels unusual.\n\nNot wrong.\n\nHidden.",
+    "choices": [
+      {
+        "text": "Answer Honestly",
+        "stat": "trust",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You answer openly, believing honesty is the strongest foundation."
+      },
+      {
+        "text": "Answer Carefully",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You choose your words carefully, aware that details can change outcomes."
+      },
+      {
+        "text": "Answer Confidently",
+        "stat": "influence",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You speak with confidence, presenting Greyhaven as a success story."
+      }
+    ]
+  },
+
+  "judgment_event": {
+    "type": "event",
+    "title": "Judgment",
+    "text": "The misunderstanding begins with paperwork.\n\nThen conversations.\n\nThen assumptions.\n\nReports sent to the capital contain contradictions.\n\nStatements become distorted.\n\nWords lose context.\n\nThe messenger believes the Head is consolidating power.\n\nSome citizens believe the Head intends to replace local council authority.\n\nOthers believe the kingdom intends to seize control of Greyhaven.\n\nNobody possesses the full truth.\n\nYet everyone believes they do.\n\nThe town divides.\n\nNot into enemies.\n\nInto interpretations.\n\nMeetings become arguments.\n\nArguments become accusations.\n\nFor the first time since arriving in Greyhaven, uncertainty spreads through every street.\n\nThen the messenger delivers a formal notice.\n\nA final review will determine Greyhaven's future status.\n\nThe Head becomes the center of the controversy.\n\nAnd somehow...\n\nSo do you.",
+    "next": "15_settler"
+  },
+
+  "15_settler": {
+    "type": "scenario",
+    "title": "Final Responsibility",
+    "text": "The review approaches.\n\nThe town remains tense.\n\nWork continues anyway.\n\nIt always does.\n\nYour department receives one final critical assignment.\n\nFailure could damage Greyhaven's position.\n\nSuccess could strengthen it.\n\nEveryone is watching.",
+    "choices": [
+      {
+        "text": "Present Complete Evidence",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "Facts should decide this."
+      },
+      {
+        "text": "Coordinate the Entire Response",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "People need direction before they need answers."
+      },
+      {
+        "text": "Maintain Public Confidence",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "SETTLER_PROMOTION_CHECK",
+        "result": "A town survives because people trust each other."
+      }
+    ]
+  },

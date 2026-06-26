@@ -1,0 +1,441 @@
+{
+  "6_explorer": {
+    "type": "scenario",
+    "title": "The Open Road",
+    "text": "Days pass.\n\nGreyhaven slowly disappears behind you.\n\nThe road stretches east.\n\nFarmland replaces wilderness.\n\nSmall hamlets appear occasionally.\n\nTravelers pass in both directions.\n\nMost barely notice you.\n\nA few offer greetings.\n\nFor the first time in your life, the world feels larger every day instead of smaller.\n\nOne afternoon, you reach a crossroads.\n\nA weathered sign points toward several distant settlements.\n\nYou unfold the map the Head gave you.\n\nThe amount of land ahead is overwhelming.\n\nYou could spend years exploring it all.\n\nFor a moment, you stop walking.\n\nNot because you're tired.\n\nBecause the realization finally settles in.\n\nYou are free to choose where this journey goes.",
+    "choices": [
+      {
+        "text": "Study the map and mark places worth investigating",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "You begin studying routes, settlements, and landmarks. Every road tells a story."
+      },
+      {
+        "text": "Talk with travelers about distant regions",
+        "stat": "trust",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "Most travelers enjoy sharing stories. Some sound impossible. Not all of them are."
+      },
+      {
+        "text": "Take the longest route simply to see more of the world",
+        "stat": "skill",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "The efficient path isn't always the interesting one. You choose experience over speed."
+      }
+    ]
+  },
+
+  "7_explorer": {
+    "type": "scenario",
+    "title": "Roadside Rumors",
+    "text": "The farther east you travel, the busier the roads become.\n\nMerchants.\nTravelers.\nMessengers.\n\nEveryone seems to be heading somewhere.\n\nAt a roadside shelter, conversation drifts toward the same topic.\n\nA merchant caravan is expected to pass through soon.\n\nSome speak of valuable cargo.\n\nOthers speak of strange artifacts.\n\nA few claim the merchant has spent years collecting unusual objects from across the kingdom.\n\nMost of the stories sound exaggerated.\n\nThen again, most stories do.\n\nThe next morning, you continue down the road.\n\nHours later, dark clouds gather overhead.\n\nIn the distance, you spot wagon tracks heading toward a narrow mountain pass.\n\nThe same route the merchant caravan was supposed to take.",
+    "choices": [
+      {
+        "text": "Study the rumors and compare different stories",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "Most stories contradict each other. The interesting part is where they don't."
+      },
+      {
+        "text": "Insert yourself into conversations and become the center of them",
+        "stat": "influence",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "People reveal more information when they want your attention."
+      },
+      {
+        "text": "Keep moving despite the worsening conditions",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "The road grows rough, but you endure it. Distance matters less than persistence."
+      }
+    ]
+  },
+
+  "wagon_incident_event": {
+  "type": "event",
+  "title": "The Broken Wagon",
+  "text": "The storm arrives faster than expected.\n\nRain turns the road into mud.\n\nTravelers begin seeking shelter wherever they can.\n\nYou continue forward.\n\nThen you hear shouting.\n\nA wagon has overturned near a narrow section of road.\n\nCrates lie scattered across the mud.\n\nOne horse struggles against tangled harnesses.\n\nSeveral travelers are already attempting to help.\n\nAt the center of the chaos stands an older merchant.\n\nDrenched.\nCovered in mud.\nStill somehow giving orders.\n\nThe next hour becomes a blur.\n\nRopes are pulled.\n\nSupplies are recovered.\n\nThe horse is freed.\n\nThe wagon itself survives, though barely.\n\nBy nightfall a small camp forms beside the road.\n\nThe merchant eventually approaches your fire carrying a wooden box.\n\nMost people would've kept walking.\n\nHe sits across from you.\n\nSo I'd like to offer something in return.\n\nHe opens the box.\n\nInside rest three objects.\n\nAn old leather journal.\n\nA silver signet ring.\n\nAnd a wooden chicken.\n\nYou stare at the chicken.\n\nThe merchant notices.\n\nEveryone does that.\n\nHe points to the journal.\n\nBought that from a ruin explorer years ago.\n\nHe claimed it was more valuable than gold.\n\nMost of the pages are blank.\n\nA strange symbol is burned into the cover.\n\nThe merchant then lifts the ring.\n\nThis belonged to someone important once.\n\nNo idea who.\n\nBut people tend to treat the wearer differently.\n\nFinally he picks up the wooden chicken.\n\nIt rattles when shaken.\n\nOne leg is shorter than the other.\n\nDon't underestimate the chicken.\n\nWhy?\n\nThe merchant pauses.\n\nI honestly don't know.\n\nThen why keep it?\n\nBecause every owner I've met refused to throw it away.\n\nThat answer somehow raises more questions than it solves.\n\nThe merchant places all three objects back into the box.\n\nTake one.\n\nEvery traveler carries something.\n\nThe question is what kind of traveler you become.",
+  "next": "8_explorer"
+  },
+
+  "8_explorer": {
+    "type": "scenario",
+    "title": "The Merchant's Offer",
+    "text": "The storm has weakened.\n\nOnly the sound of rain remains.\n\nThe merchant leaves the box between you.\n\nThree objects.\n\nThree stories.\n\nPerhaps three futures.\n\nThe journal waits silently.\n\nThe ring catches the firelight.\n\nThe chicken looks as ridiculous as before.\n\nThe merchant folds his arms.\n\nOnly one.\n\nChoose carefully.\n\nOr don't.\n\nHe seems equally entertained by either option.",
+    "choices": [
+      {
+      "text": "Take the Sealed Journal",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "journal",
+      "result": "The cover feels older than it should. As your fingers touch the symbol, curiosity replaces hesitation."
+      },
+      {
+      "text": "Take the Silver Signet Ring",
+      "stat": "influence",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "ring",
+      "result": "The ring is surprisingly heavy. Whatever name it once carried has long been forgotten."
+      },
+      {
+      "text": "Take the Wooden Chicken",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "chicken",
+      "result": "The merchant laughs.\n\nI knew someone would eventually choose the chicken.\n\nThe chicken rattles mysteriously."
+      }
+    ]
+  },
+
+  "9_explorer": {
+    "type": "scenario",
+    "title": "An Unusual Companion",
+    "text": "Morning arrives.\n\nThe storm has passed.\n\nThe merchant continues along his route.\n\nYou continue along yours.\n\nThe road stretches east once again.\n\nYet something feels different.\n\nNot because the world changed.\n\nBecause you now carry something that wasn't yours before.\n\nSeveral days pass.\n\nFields become hills.\n\nRoads become trails.\n\nTravel becomes quieter.\n\nDuring a stop beneath an old stone marker, your attention drifts toward the item you chose.\n\nFor a moment, you wonder if the merchant knew more than he admitted.",
+    "choices": [
+        {
+        "text": "Examine the item carefully",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "You spend hours studying the object. Every detail only creates more questions.",
+        "artifact_result": {
+          "journal": "The journal feels older than it should. While turning its pages, you discover a blank page that definitely wasn't there before.",
+          "ring": "A tiny inscription is carved into the inner band of the ring. The language is unfamiliar, but the craftsmanship is unmistakably deliberate.",
+          "chicken": "The wooden chicken rattles when shaken. You inspect it thoroughly. No compartment. No mechanism. Yet the sound remains."
+          }
+        },
+      {
+        "text": "Ask travelers if they recognize it",
+        "stat": "trust",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "Most travelers shrug and move on. A few hesitate before answering.",
+        "artifact_result": {
+          "journal": "An elderly traveler sees the symbol on the cover and immediately loses interest in the conversation. He refuses to explain why.",
+          "ring": "One merchant recognizes the ring instantly. Before you can ask anything, he apologizes and leaves without another word.",
+          "chicken": "Several travelers laugh at the chicken. One of them stops laughing after looking at it closely and quietly advises you not to lose it."
+          }
+        },
+      {
+        "text": "Keep moving and see where it leads",
+        "stat": "skill",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "Answers can wait. Roads have a habit of revealing things in their own time.",
+        "artifact_result": {
+          "journal": "That night, you wake to find the journal lying open beside your bedroll despite being packed away before sleep.",
+          "ring": "Throughout the journey, strangers seem more willing to approach you than before. None explain why.",
+          "chicken": "Near sunset, the chicken falls from your pack. You could swear it was secured moments earlier."
+          }
+      }
+    ]
+  },
+
+  "10_explorer": {
+    "type": "scenario",
+    "title": "The Silent Waystation",
+    "text": "The road stretches onward for days.\n\nThe hills grow steeper.\nThe settlements become rarer.\n\nTravelers pass less frequently now.\n\nThe kingdom feels larger with every step.\n\nThen, near sunset, you spot stone rising from the landscape.\n\nAt first you mistake it for a ruined wall.\n\nThen another appears.\n\nAnd another.\n\nA structure.\n\nOld.\nAbandoned.\n\nBuilt beside a crossroads that no longer appears on any map you've seen.\n\nThe place should feel forgotten.\n\nInstead, it feels patient.\n\nThe main building has partially collapsed.\n\nWeather has worn away carvings.\n\nPlants have reclaimed sections of the stone.\n\nYet signs of travelers remain.\n\nOld campfires.\nFootprints.\nSupplies left behind.\n\nPeople still come here.\n\nJust not many.\n\nNear the entrance stands a weathered plaque.\n\nMost of the inscription has been destroyed.\n\nOnly a single line remains readable.\n\nFor those who seek beyond the known roads.\n\nYou read the words twice.\n\nSomething about them feels intentional.\n\nAs though the message was waiting for someone.\n\nWaiting for anyone willing to keep walking.\n\nYour gaze drifts toward the artifact you've carried since meeting the merchant.\n\nFor a brief moment, it almost feels connected.\n\nNot to this place.\n\nTo whatever lies beyond it.\n\nThe evening grows darker.\n\nYou decide to investigate before continuing your journey.",
+    "choices": [
+      {
+      "text": "Study the ancient markings",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You spend hours examining the remaining carvings. Most are damaged beyond recognition, but fragments hint at routes and places no modern traveler seems to remember."
+      },
+      {
+      "text": "Speak with the travelers resting nearby",
+      "stat": "trust",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You spend the evening listening rather than searching. Every traveler tells a different story about the waystation, but all of them returned for a reason."
+      },
+      {
+      "text": "Determine who benefits from this crossroads",
+      "stat": "influence",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "Roads shape kingdoms. Trade shapes roads. The more you observe, the clearer it becomes that influence travels farther than armies."
+      },
+      {
+      "text": "Explore the collapsed sections alone",
+      "stat": "skill",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You navigate unstable passages most travelers avoid. Hidden paths reveal parts of the structure untouched for years."
+      },
+      {
+      "text": "Endure the hazards and search every corner",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "The search is exhausting. Dust, unstable floors, and endless dead ends test your endurance. You keep going long after most people would have stopped."
+      }
+    ]
+  },
+
+  "EXPLORER_CLASS_CHECK": {
+  "type": "event",
+  "title": "The Old Cartographer",
+  "text": "The waystation isn't entirely abandoned.\n\nAs night falls, you notice an old man sitting beneath a damaged archway.\n\nMaps cover the stone beside him.\n\nHundreds of markings.\nRoutes.\nNotes.\nPlaces.\n\nHe doesn't look surprised to see you.\n\nAnother traveler.\n\nHis eyes drift toward the artifact you're carrying.\n\nInteresting.\n\nYou ask if he lives here.\n\nHe laughs.\n\nNo one lives here.\n\nPeople pass through.\n\nThat's different.\n\nSilence settles.\n\nEventually he rolls up one of his maps.\n\nMost travelers think roads are what separate people.\n\nThey're wrong.\n\nHe points toward the crossroads outside.\n\nRoads reveal people.\n\nFollow enough of them and patterns appear.\n\nHis finger moves across several notes written on the map.\n\nSome become Chroniclers.\n\nPeople obsessed with recording what others overlook.\n\nAnother mark.\n\nSome become Emissaries.\n\nThey connect strangers faster than roads ever could.\n\nAnother.\n\nSome become Kingmakers.\n\nNot rulers.\n\nThe people who decide who rules.\n\nAnother.\n\nSome become Pilgrims.\n\nThe world rarely rewards them.\n\nYet somehow they outlast everyone else.\n\nHis finger stops at the final symbol.\n\nAnd some become Pathfinders.\n\nThe people who walk where roads don't exist yet.\n\nThe old man studies you.\n\nNot your face.\n\nYour gear.\nYour posture.\nYour decisions.\n\nThen he smiles.\n\nThe funny thing is...\n\nMost travelers become one long before they realize it.\n\nThe fire crackles.\n\nThe crossroads stand silent beyond the darkness.\n\nFor the first time, you wonder what kind of traveler you've already become."
+  },
+
+  "11_explorer": {
+    "type": "scenario",
+    "title": "The Repeating Symbol",
+    "text": "Months of exploration have taken you across forgotten roads, ruined watchtowers, and abandoned landmarks.\n\nMost discoveries fade into memory.\n\nOne does not.\n\nA symbol.\n\nAt first it seemed meaningless.\n\nA carving in a ruined wall.\n\nA mark on an ancient map.\n\nA faded design hidden within a damaged monument.\n\nNow it has appeared again.\n\nAnd again.\n\nDifferent locations.\n\nDifferent histories.\n\nDifferent ages.\n\nYet somehow the same symbol remains.\n\nIt should not exist in places this far apart.\n\nThe coincidence is becoming difficult to ignore.",
+    "choices": [
+            {
+            "text": "Document the symbol carefully",
+            "stat": "knowledge",
+            "amount": 1,
+            "next": "11_explorer_event",
+            "result": "You begin recording every appearance of the symbol."
+            },
+            {
+            "text": "Ask locals about its meaning",
+            "stat": "trust",
+            "amount": 1,
+            "next": "11_explorer_event",
+            "result": "You gather stories and legends connected to the symbol."
+            },
+            {
+            "text": "Investigate who may be using it",
+            "stat": "influence",
+            "amount": 1,
+            "next": "11_explorer_event",
+            "result": "You search for organizations or individuals connected to the mark."
+            },
+            {
+            "text": "Travel to another reported location",
+            "stat": "hp_stat",
+            "amount": 1,
+            "next": "11_explorer_event",
+            "result": "You continue the search despite the difficult journey."
+            },
+            {
+            "text": "Track every known location",
+            "stat": "skill",
+            "amount": 1,
+            "next": "11_explorer_event",
+            "result": "You create a network of clues linking the symbol together."
+            }
+        ]
+    },
+
+    "11_explorer_event": {
+    "type": "event",
+    "title": "A Pattern",
+    "text": "The more evidence you gather, the stranger the pattern becomes.\n\nThe symbol appears across regions that should have no connection to one another.\n\nDifferent cultures.\n\nDifferent histories.\n\nDifferent centuries.\n\nYet the same mark survives.\n\nNot frequently.\n\nJust enough to leave a trail.\n\nSomeone wanted it to be found.\n\nOr remembered.",
+    "next": "12_explorer"
+    },
+
+    "12_explorer": {
+        "type": "scenario",
+        "title": "The Silent Settlement",
+        "text": "Following the trail leads you to an abandoned settlement.\n\nThe buildings remain standing.\n\nThe roads remain visible.\n\nNothing suggests violence.\n\nNothing suggests disaster.\n\nThe people simply left.\n\nYears ago.\n\nPerhaps decades.\n\nAmong the abandoned structures, you discover the symbol once again.\n\nCarved into stone near the settlement's center.",
+        "choices": [
+            {
+            "text": "Study surviving records",
+            "stat": "knowledge",
+            "amount": 1,
+            "next": "12_explorer_event",
+            "result": "You search for written explanations behind the settlement's disappearance."
+            },
+            {
+            "text": "Look for personal stories",
+            "stat": "trust",
+            "amount": 1,
+            "next": "12_explorer_event",
+            "result": "You search for letters and traces left behind by former residents."
+            },
+            {
+            "text": "Examine leadership records",
+            "stat": "influence",
+            "amount": 1,
+            "next": "12_explorer_event",
+            "result": "You investigate the people who guided the settlement."
+            },
+            {
+            "text": "Search beyond the settlement",
+            "stat": "hp_stat",
+            "amount": 1,
+            "next": "12_explorer_event",
+            "result": "You expand the search into the surrounding wilderness."
+            },
+            {
+            "text": "Trace where the people went",
+            "stat": "skill",
+            "amount": 1,
+            "next": "12_explorer_event",
+            "result": "You follow the routes used during the settlement's final days."
+            }
+        ]
+    },
+
+    "12_explorer_event": {
+        "type": "event",
+        "title": "Gone Searching",
+        "text": "Fragments of evidence begin forming a picture.\n\nThe settlement did not collapse.\n\nIt departed.\n\nGroups left in stages.\n\nEach one following the same direction.\n\nEach one searching for something.\n\nNo record explains what they hoped to find.\n\nOnly that they believed it was important enough to leave everything behind.",
+        "next": "13_explorer"
+    },
+
+    "13_explorer": {
+        "type": "scenario",
+        "title": "The Missing Expedition",
+        "text": "Old archives reference an expedition that vanished years ago.\n\nExperienced explorers.\n\nWell supplied.\n\nWell prepared.\n\nThey departed with a clear objective.\n\nNone returned.\n\nRecently, however, travelers have reported signs that the expedition may have reached its destination.\n\nThe reports are impossible to verify.\n\nYet one detail appears repeatedly.\n\nThe symbol.",
+        "choices": [
+            {
+            "text": "Research the expedition",
+            "stat": "knowledge",
+            "amount": 1,
+            "next": "13_explorer_event",
+            "result": "You gather everything known about the missing explorers."
+            },
+            {
+            "text": "Speak with witnesses",
+            "stat": "trust",
+            "amount": 1,
+            "next": "13_explorer_event",
+            "result": "You collect stories from travelers who claim to have seen evidence."
+            },
+            {
+            "text": "Investigate who funded them",
+            "stat": "influence",
+            "amount": 1,
+            "next": "13_explorer_event",
+            "result": "You search for the people who supported the expedition."
+            },
+            {
+            "text": "Follow their trail",
+            "stat": "hp_stat",
+            "amount": 1,
+            "next": "13_explorer_event",
+            "result": "You travel along the same dangerous route they once followed."
+            },
+            {
+            "text": "Predict their destination",
+            "stat": "skill",
+            "amount": 1,
+            "next": "13_explorer_event",
+            "result": "You reconstruct the expedition's likely objective."
+            }
+        ]
+    },
+
+    "13_explorer_event": {
+        "type": "event",
+        "title": "The Same Trail",
+        "text": "The evidence leaves little room for doubt.\n\nThe expedition was investigating the symbol.\n\nJust like you.\n\nTheir notes become increasingly focused as they approach their final destination.\n\nThen the records stop.\n\nNo explanation.\n\nNo conclusion.\n\nOnly silence.",
+        "next": "14_explorer"
+    },
+
+    "14_explorer": {
+        "type": "scenario",
+        "title": "The Watchers",
+        "text": "As your investigation continues, a strange pattern emerges.\n\nPeople begin appearing wherever you travel.\n\nDifferent faces.\n\nDifferent names.\n\nYet the questions remain similar.\n\nWhat have you found?\n\nWhere are you going?\n\nWhat do you know about the symbol?\n\nThey never threaten you.\n\nThey never reveal who they work for.\n\nBut someone is paying attention.",
+        "choices": [
+            {
+            "text": "Learn who they are",
+            "stat": "knowledge",
+            "amount": 1,
+            "next": "14_explorer_event",
+            "result": "You focus on gathering information about the mysterious observers."
+            },
+            {
+            "text": "Build trust with them",
+            "stat": "trust",
+            "amount": 1,
+            "next": "14_explorer_event",
+            "result": "You attempt to earn their confidence."
+            },
+            {
+            "text": "Investigate their motives",
+            "stat": "influence",
+            "amount": 1,
+            "next": "14_explorer_event",
+            "result": "You search for the purpose behind their actions."
+            },
+            {
+            "text": "Ignore them and continue",
+            "stat": "hp_stat",
+            "amount": 1,
+            "next": "14_explorer_event",
+            "result": "You refuse to be distracted from the investigation."
+            },
+            {
+            "text": "Avoid their surveillance",
+            "stat": "skill",
+            "amount": 1,
+            "next": "14_explorer_event",
+            "result": "You move carefully to prevent them from tracking your progress."
+            }
+        ]
+    },
+
+    "14_explorer_event": {
+        "type": "event",
+        "title": "Questions Without Answers",
+        "text": "You never learn everything.\n\nBut one fact becomes clear.\n\nThe watchers are searching for the same truth.\n\nThey know about the symbol.\n\nThey know about the missing expedition.\n\nAnd they know far more than they admit.\n\nYou are not the only person following this trail.",
+        "next": "15_explorer"
+    },
+
+    "15_explorer": {
+        "type": "scenario",
+        "title": "The First Fragment",
+        "text": "The trail finally leads somewhere tangible.\n\nHidden beneath ruins older than any map, you discover a fragment.\n\nStone.\n\nCovered in symbols.\n\nIncluding the one you have been following.\n\nFor the first time, all the clues connect.\n\nThe abandoned settlement.\n\nThe missing expedition.\n\nThe watchers.\n\nNone of them were separate mysteries.\n\nThey were pieces of the same puzzle.",
+        "choices": [
+            {
+            "text": "Study the fragment",
+            "stat": "knowledge",
+            "amount": 1,
+            "next": "15_explorer_event",
+            "result": "You focus on understanding the fragment's meaning."
+            },
+            {
+            "text": "Share the discovery",
+            "stat": "trust",
+            "amount": 1,
+            "next": "15_explorer_event",
+            "result": "You believe important discoveries should not remain hidden."
+            },
+            {
+            "text": "Consider its implications",
+            "stat": "influence",
+            "amount": 1,
+            "next": "15_explorer_event",
+            "result": "You focus on what this discovery could mean for the world."
+            },
+            {
+            "text": "Protect the fragment",
+            "stat": "hp_stat",
+            "amount": 1,
+            "next": "15_explorer_event",
+            "result": "You prioritize keeping the fragment safe."
+            },
+            {
+            "text": "Search for additional pieces",
+            "stat": "skill",
+            "amount": 1,
+            "next": "15_explorer_event",
+            "result": "You immediately begin searching for more fragments."
+            }
+        ]
+    },
+
+    "15_explorer_event": {
+        "type": "event",
+        "title": "A Name",
+        "text": "The fragment is incomplete.\n\nMost of its message has been lost.\n\nOnly fragments remain.\n\nYet one phrase survives.\n\nA name.\n\nThe Final Horizon.\n\nThe missing expedition searched for it.\n\nThe abandoned settlement pursued it.\n\nThe watchers seek it.\n\nAnd now...\n\nSo do you.",
+        "next": "explorer_v05_end"
+    }
+}

@@ -1,0 +1,321 @@
+Knowledge  → Chronicler
+Trust      → Emissary
+Influence  → Kingmaker
+HP Stat    → Pilgrim
+Skill      → Pathfinder
+
+Wagon Event (Scenario 8):
+
+A merchant's wagon is attacked or crashes on a dangerous road.
+
+Depending on previous choices and stats:
+
+The player saves the merchant.
+Or the merchant is rescued by others and later rewards the player anyway.
+
+As thanks, the merchant offers one of three strange items.
+
+Object 1: The Sealed Journal
+
+Appearance
+
+Old leather journal
+Most pages are blank
+A strange symbol is burned into the cover
+
+Player Impression
+
+"Why would anyone want this?"
+
+Hidden Meaning
+
+Curiosity
+Investigation
+Secrets
+Discovery
+
+This naturally leads toward a Knowledge-oriented path.
+
+Object 2: The Silver Signet Ring
+
+Appearance
+
+A noble-looking ring
+No family crest the player recognizes
+Surprisingly valuable
+
+Player Impression
+
+"This could open doors."
+
+Hidden Meaning
+
+Influence
+Reputation
+Leadership
+Society
+
+This naturally leads toward an Influence/Trust-oriented path.
+
+Object 3: The Wooden Chicken
+
+Appearance
+
+A poorly carved wooden chicken.
+One leg is shorter than the other.
+It rattles when shaken.
+
+Player Impression
+
+"What?"
+
+Merchant's Description
+
+"Don't underestimate the chicken."
+
+Refuses to elaborate.
+
+Hidden Meaning
+Absolutely unclear.
+
+This becomes the:
+
+Weird path
+Troll path
+Chaotic path
+
+The kind of route where players spend hours wondering:
+
+"Surely this chicken becomes important."
+
+And the answer is either:
+
+"Yes."
+
+or
+
+"Unfortunately."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+v0.2 - Complete Core Systems
+
+Goal:
+
+The engine can support the entire game.
+
+Add:
+
+✅ Save Game
+✅ Load Game
+✅ Ending Screen
+✅ Generic Event System
+✅ Route System
+✅ Better Stat Display
+✅ Death Handling
+
+By the end:
+
+Scenario
+↓
+Event
+↓
+Scenario
+↓
+Save
+↓
+Load
+↓
+Ending
+
+all work.
+
+v0.3 - Complete Prologue
+
+Goal:
+
+The first act feels finished.
+
+Add:
+
+✅ Refined Scenarios 1-5
+✅ Head Event 1
+✅ Route Choice Event
+✅ Better Writing Pass
+✅ Secret Ending
+
+By the end a player can experience:
+
+Full Prologue
+↓
+Settler
+or
+Explorer
+v0.4 - Settler Route Foundation
+
+Add:
+
+✅ Scenarios 6-10
+✅ Town systems
+✅ Relationship arc
+✅ First major town conflicts
+Node Type System
+scenario
+event
+ending
+💡 Proper flow handling
+scenario → choice input
+event → auto continue
+ending → terminate cleanly
+💡 No more hacks like:
+"3_5"
+"head_event" special casing everywhere
+random if statements in manager
+
+End state:
+
+Settler route playable halfway
+v0.5 - Complete Settler Route
+
+Add:
+
+✅ Scenarios 11-15
+✅ Head conflict
+✅ King recognition path
+✅ All 3 Settler endings
+✅ Alignment path system to determine the player's ending for each of the 3 paths in explorer route
+
+End state:
+
+Entire Settler route completable
+
+This is huge because you'll finally have:
+
+Start
+↓
+Ending
+
+for one route.
+
+v0.6 - Explorer Route Foundation
+
+Add:
+
+✅ Scenario 6 Explorer
+✅ Scenario 7
+✅ Scenario 8 Merchant
+✅ Path Selection
+✅ Route-specific events
+Better UI
+Visual identity
+Images/backgrounds
+Buttons instead of number keys
+Sound/music
+Polished menus
+Packaging into an executable
+
+End state:
+
+Explorer branches exist
+v0.7 - Explorer Route Completion
+
+Add:
+
+✅ All explorer branches
+✅ All explorer endings
+✅ Death endings
+✅ Route-exclusive events
+
+End state:
+
+Entire Explorer route completable
+
+Now both major routes exist.
+
+v0.8 - Final Act
+
+Add:
+
+✅ Scenarios 21-25
+✅ Stat sacrifices
+✅ Endgame events
+✅ Final ending calculations
+✅ Secret conditions
+
+End state:
+
+Entire game playable
+
+but probably messy.
+
+Which is normal. Every large project reaches a stage where it works and simultaneously looks like it survived a natural disaster.
+
+v0.9 - Feature Complete Beta
+
+Goal:
+
+Core game fully functional.
+
+Add:
+
+✅ Save/Load finalized
+✅ All endings implemented
+✅ All routes implemented
+✅ Balancing pass
+✅ Bug fixing
+✅ Stat balancing
+✅ Ending balancing
+✅ Event cleanup
+✅ Route cleanup
+
+At this point:
+
+Player
+↓
+Can start game
+↓
+Can finish game
+↓
+Can reach every ending
+↓
+Can save/load
+↓
+Can experience intended content
+
+No placeholder content.
+
+No missing routes.
+
+No fake endings.
+
+v1.0 - Full Release
+
+Add:
+
+✅ UI improvements
+✅ Colored text boxes
+✅ Better menus
+✅ Achievement system
+✅ Extra events
+✅ Secret content
+✅ DLC hooks
+✅ Visual polish
+
+This is where you make it prettier.

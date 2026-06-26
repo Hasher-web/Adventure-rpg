@@ -1,0 +1,1091 @@
+{
+  "1": {
+    "type": "scenario",
+    "title": "The Forest Feels Wrong",
+    "text": "The forest is too quiet.\nNot even birds.\nSomething is off.",
+    "choices": [
+      {
+        "text": "Go deeper",
+        "stat": "skill",
+        "amount": 1,
+        "next": "2",
+        "result": "You push deeper into the forest. The silence only gets heavier, like the trees are watching."
+      },
+      {
+        "text": "Suggest going back",
+        "stat": "trust",
+        "amount": 1,
+        "next": "2",
+        "result": "You voice concern and suggest turning back. The group hesitates, but keeps moving."
+      },
+      {
+        "text": "Scan the area",
+        "stat": "skill",
+        "amount": 1,
+        "next": "2",
+        "result": "You scan the surroundings carefully. Nothing visible moves, but something still feels wrong."
+      }
+    ]
+  },
+
+  "2": {
+    "type": "scenario",
+    "title": "Strange Tracks",
+    "text": "The hunt continues.\nSilence sticks.\nEven the hunters feel it.\n\nThen, muddy stream.\nMassive footprints.\nToo big for anything normal.\n\nSomething passed here. Recently.",
+    "choices": [
+      {
+        "text": "Check the tracks",
+        "stat": "skill",
+        "amount": 1,
+        "next": "3",
+        "result": "You kneel by the tracks. The size isn't natural. Whatever passed here didn't care about leaving evidence."
+      },
+      {
+        "text": "Warn the group",
+        "stat": "trust",
+        "amount": 1,
+        "next": "3",
+        "result": "You warn the group. The tension rises instantly, but everyone becomes more alert."
+      },
+      {
+        "text": "Scout ahead",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "3",
+        "result": "You move ahead alone. The forest feels closer when you're isolated."
+      }
+    ]
+  },
+
+  "3": {
+    "type": "scenario",
+    "title": "First Contact",
+    "text": "Movement in the trees.\n\nA massive lion-like creature steps out.\nIt locks onto you.\n\nNo warning.\nNo hesitation.\nJust danger.",
+    "choices": [
+      {
+        "text": "Fall back with the group",
+        "stat": "trust",
+        "amount": 1,
+        "next": "secret_peaceful_event",
+        "result": "You pull back with the group. For once, survival matters more than pride."
+      },
+      {
+        "text": "Fight it head-on",
+        "stat": "skill",
+        "amount": 2,
+        "next": "3_5",
+        "result": "You step forward without hesitation. The creature reacts instantly."
+      },
+      {
+        "text": "Use yourself as bait",
+        "stat": "influence",
+        "amount": 1,
+        "next": "3_5",
+        "result": "You draw its attention. The group gets a window to move, even if it costs you."
+      }
+    ]
+  },
+
+  "secret_peaceful_event": {
+    "type": "event",
+    "title": "Aftermath",
+    "text": "It works.\nThe group survives.\nNo chase.\nNo more threats.\n\nThe forest lets you go.",
+    "next": "PEACEFUL_END"
+  },
+
+  "PEACEFUL_END": {
+    "type": "ending",
+    "title": "A Life That Stayed",
+    "text": "You chose to fall back.\n\nNot out of fear. Out of understanding.\n\nThe hunt ended. The forest faded into routine.\n\nThe village moved on like nothing had changed.\n\nAnd slowly, neither did you.\n\nWork. Familiar faces. Quiet mornings.\n\nThe forest became a story people stopped telling.\n\nYears passed without asking anything from you.\n\nNo glory. No ruin.\nJust days that kept repeating.\n\nOne afternoon, you sat in your backyard.\n\nWarm air. Still world.\n\nAnd you stayed there.\n\nNo struggle.\nNo final thought.\n\nJust silence that did not need to end."
+  },
+
+  "3_5": {
+    "type": "scenario",
+    "title": "Split Path",
+    "text": "Two paths.\n\nLeft: silent.\nRight: disturbed.\n\nChoose.",
+    "choices": [
+      {
+        "text": "Left",
+        "stat": "skill",
+        "amount": 0,
+        "next": "head_event"
+      },
+      {
+        "text": "Right",
+        "stat": "skill",
+        "amount": 0,
+        "next": "head_event"
+      }
+    ]
+  },
+
+  "head_event": {
+    "type": "event",
+    "title": "The Stranger",
+    "text": "The path stretches forward.\n\nThe forest is thinning now. Not fading. Ending.\n\nThen... someone appears.\n\nA man stands ahead on the road.\n\nNo armor. No weapon raised.\nClean clothes. Calm posture.\nLike he belongs here.\n\nHe looks at you.\n\nNoticing everything.\nYour wounds.\nYour weapon.\nYour condition.\n\n\"…Interesting.\"\n\nYou tighten your grip instantly.\n\n\"Don't.\"\n\nCalm voice. No threat.\n\n\"You're injured. Exhausted.\nAnd days away from the nearest wilderness checkpoint.\"\n\nHe studies you.\n\n\"You don't know what that is.\"\n\nSilence.\n\n\"You came through that?\"\n\nYou nod.\n\n\"That shouldn't be possible.\"\n\nHe steps closer.\n\n\"What settlement are you from?\"\n\nYou answer.\n\nHis expression changes.\n\n\"I've never heard of it.\"\n\nThen—voices.\nDistant. Many.\nHuman.\n\nYou freeze.\n\nHe turns toward the sound.\n\n\"Come with me.\"\n\nA pause.\n\n\"Trust me.\"\n\n\"Whatever you think is out there… you're past it now.\"\n\nHe walks forward.\n\nA town appears beyond the trees.",
+    "next": "4"
+  },
+
+  "4": {
+    "type": "scenario",
+    "title": "End of the Forest",
+    "text": "Hours pass.\nPain fades.\nTrees thin.\n\nThen—something impossible.\n\nA path.\nMade by humans.\n\nYou were lied to.",
+    "choices": [
+      {
+        "text": "Follow it",
+        "stat": "skill",
+        "amount": 1,
+        "next": "5",
+        "result": "You step onto the path. It feels too clean compared to everything you've known."
+      },
+      {
+        "text": "Search around",
+        "stat": "trust",
+        "amount": 1,
+        "next": "5",
+        "result": "You slow down and study the surroundings. Someone has been maintaining this area."
+      },
+      {
+        "text": "Study it closely",
+        "stat": "influence",
+        "amount": 1,
+        "next": "5",
+        "result": "You inspect the path carefully. This wasn't made by accident. It was maintained."
+      }
+    ]
+  },
+
+  "5": {
+    "type": "scenario",
+    "title": "A World Beyond",
+    "text": "Trees end.\n\nThen—buildings.\nNot ruins.\nReal ones.\n\nPeople.\nNoise.\nLife.\n\nGreyhaven.\n\nThe world is still alive.",
+    "choices": [
+      {
+        "text": "Observe everything",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "route_choice",
+        "result": "You take everything in. This place runs on rules you don't yet understand."
+      },
+      {
+        "text": "Focus on people",
+        "stat": "trust",
+        "amount": 1,
+        "next": "route_choice",
+        "result": "You focus on the people. They don't look like survivors. They look... normal."
+      },
+      {
+        "text": "Act confident",
+        "stat": "influence",
+        "amount": 1,
+        "next": "route_choice",
+        "result": "You force yourself to act steady. No one here needs to see hesitation."
+      }
+    ]
+  },
+
+  "route_choice": {
+    "type": "scenario",
+    "title": "Two Roads",
+    "text": "Night in Greyhaven.\n\nThe Head watches the town.\nThen you.\n\n\"You can stay.\"\n\n\"Or leave.\"\n\nSimple choice.\nHeavy consequences.",
+    "choices": [
+      {
+        "text": "Stay",
+        "stat": "trust",
+        "amount": 1,
+        "next": "settler_recovery_event",
+        "result": "You decide to stay. Not because it's safe, but because it's the first place that feels real."
+      },
+      {
+        "text": "Leave",
+        "stat": "skill",
+        "amount": 1,
+        "next": "explorer_departure_event",
+        "result": "You choose to leave. The unknown outside still calls louder than the town."
+      }
+    ]
+  },
+
+  "settler_recovery_event": {
+    "type": "event",
+    "title": "A Place To Begin",
+    "text": "Days pass.\n\nThe wounds from the forest slowly heal.\n\nGreyhaven moves around you.\n\nPeople work.\nChildren play.\nMerchants argue.\nLife continues.\n\nNo one treats you like a hero.\nNo one treats you like a threat.\n\nJust another stranger trying to find a place.\n\nThe man who found you visits occasionally.\n\nHe answers some questions.\nAvoids others.\n\nEach answer only proves one thing.\n\nThe world is far larger than you were taught.\n\nEventually, the town grants you a small house near the edge of Greyhaven.\n\nA bed.\nA table.\nA stove.\n\nNothing impressive.\n\nBut it is yours.\n\nFor the first time since leaving home, you sleep without fear.\n\nA week later, the town healer finally clears you for work.\n\nYou spend the morning searching for opportunities.\n\nNear the center of town stands a large wooden board covered in notices.\n\nJob postings.\nRequests.\nApplications.\n\nA new life has to start somewhere.",
+    "next": "6_settler"
+  },
+
+  "explorer_departure_event": {
+    "type": "event",
+    "title": "Beyond Greyhaven",
+    "text": "The decision surprises no one.\n\nNot because people expected it.\nBecause few people care enough to stop you.\n\nGreyhaven continues as it always has.\n\nMerchants open their stalls.\nWorkers begin their routines.\nChildren race through streets that once seemed impossible to you.\n\nLife moves forward.\n\nA week ago, this town felt larger than the world.\n\nNow it feels small.\n\nBefore leaving, you visit the Head one final time.\n\nHe studies you for a moment.\n\n\"Most people spend their lives searching for a place to stay.\"\n\nHis gaze drifts toward the eastern road.\n\n\"A few spend their lives searching for what lies beyond it.\"\n\nSilence follows.\n\nThen he hands you a folded map.\n\nOld.\nWorn.\nUsed.\n\nThe parchment stretches far beyond Greyhaven.\n\nRoads.\nSettlements.\nRivers.\nMountain ranges.\n\nPlaces you've never heard of.\n\nThe kingdom is larger than anything you imagined.\n\nGreyhaven sits near the far western edge.\n\nA single dot among countless others.\n\n\"The world didn't end with your village.\"\n\n\"And it doesn't end here either.\"\n\nThe next morning, you leave.\n\nNo ceremony.\nNo farewell.\n\nJust a road leading east.\n\nFor the first time in your life, no one knows where you'll be tomorrow.\n\nNot even you.",
+    "next": "6_explorer"
+  },
+
+  "6_settler": {
+    "type": "scenario",
+    "title": "The Job Board",
+    "text": "The board is larger than expected.\n\nDozens of notices cover the wood.\n\nSome offer temporary work.\nOthers seek long-term employees.\n\nFor a moment, the number of choices feels overwhelming.\n\nBack home, work was simple.\nYou hunted.\nYou gathered.\nYou survived.\n\nGreyhaven is different.\n\nPeople specialize.\n\nThey build entire lives around a single profession.\n\nAfter reading through the postings, three opportunities stand out.\n\nA librarian is seeking an assistant.\n\nThe town administration is looking for a clerk.\n\nThe treasury seeks an apprentice.\n\nOne choice could shape your new life.",
+    "choices": [
+      {
+        "text": "Assist the librarian",
+        "stat": "knowledge",
+        "amount": 1,
+        "job": "librarian",
+        "next": "job_selection_event",
+        "result": "You take the library job. Quiet work, steady learning."
+      },
+      {
+        "text": "Join administration",
+        "stat": "influence",
+        "amount": 1,
+        "job": "administration",
+        "next": "job_selection_event",
+        "result": "You join administration. Decisions flow through people like this."
+      },
+      {
+        "text": "Work in treasury",
+        "stat": "trust",
+        "amount": 1,
+        "job": "treasury",
+        "next": "job_selection_event",
+        "result": "You join the treasury. Trust is the real currency here."
+      }
+    ]
+  },
+
+  "6_explorer": {
+    "type": "scenario",
+    "title": "The Open Road",
+    "text": "Days pass.\n\nGreyhaven slowly disappears behind you.\n\nThe road stretches east.\n\nFarmland replaces wilderness.\n\nSmall hamlets appear occasionally.\n\nTravelers pass in both directions.\n\nMost barely notice you.\n\nA few offer greetings.\n\nFor the first time in your life, the world feels larger every day instead of smaller.\n\nOne afternoon, you reach a crossroads.\n\nA weathered sign points toward several distant settlements.\n\nYou unfold the map the Head gave you.\n\nThe amount of land ahead is overwhelming.\n\nYou could spend years exploring it all.\n\nFor a moment, you stop walking.\n\nNot because you're tired.\n\nBecause the realization finally settles in.\n\nYou are free to choose where this journey goes.",
+    "choices": [
+      {
+        "text": "Study the map and mark places worth investigating",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "You begin studying routes, settlements, and landmarks. Every road tells a story."
+      },
+      {
+        "text": "Talk with travelers about distant regions",
+        "stat": "trust",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "Most travelers enjoy sharing stories. Some sound impossible. Not all of them are."
+      },
+      {
+        "text": "Take the longest route simply to see more of the world",
+        "stat": "skill",
+        "amount": 1,
+        "next": "7_explorer",
+        "result": "The efficient path isn't always the interesting one. You choose experience over speed."
+      }
+    ]
+  },
+
+  "job_selection_event": {
+    "type": "event",
+    "title": "A New Routine",
+    "text": "The application process is simple.\n\nWithin days, your new routine begins.\n\nGreyhaven starts to feel familiar.\n\nFor the first time since leaving home, life stabilizes.\n\nYou are no longer surviving.\nYou are becoming part of something.",
+    "next": "7_settler"
+  },
+
+  "7_settler": {
+    "type": "scenario",
+    "title": "First Days of Work",
+    "text": "Your routine begins immediately.\n\nGreyhaven doesn't wait.\n\nYou learn by doing.\n\nPeople start recognizing you.\nNot your story.\nJust your presence.\n\nYou are inside the system now.",
+    "choices": [
+      {
+        "text": "Study records and patterns",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "settler_conflict_event",
+        "result": "You study records deeply. Patterns start forming faster."
+      },
+      {
+        "text": "Coordinate workers",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "settler_conflict_event",
+        "result": "You coordinate tasks. People begin listening naturally."
+      },
+      {
+        "text": "Track resources",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "settler_conflict_event",
+        "result": "You track resources carefully. Mistakes drop quickly."
+      }
+    ]
+  },
+
+  "7_explorer": {
+    "type": "scenario",
+    "title": "Roadside Rumors",
+    "text": "The farther east you travel, the busier the roads become.\n\nMerchants.\nTravelers.\nMessengers.\n\nEveryone seems to be heading somewhere.\n\nAt a roadside shelter, conversation drifts toward the same topic.\n\nA merchant caravan is expected to pass through soon.\n\nSome speak of valuable cargo.\n\nOthers speak of strange artifacts.\n\nA few claim the merchant has spent years collecting unusual objects from across the kingdom.\n\nMost of the stories sound exaggerated.\n\nThen again, most stories do.\n\nThe next morning, you continue down the road.\n\nHours later, dark clouds gather overhead.\n\nIn the distance, you spot wagon tracks heading toward a narrow mountain pass.\n\nThe same route the merchant caravan was supposed to take.",
+    "choices": [
+      {
+        "text": "Study the rumors and compare different stories",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "Most stories contradict each other. The interesting part is where they don't."
+      },
+      {
+        "text": "Insert yourself into conversations and become the center of them",
+        "stat": "influence",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "People reveal more information when they want your attention."
+      },
+      {
+        "text": "Keep moving despite the worsening conditions",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "wagon_incident_event",
+        "result": "The road grows rough, but you endure it. Distance matters less than persistence."
+      }
+    ]
+  },
+
+  "settler_conflict_event": {
+    "type": "event",
+    "title": "The Fence Line Dispute",
+    "text": "Two neighbors argue near the edge of town.\n\nA fence was repainted for the festival.\n\nOne claims the other crossed the property line.\n\nA small issue.\nBut it’s already spreading attention.\n\nPeople gather.\nWatching.\nWaiting.\n\nThen they notice you.\n\nThe argument slows.\nNot solved.\nJust observed.",
+    "next": "8_settler"
+  },
+
+  "wagon_incident_event": {
+  "type": "event",
+  "title": "The Broken Wagon",
+  "text": "The storm arrives faster than expected.\n\nRain turns the road into mud.\n\nTravelers begin seeking shelter wherever they can.\n\nYou continue forward.\n\nThen you hear shouting.\n\nA wagon has overturned near a narrow section of road.\n\nCrates lie scattered across the mud.\n\nOne horse struggles against tangled harnesses.\n\nSeveral travelers are already attempting to help.\n\nAt the center of the chaos stands an older merchant.\n\nDrenched.\nCovered in mud.\nStill somehow giving orders.\n\nThe next hour becomes a blur.\n\nRopes are pulled.\n\nSupplies are recovered.\n\nThe horse is freed.\n\nThe wagon itself survives, though barely.\n\nBy nightfall a small camp forms beside the road.\n\nThe merchant eventually approaches your fire carrying a wooden box.\n\nMost people would've kept walking.\n\nHe sits across from you.\n\nSo I'd like to offer something in return.\n\nHe opens the box.\n\nInside rest three objects.\n\nAn old leather journal.\n\nA silver signet ring.\n\nAnd a wooden chicken.\n\nYou stare at the chicken.\n\nThe merchant notices.\n\nEveryone does that.\n\nHe points to the journal.\n\nBought that from a ruin explorer years ago.\n\nHe claimed it was more valuable than gold.\n\nMost of the pages are blank.\n\nA strange symbol is burned into the cover.\n\nThe merchant then lifts the ring.\n\nThis belonged to someone important once.\n\nNo idea who.\n\nBut people tend to treat the wearer differently.\n\nFinally he picks up the wooden chicken.\n\nIt rattles when shaken.\n\nOne leg is shorter than the other.\n\nDon't underestimate the chicken.\n\nWhy?\n\nThe merchant pauses.\n\nI honestly don't know.\n\nThen why keep it?\n\nBecause every owner I've met refused to throw it away.\n\nThat answer somehow raises more questions than it solves.\n\nThe merchant places all three objects back into the box.\n\nTake one.\n\nEvery traveler carries something.\n\nThe question is what kind of traveler you become.",
+  "next": "8_explorer"
+  },
+
+  "8_settler": {
+    "type": "scenario",
+    "title": "Festival Night",
+    "text": "Greyhaven spends the day in preparation.\n\nStreets are cleaned.\nLanterns are hung.\nStalls are built in silence that slowly turns into anticipation.\n\nBy evening, the town transforms.\n\nThe festival begins almost without warning.\n\nLight floods the streets.\nMusic replaces conversation.\nThe same place you’ve been walking through suddenly feels unfamiliar.\n\nAlive in a different way.\n\nPeople move in celebration, but small issues still appear beneath the surface.\nNothing serious.\nJust enough to notice if you're paying attention.",
+    "choices": [
+      {
+        "text": "Notice issues early and quietly fix them",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You pick up on small problems before they grow. The festival runs smoother without anyone knowing why."
+      },
+      {
+        "text": "Step in and direct people to keep things running",
+        "stat": "influence",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You start coordinating people without formal authority. Things fall into order under your direction."
+      },
+      {
+        "text": "Join the crowd and help wherever needed",
+        "stat": "trust",
+        "amount": 1,
+        "next": "8_settler_event",
+        "result": "You blend into the festival, helping where needed. For once, you're not watching from the outside."
+      }
+    ]
+  },
+
+  "8_explorer": {
+    "type": "scenario",
+    "title": "The Merchant's Offer",
+    "text": "The storm has weakened.\n\nOnly the sound of rain remains.\n\nThe merchant leaves the box between you.\n\nThree objects.\n\nThree stories.\n\nPerhaps three futures.\n\nThe journal waits silently.\n\nThe ring catches the firelight.\n\nThe chicken looks as ridiculous as before.\n\nThe merchant folds his arms.\n\nOnly one.\n\nChoose carefully.\n\nOr don't.\n\nHe seems equally entertained by either option.",
+    "choices": [
+      {
+      "text": "Take the Sealed Journal",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "journal",
+      "result": "The cover feels older than it should. As your fingers touch the symbol, curiosity replaces hesitation."
+      },
+      {
+      "text": "Take the Silver Signet Ring",
+      "stat": "influence",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "ring",
+      "result": "The ring is surprisingly heavy. Whatever name it once carried has long been forgotten."
+      },
+      {
+      "text": "Take the Wooden Chicken",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "9_explorer",
+      "artifact": "chicken",
+      "result": "The merchant laughs.\n\nI knew someone would eventually choose the chicken.\n\nThe chicken rattles mysteriously."
+      }
+    ]
+  },
+
+
+  "8_settler_event": {
+    "type": "event",
+    "title": "Afterglow",
+    "text": "The night settles slowly.\n\nLanterns dim.\nMusic fades into distance.\nStreets grow quiet again.\n\nBut something lingers.\n\nThe festival didn't just happen around people.\nIt happened because of them.\n\nAnd somehow, you were part of that system now.\nNot outside it.\nInside it.",
+    "next": "9_settler"
+  },
+
+  "9_settler": {
+    "type": "scenario",
+    "title": "The First Real Problem",
+    "text": "Greyhaven's system doesn't stay calm for long.\n\nA problem surfaces in your workplace.\n\nSomething small at first.\nA missing record.\nA misfiled document.\nA delayed approval.\n\nBut it starts affecting other departments.\n\nPeople begin asking questions.\n\nAnd your name is attached to part of the chain.",
+    "choices": [
+      {
+        "text": "Fix it directly through your job role",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "9_settler_event",
+        "result": "You dig into the records and correct the issue at its source. The system stabilizes quietly."
+      },
+      {
+        "text": "Coordinate people to resolve it quickly",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "9_settler_event",
+        "result": "You organize people across departments. The issue gets resolved faster, but it exposes weak points."
+      },
+      {
+        "text": "Take responsibility and reassure everyone involved",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "9_settler_event",
+        "result": "You step in calmly and take responsibility where needed. Trust in your role increases."
+      }
+    ]
+  },
+
+  "9_explorer": {
+    "type": "scenario",
+    "title": "An Unusual Companion",
+    "text": "Morning arrives.\n\nThe storm has passed.\n\nThe merchant continues along his route.\n\nYou continue along yours.\n\nThe road stretches east once again.\n\nYet something feels different.\n\nNot because the world changed.\n\nBecause you now carry something that wasn't yours before.\n\nSeveral days pass.\n\nFields become hills.\n\nRoads become trails.\n\nTravel becomes quieter.\n\nDuring a stop beneath an old stone marker, your attention drifts toward the item you chose.\n\nFor a moment, you wonder if the merchant knew more than he admitted.",
+    "choices": [
+        {
+        "text": "Examine the item carefully",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "You spend hours studying the object. Every detail only creates more questions.",
+        "artifact_result": {
+          "journal": "The journal feels older than it should. While turning its pages, you discover a blank page that definitely wasn't there before.",
+          "ring": "A tiny inscription is carved into the inner band of the ring. The language is unfamiliar, but the craftsmanship is unmistakably deliberate.",
+          "chicken": "The wooden chicken rattles when shaken. You inspect it thoroughly. No compartment. No mechanism. Yet the sound remains."
+          }
+        },
+      {
+        "text": "Ask travelers if they recognize it",
+        "stat": "trust",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "Most travelers shrug and move on. A few hesitate before answering.",
+        "artifact_result": {
+          "journal": "An elderly traveler sees the symbol on the cover and immediately loses interest in the conversation. He refuses to explain why.",
+          "ring": "One merchant recognizes the ring instantly. Before you can ask anything, he apologizes and leaves without another word.",
+          "chicken": "Several travelers laugh at the chicken. One of them stops laughing after looking at it closely and quietly advises you not to lose it."
+          }
+        },
+      {
+        "text": "Keep moving and see where it leads",
+        "stat": "skill",
+        "amount": 1,
+        "next": "10_explorer",
+        "result": "Answers can wait. Roads have a habit of revealing things in their own time.",
+        "artifact_result": {
+          "journal": "That night, you wake to find the journal lying open beside your bedroll despite being packed away before sleep.",
+          "ring": "Throughout the journey, strangers seem more willing to approach you than before. None explain why.",
+          "chicken": "Near sunset, the chicken falls from your pack. You could swear it was secured moments earlier."
+          }
+      }
+    ]
+  },
+
+
+  "9_settler_event": {
+    "type": "event",
+    "title": "After the Correction",
+    "text": "The problem doesn't spread.\n\nBut it doesn't disappear either.\n\nIt gets recorded.\nTracked.\nAnalyzed.\n\nGreyhaven doesn't forget who touched what.\n\nYour involvement is now part of the system's memory.\n\nWhether it was good or bad depends on what comes next.",
+    "next": "10_settler"
+  },
+
+  "10_settler": {
+    "type": "scenario",
+    "title": "Evaluation Notice",
+    "text": "You are called in unexpectedly.\n\nNot for punishment.\nNot for praise.\n\nFor review.\n\nGreyhaven's system has been tracking your performance.\nYour consistency.\nYour decisions.\nYour alignment with your assigned role.\n\nThree departments are present in the evaluation.\nEach one represents a different path you could have taken.\n\nThey don’t ask if you succeeded.\n\nThey ask how you function inside the system.",
+    "choices": [
+      {
+        "text": "Emphasize your technical accuracy and problem-solving",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "SETTLER_PROMOTION_CHECK_11",
+        "result": "Your precision is noted. Your ability to stabilize information systems is recognized."
+      },
+      {
+        "text": "Highlight your coordination and decision-making impact",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "SETTLER_PROMOTION_CHECK_11",
+        "result": "Your ability to manage people and flow of decisions becomes your defining trait."
+      },
+      {
+        "text": "Focus on reliability and trust within the system",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "SETTLER_PROMOTION_CHECK_11",
+        "result": "Your consistency and reliability become your strongest asset in their evaluation."
+      }
+    ]
+  },
+
+  "10_explorer": {
+    "type": "scenario",
+    "title": "The Silent Waystation",
+    "text": "The road stretches onward for days.\n\nThe hills grow steeper.\nThe settlements become rarer.\n\nTravelers pass less frequently now.\n\nThe kingdom feels larger with every step.\n\nThen, near sunset, you spot stone rising from the landscape.\n\nAt first you mistake it for a ruined wall.\n\nThen another appears.\n\nAnd another.\n\nA structure.\n\nOld.\nAbandoned.\n\nBuilt beside a crossroads that no longer appears on any map you've seen.\n\nThe place should feel forgotten.\n\nInstead, it feels patient.\n\nThe main building has partially collapsed.\n\nWeather has worn away carvings.\n\nPlants have reclaimed sections of the stone.\n\nYet signs of travelers remain.\n\nOld campfires.\nFootprints.\nSupplies left behind.\n\nPeople still come here.\n\nJust not many.\n\nNear the entrance stands a weathered plaque.\n\nMost of the inscription has been destroyed.\n\nOnly a single line remains readable.\n\nFor those who seek beyond the known roads.\n\nYou read the words twice.\n\nSomething about them feels intentional.\n\nAs though the message was waiting for someone.\n\nWaiting for anyone willing to keep walking.\n\nYour gaze drifts toward the artifact you've carried since meeting the merchant.\n\nFor a brief moment, it almost feels connected.\n\nNot to this place.\n\nTo whatever lies beyond it.\n\nThe evening grows darker.\n\nYou decide to investigate before continuing your journey.",
+    "choices": [
+      {
+      "text": "Study the ancient markings",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You spend hours examining the remaining carvings. Most are damaged beyond recognition, but fragments hint at routes and places no modern traveler seems to remember."
+      },
+      {
+      "text": "Speak with the travelers resting nearby",
+      "stat": "trust",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You spend the evening listening rather than searching. Every traveler tells a different story about the waystation, but all of them returned for a reason."
+      },
+      {
+      "text": "Determine who benefits from this crossroads",
+      "stat": "influence",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "Roads shape kingdoms. Trade shapes roads. The more you observe, the clearer it becomes that influence travels farther than armies."
+      },
+      {
+      "text": "Explore the collapsed sections alone",
+      "stat": "skill",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "You navigate unstable passages most travelers avoid. Hidden paths reveal parts of the structure untouched for years."
+      },
+      {
+      "text": "Endure the hazards and search every corner",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "EXPLORER_CLASS_CHECK",
+      "result": "The search is exhausting. Dust, unstable floors, and endless dead ends test your endurance. You keep going long after most people would have stopped."
+      }
+    ]
+  },
+
+
+  "first_promotion_event": {
+    "type": "event",
+    "title": "Promotion",
+    "text": "The review concludes.\n\nThe department recognizes your contributions.\n\nNot because of a single achievement.\n\nBecause of consistency.\n\nMonths of reliable work have begun producing results.\n\nYour supervisor presents the decision.\n\nAdditional responsibilities.\n\nGreater authority.\n\nA higher position within Greyhaven's system.\n\nThe promotion is not celebrated with speeches.\n\nNo crowd gathers.\n\nNo ceremony takes place.\n\nWork simply continues.\n\nYet something has changed.\n\nPeople now expect more from you.\n\nAnd for the first time since arriving in Greyhaven, you are no longer considered new.\n\nYou have become part of the town's foundation.",
+    "next": "PROMOTION_RETURN"
+  },
+
+  "second_promotion_event": {
+    "type": "event",
+    "title": "Senior Appointment",
+    "text": "The decision takes longer this time.\n\nThe review involves multiple departments.\n\nReports.\n\nEvaluations.\n\nRecommendations.\n\nYour name appears repeatedly.\n\nEventually the conclusion is reached.\n\nYou are offered one of the highest positions available within your profession.\n\nThe responsibility is significant.\n\nMistakes made at this level affect more than a single workplace.\n\nThey affect Greyhaven itself.\n\nThe appointment comes with authority.\n\nInfluence.\n\nExpectations.\n\nYou think back to the stranger who first entered this town.\n\nThe person who knew nothing about the world beyond a forgotten village.\n\nThat person feels distant now.\n\nGreyhaven is no longer a place you live in.\n\nIt is a place you help shape.\n\nWhether that future succeeds or fails will depend partly on you.",
+    "next": "NEXT_NODE"
+  },
+
+  "class_event": {
+  "type": "event",
+  "title": "The Old Cartographer",
+  "text": "The waystation isn't entirely abandoned.\n\nAs night falls, you notice an old man sitting beneath a damaged archway.\n\nMaps cover the stone beside him.\n\nHundreds of markings.\nRoutes.\nNotes.\nPlaces.\n\nHe doesn't look surprised to see you.\n\nAnother traveler.\n\nHis eyes drift toward the artifact you're carrying.\n\nInteresting.\n\nYou ask if he lives here.\n\nHe laughs.\n\nNo one lives here.\n\nPeople pass through.\n\nThat's different.\n\nSilence settles.\n\nEventually he rolls up one of his maps.\n\nMost travelers think roads are what separate people.\n\nThey're wrong.\n\nHe points toward the crossroads outside.\n\nRoads reveal people.\n\nFollow enough of them and patterns appear.\n\nHis finger moves across several notes written on the map.\n\nSome become Chroniclers.\n\nPeople obsessed with recording what others overlook.\n\nAnother mark.\n\nSome become Emissaries.\n\nThey connect strangers faster than roads ever could.\n\nAnother.\n\nSome become Kingmakers.\n\nNot rulers.\n\nThe people who decide who rules.\n\nAnother.\n\nSome become Pilgrims.\n\nThe world rarely rewards them.\n\nYet somehow they outlast everyone else.\n\nHis finger stops at the final symbol.\n\nAnd some become Pathfinders.\n\nThe people who walk where roads don't exist yet.\n\nThe old man studies you.\n\nNot your face.\n\nYour gear.\nYour posture.\nYour decisions.\n\nThen he smiles.\n\nThe funny thing is...\n\nMost travelers become one long before they realize it.\n\nThe fire crackles.\n\nThe crossroads stand silent beyond the darkness.\n\nFor the first time, you wonder what kind of traveler you've already become.",
+  "next": "11_explorer"
+  },
+
+  "11_settler": {
+    "type": "scenario",
+    "title": "Familiar Faces",
+    "text": "Months have passed.\n\nGreyhaven no longer feels unfamiliar.\n\nPeople greet you by name.\n\nShopkeepers remember your orders.\n\nChildren wave when you pass.\n\nThe town has quietly accepted you.\n\nThen a concern reaches the council.\n\nSeveral families have recently arrived from smaller settlements.\n\nHousing is becoming limited.\n\nResources remain stable.\n\nSpace does not.\n\nThe council begins discussing possible solutions.\n\nArguments form quickly.\n\nSome want expansion.\n\nOthers want caution.\n\nFor the first time, people ask what you think.",
+    "choices": [
+      {
+        "text": "Support Expansion",
+        "stat": "influence",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "Greyhaven grows because people choose to come here. We should prepare for them."
+      },
+      {
+        "text": "Study the Situation First",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "Growth without planning creates problems later."
+      },
+      {
+        "text": "Focus on Existing Residents",
+        "stat": "trust",
+        "amount": 1,
+        "next": "11_settler_event",
+        "result": "The people already here should not be ignored."
+      }
+    ]
+  },
+
+  "11_explorer": {
+    "type": "scenario",
+    "title": "The Repeating Symbol",
+    "text": "Months of exploration have taken you across forgotten roads, ruined watchtowers, and abandoned landmarks.\n\nMost discoveries fade into memory.\n\nOne does not.\n\nA symbol.\n\nAt first it seemed meaningless.\n\nA carving in a ruined wall.\n\nA mark on an ancient map.\n\nA faded design hidden within a damaged monument.\n\nNow it has appeared again.\n\nAnd again.\n\nDifferent locations.\n\nDifferent histories.\n\nDifferent ages.\n\nYet somehow the same symbol remains.\n\nIt should not exist in places this far apart.\n\nThe coincidence is becoming difficult to ignore.",
+    "choices": [
+      {
+        "text": "Document the symbol carefully",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "You begin recording every appearance of the symbol."
+      },
+      {
+        "text": "Ask locals about its meaning",
+        "stat": "trust",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "You gather stories and legends connected to the symbol."
+      },
+      {
+        "text": "Investigate who may be using it",
+        "stat": "influence",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "You search for organizations or individuals connected to the mark."
+      },
+      {
+        "text": "Travel to another reported location",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "You continue the search despite the difficult journey."
+      },
+      {
+        "text": "Track every known location",
+        "stat": "skill",
+        "amount": 1,
+        "next": "11_explorer_event",
+        "result": "You create a network of clues linking the symbol together."
+      }
+    ]
+  },
+
+  "11_settler_event": {
+    "type": "event",
+    "title": "The Head's Position",
+    "text": "The Head attends the meeting.\n\nHe listens more than he speaks.\n\nEventually he makes a decision.\n\nExpansion will begin slowly.\n\nControlled.\n\nMeasured.\n\nNobody leaves completely satisfied.\n\nYet nobody leaves angry either.\n\nThe Head notices you watching.\n\nFor a moment, it almost seems like he's evaluating you.",
+    "next": "12_settler"
+  },
+
+  "11_explorer_event": {
+    "type": "event",
+    "title": "A Pattern",
+    "text": "The more evidence you gather, the stranger the pattern becomes.\n\nThe symbol appears across regions that should have no connection to one another.\n\nDifferent cultures.\n\nDifferent histories.\n\nDifferent centuries.\n\nYet the same mark survives.\n\nNot frequently.\n\nJust enough to leave a trail.\n\nSomeone wanted it to be found.\n\nOr remembered.",
+    "next": "12_explorer"
+  },
+
+  "12_settler": {
+    "type": "scenario",
+    "title": "Increased Responsibility",
+    "text": "The expansion project affects every department.\n\nAdditional responsibilities appear.\n\nMistakes now carry larger consequences.\n\nYour supervisor assigns you a task normally given to senior workers.\n\nThe assignment will directly affect Greyhaven's future plans.",
+    "choices": [
+      {
+        "text": "Verify Every Detail Personally",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "12_settler_event",
+        "result": "You personally verify every record and detail. Accuracy matters more than speed."
+      },
+      {
+        "text": "Coordinate Multiple Departments",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "12_settler_event",
+        "result": "You coordinate communication across departments, keeping the project moving efficiently."
+      },
+      {
+        "text": "Protect Resource Accuracy",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "12_settler_event",
+        "result": "You ensure every resource allocation is accounted for and properly documented."
+      }
+    ]
+  },
+
+  "12_explorer": {
+    "type": "scenario",
+    "title": "The Silent Settlement",
+    "text": "Following the trail leads you to an abandoned settlement.\n\nThe buildings remain standing.\n\nThe roads remain visible.\n\nNothing suggests violence.\n\nNothing suggests disaster.\n\nThe people simply left.\n\nYears ago.\n\nPerhaps decades.\n\nAmong the abandoned structures, you discover the symbol once again.\n\nCarved into stone near the settlement's center.",
+    "choices": [
+      {
+        "text": "Study surviving records",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "12_explorer_event",
+        "result": "You search for written explanations behind the settlement's disappearance."
+      },
+      {
+        "text": "Look for personal stories",
+        "stat": "trust",
+        "amount": 1,
+        "next": "12_explorer_event",
+        "result": "You search for letters and traces left behind by former residents."
+      },
+      {
+        "text": "Examine leadership records",
+        "stat": "influence",
+        "amount": 1,
+        "next": "12_explorer_event",
+        "result": "You investigate the people who guided the settlement."
+      },
+      {
+        "text": "Search beyond the settlement",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "12_explorer_event",
+        "result": "You expand the search into the surrounding wilderness."
+      },
+      {
+        "text": "Trace where the people went",
+        "stat": "skill",
+        "amount": 1,
+        "next": "12_explorer_event",
+        "result": "You follow the routes used during the settlement's final days."
+      }
+    ]
+  },
+
+  "12_settler_event": {
+    "type": "event",
+    "title": "Notice",
+    "text": "Your work succeeds.\n\nQuietly.\n\nEfficiently.\n\nThe kind of success that becomes invisible because nothing goes wrong.\n\nThe Head receives the final reports.\n\nYour name appears among them.\n\nAgain.",
+    "next": "SETTLER_PROMOTION_CHECK_13"
+  },
+
+  "12_explorer_event": {
+    "type": "event",
+    "title": "Gone Searching",
+    "text": "Fragments of evidence begin forming a picture.\n\nThe settlement did not collapse.\n\nIt departed.\n\nGroups left in stages.\n\nEach one following the same direction.\n\nEach one searching for something.\n\nNo record explains what they hoped to find.\n\nOnly that they believed it was important enough to leave everything behind.",
+    "next": "13_explorer"
+  },
+
+  "13_settler": {
+    "type": "scenario",
+    "title": "Voices of Greyhaven",
+    "text": "Greyhaven continues growing.\n\nNew workers arrive.\n\nNew merchants arrive.\n\nNew opinions arrive.\n\nThe town begins changing.\n\nSome citizens welcome it.\n\nOthers fear losing what Greyhaven once was.\n\nArguments spread through taverns.\n\nMarkets.\n\nMeetings.\n\nNo crisis exists.\n\nYet tension does.",
+    "choices": [
+      {
+        "text": "Gather Information",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You listen carefully to both sides before forming conclusions."
+      },
+      {
+        "text": "Mediate Between Groups",
+        "stat": "influence",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You encourage discussion before disagreements become divisions."
+      },
+      {
+        "text": "Keep People Calm",
+        "stat": "trust",
+        "amount": 1,
+        "next": "13_settler_event",
+        "result": "You focus on maintaining stability while emotions run high."
+      }
+    ]
+  },
+
+  "13_explorer": {
+    "type": "scenario",
+    "title": "The Missing Expedition",
+    "text": "Old archives reference an expedition that vanished years ago.\n\nExperienced explorers.\n\nWell supplied.\n\nWell prepared.\n\nThey departed with a clear objective.\n\nNone returned.\n\nRecently, however, travelers have reported signs that the expedition may have reached its destination.\n\nThe reports are impossible to verify.\n\nYet one detail appears repeatedly.\n\nThe symbol.",
+    "choices": [
+      {
+        "text": "Research the expedition",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "13_explorer_event",
+        "result": "You gather everything known about the missing explorers."
+      },
+      {
+        "text": "Speak with witnesses",
+        "stat": "trust",
+        "amount": 1,
+        "next": "13_explorer_event",
+        "result": "You collect stories from travelers who claim to have seen evidence."
+      },
+      {
+        "text": "Investigate who funded them",
+        "stat": "influence",
+        "amount": 1,
+        "next": "13_explorer_event",
+        "result": "You search for the people who supported the expedition."
+      },
+      {
+        "text": "Follow their trail",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "13_explorer_event",
+        "result": "You travel along the same dangerous route they once followed."
+      },
+      {
+        "text": "Predict their destination",
+        "stat": "skill",
+        "amount": 1,
+        "next": "13_explorer_event",
+        "result": "You reconstruct the expedition's likely objective."
+      }
+    ]
+  },
+
+  "13_settler_event": {
+    "type": "event",
+    "title": "Rumors",
+    "text": "Rumors begin spreading.\n\nNothing dangerous.\n\nNothing proven.\n\nPeople claim the Head is planning something larger.\n\nExpansion.\n\nPolitical recognition.\n\nGreater authority.\n\nNo one knows the truth.\n\nYet people continue talking.",
+    "next": "14_settler"
+  },
+
+  "13_explorer_event": {
+    "type": "event",
+    "title": "The Same Trail",
+    "text": "The evidence leaves little room for doubt.\n\nThe expedition was investigating the symbol.\n\nJust like you.\n\nTheir notes become increasingly focused as they approach their final destination.\n\nThen the records stop.\n\nNo explanation.\n\nNo conclusion.\n\nOnly silence.",
+    "next": "14_explorer"
+  },
+
+  "14_settler": {
+    "type": "scenario",
+    "title": "The King's Messenger",
+    "text": "A royal messenger arrives.\n\nThe kingdom has finally noticed Greyhaven.\n\nReports of growth have reached the capital.\n\nRecognition may soon follow.\n\nThe town celebrates.\n\nMost people.\n\nNot everyone.\n\nThe messenger requests private meetings with local leaders.\n\nIncluding the Head.\n\nIncluding you.\n\nQuestions are asked.\n\nAbout growth.\n\nAbout leadership.\n\nAbout Greyhaven's future.\n\nSomething feels unusual.\n\nNot wrong.\n\nHidden.",
+    "choices": [
+      {
+        "text": "Answer Honestly",
+        "stat": "trust",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You answer openly, believing honesty is the strongest foundation."
+      },
+      {
+        "text": "Answer Carefully",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You choose your words carefully, aware that details can change outcomes."
+      },
+      {
+        "text": "Answer Confidently",
+        "stat": "influence",
+        "amount": 1,
+        "next": "judgment_event",
+        "result": "You speak with confidence, presenting Greyhaven as a success story."
+      }
+    ]
+  },
+
+  "14_explorer": {
+    "type": "scenario",
+    "title": "The Watchers",
+    "text": "As your investigation continues, a strange pattern emerges.\n\nPeople begin appearing wherever you travel.\n\nDifferent faces.\n\nDifferent names.\n\nYet the questions remain similar.\n\nWhat have you found?\n\nWhere are you going?\n\nWhat do you know about the symbol?\n\nThey never threaten you.\n\nThey never reveal who they work for.\n\nBut someone is paying attention.",
+    "choices": [
+      {
+        "text": "Learn who they are",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "14_explorer_event",
+        "result": "You focus on gathering information about the mysterious observers."
+      },
+      {
+        "text": "Build trust with them",
+        "stat": "trust",
+        "amount": 1,
+        "next": "14_explorer_event",
+        "result": "You attempt to earn their confidence."
+      },
+      {
+        "text": "Investigate their motives",
+        "stat": "influence",
+        "amount": 1,
+        "next": "14_explorer_event",
+        "result": "You search for the purpose behind their actions."
+      },
+      {
+        "text": "Ignore them and continue",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "14_explorer_event",
+        "result": "You refuse to be distracted from the investigation."
+      },
+      {
+        "text": "Avoid their surveillance",
+        "stat": "skill",
+        "amount": 1,
+        "next": "14_explorer_event",
+        "result": "You move carefully to prevent them from tracking your progress."
+      }
+    ]
+  },
+
+  "judgment_event": {
+    "type": "event",
+    "title": "Judgment",
+    "text": "The misunderstanding begins with paperwork.\n\nThen conversations.\n\nThen assumptions.\n\nReports sent to the capital contain contradictions.\n\nStatements become distorted.\n\nWords lose context.\n\nThe messenger believes the Head is consolidating power.\n\nSome citizens believe the Head intends to replace local council authority.\n\nOthers believe the kingdom intends to seize control of Greyhaven.\n\nNobody possesses the full truth.\n\nYet everyone believes they do.\n\nThe town divides.\n\nNot into enemies.\n\nInto interpretations.\n\nMeetings become arguments.\n\nArguments become accusations.\n\nFor the first time since arriving in Greyhaven, uncertainty spreads through every street.\n\nThen the messenger delivers a formal notice.\n\nA final review will determine Greyhaven's future status.\n\nThe Head becomes the center of the controversy.\n\nAnd somehow...\n\nSo do you.",
+    "next": "15_settler"
+  },
+
+  "14_explorer_event": {
+    "type": "event",
+    "title": "Questions Without Answers",
+    "text": "You never learn everything.\n\nBut one fact becomes clear.\n\nThe watchers are searching for the same truth.\n\nThey know about the symbol.\n\nThey know about the missing expedition.\n\nAnd they know far more than they admit.\n\nYou are not the only person following this trail.",
+    "next": "15_explorer"
+  },
+
+  "15_settler": {
+    "type": "scenario",
+    "title": "Final Responsibility",
+    "text": "The review approaches.\n\nThe town remains tense.\n\nWork continues anyway.\n\nIt always does.\n\nYour department receives one final critical assignment.\n\nFailure could damage Greyhaven's position.\n\nSuccess could strengthen it.\n\nEveryone is watching.",
+    "choices": [
+      {
+        "text": "Present Complete Evidence",
+        "stat": "knowledge",
+        "amount": 1,
+        "job_focus": "librarian",
+        "next": "SETTLER_PROMOTION_CHECK_HEAD",
+        "result": "Facts should decide this."
+      },
+      {
+        "text": "Coordinate the Entire Response",
+        "stat": "influence",
+        "amount": 1,
+        "job_focus": "administration",
+        "next": "SETTLER_PROMOTION_CHECK_HEAD",
+        "result": "People need direction before they need answers."
+      },
+      {
+        "text": "Maintain Public Confidence",
+        "stat": "trust",
+        "amount": 1,
+        "job_focus": "treasury",
+        "next": "SETTLER_PROMOTION_CHECK_HEAD",
+        "result": "A town survives because people trust each other."
+      }
+    ]
+  },
+
+  "15_explorer": {
+    "type": "scenario",
+    "title": "The First Fragment",
+    "text": "The trail finally leads somewhere tangible.\n\nHidden beneath ruins older than any map, you discover a fragment.\n\nStone.\n\nCovered in symbols.\n\nIncluding the one you have been following.\n\nFor the first time, all the clues connect.\n\nThe abandoned settlement.\n\nThe missing expedition.\n\nThe watchers.\n\nNone of them were separate mysteries.\n\nThey were pieces of the same puzzle.",
+    "choices": [
+      {
+        "text": "Study the fragment",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "15_explorer_event",
+        "result": "You focus on understanding the fragment's meaning."
+      },
+      {
+        "text": "Share the discovery",
+        "stat": "trust",
+        "amount": 1,
+        "next": "15_explorer_event",
+        "result": "You believe important discoveries should not remain hidden."
+      },
+      {
+        "text": "Consider its implications",
+        "stat": "influence",
+        "amount": 1,
+        "next": "15_explorer_event",
+        "result": "You focus on what this discovery could mean for the world."
+      },
+      {
+        "text": "Protect the fragment",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "15_explorer_event",
+        "result": "You prioritize keeping the fragment safe."
+      },
+      {
+        "text": "Search for additional pieces",
+        "stat": "skill",
+        "amount": 1,
+        "next": "15_explorer_event",
+        "result": "You immediately begin searching for more fragments."
+      }
+    ]
+  },
+
+  "head_conflict": {
+    "type": "scenario",
+    "title": "The Head's Decision",
+    "text": "The final review takes place in the council hall.\n\nCitizens gather.\n\nDepartment leaders gather.\n\nThe royal messenger arrives carrying the kingdom's judgment.\n\nThe Head stands before them all.\n\nCalm.\n\nUnmoved.\n\nThe accusations are repeated.\n\nSome claim Greyhaven has grown beyond its place.\n\nSome claim the Head has gathered too much authority.\n\nOthers claim the kingdom simply fears an independent town.\n\nFor hours, arguments fill the hall.\n\nThen the messenger presents a solution.\n\nGreyhaven may receive official recognition.\n\nBut only if significant authority is transferred away from the Head and placed under direct royal oversight.\n\nThe room falls silent.\n\nThe decision would protect Greyhaven's future.\n\nBut it would also change the town forever.\n\nFor the first time, the Head turns toward you.\n\n'You've lived among these people.'\n\n'You've seen this town grow.'\n\n'Tell them what should happen.'",
+    "choices": [
+      {
+        "text": "Support the transfer of authority",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "settler_ending_check",
+        "result": "Systems should survive individuals. Greyhaven's future must be protected, even if change is required."
+      },
+      {
+        "text": "Defend the Head's leadership",
+        "stat": "influence",
+        "amount": 1,
+        "next": "settler_ending_check",
+        "result": "Leadership built this town. Trust should not be discarded because of rumors and fear."
+      },
+      {
+        "text": "Seek compromise between both sides",
+        "stat": "trust",
+        "amount": 1,
+        "next": "settler_ending_check",
+        "result": "Greyhaven was built through cooperation. The answer should unite people, not divide them."
+      }
+    ]
+  },
+
+  "15_explorer_event": {
+    "type": "event",
+    "title": "A Name",
+    "text": "The fragment is incomplete.\n\nMost of its message has been lost.\n\nOnly fragments remain.\n\nYet one phrase survives.\n\nA name.\n\nThe Final Horizon.\n\nThe missing expedition searched for it.\n\nThe abandoned settlement pursued it.\n\nThe watchers seek it.\n\nAnd now...\n\nSo do you.",
+    "next": "explorer_v05_end"
+  },
+
+  "settler_scholar_ending":{
+    "type": "ending",
+    "title": "The Scholar of Greyhaven",
+    "text": "The review eventually concludes.\n\nThe misunderstanding fades.\n\nThe rumors disappear.\n\nThe truth proves less dramatic than the stories people told.\n\nGreyhaven receives recognition from the kingdom.\n\nLife moves forward.\n\nAs years pass, your reputation grows.\n\nNot as a leader.\n\nNot as a politician.\n\nAs a source of knowledge.\n\nRecords improve under your guidance.\n\nSystems become more efficient.\n\nFuture generations learn from information you helped preserve.\n\nPeople seek your advice before making important decisions.\n\nNot because you hold authority.\n\nBecause your understanding has earned respect.\n\nWhen newcomers arrive in Greyhaven, they find a town built upon lessons learned rather than mistakes repeated.\n\nAnd hidden within countless records and decisions lies your influence.\n\nQuiet.\n\nInvisible.\n\nEnduring.\n\nYou left home searching for a future.\n\nYou found it in understanding.\n\nEnding Unlocked:\nThe Scholar of Greyhaven"
+  },
+
+  "settler_leader_ending":{
+    "type": "ending",
+    "title": "The Voice of Greyhaven",
+    "text": "The crisis eventually passes.\n\nRecognition is granted.\n\nThe town survives.\n\nBut people remember who stood forward when uncertainty spread.\n\nYour name appears often in those memories.\n\nYears pass.\n\nGreyhaven continues growing.\n\nNew districts appear.\n\nNew opportunities emerge.\n\nNew challenges follow.\n\nAgain and again, people look toward you.\n\nNot because they must.\n\nBecause they choose to.\n\nYou become one of the town's most respected leaders.\n\nSomeone capable of bringing people together when opinions divide them.\n\nSomeone willing to make difficult decisions when others hesitate.\n\nThe Head eventually steps aside.\n\nTime reaches everyone.\n\nBut Greyhaven never lacks direction.\n\nA new generation carries the town forward.\n\nAnd your influence remains part of its foundation.\n\nYou left home searching for a place to belong.\n\nYou found it among people.\n\nEnding Unlocked:\nThe Voice of Greyhaven"
+  },
+
+  "settler_community_ending":{
+    "type": "ending",
+    "title": "The Heart of Greyhaven",
+    "text": "The review concludes.\n\nThe arguments fade.\n\nThe town heals.\n\nNot because everyone agrees.\n\nBecause people choose to move forward together.\n\nYears pass.\n\nGreyhaven grows steadily.\n\nChildren become adults.\n\nFamilies expand.\n\nNew faces arrive.\n\nOld faces disappear.\n\nThrough it all, one thing remains constant.\n\nYou.\n\nYou never seek authority.\n\nYou never chase recognition.\n\nYet nearly everyone knows your name.\n\nThe shopkeepers.\n\nThe workers.\n\nThe families.\n\nThe people who quietly keep Greyhaven alive.\n\nWhen disputes arise, people trust you.\n\nWhen celebrations begin, people invite you.\n\nWhen difficult times arrive, people rely on you.\n\nNot because of your position.\n\nBecause of your character.\n\nGreyhaven becomes more than a town.\n\nIt becomes a community.\n\nAnd in countless ways, you helped make that possible.\n\nYou left home searching for somewhere to live.\n\nYou found a place to call home.\n\nEnding Unlocked:\nThe Heart of Greyhaven"
+  }
+}

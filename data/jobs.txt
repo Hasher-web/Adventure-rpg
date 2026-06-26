@@ -1,0 +1,238 @@
+That's actually a really good idea **for the Settler route specifically**.
+
+Right now jobs are:
+
+```text
+Pick once
+↓
+Get +1 stat
+↓
+Never matter again
+```
+
+Which is basically a fancy personality quiz.
+
+If jobs can evolve, they become part of the player's identity.
+
+---
+
+I'd do **2 upgrades**, not 3.
+
+Reason:
+
+```text
+Settler Route
+15 scenarios total
+
+6 = Job Choice
+15 = Route End
+```
+
+You only have about 9 scenarios left.
+
+Three promotions would feel absurdly fast.
+
+Greyhaven would be handing out promotions like a startup desperate to retain employees.
+
+---
+
+## Librarian Path
+
+### Tier 1
+
+```text
+Library Assistant
+```
+
+Knowledge +1
+
+### Tier 2
+
+```text
+Archivist
+```
+
+Knowledge +2
+
+Unlocked around Scenario 10-11.
+
+The player gains access to old records.
+
+---
+
+### Tier 3
+
+```text
+Chief Archivist
+```
+
+Knowledge +2
+
+Late route.
+
+Can influence town decisions using historical knowledge.
+
+---
+
+## Administration Path
+
+### Tier 1
+
+```text
+Administrative Clerk
+```
+
+Influence +1
+
+### Tier 2
+
+```text
+Council Assistant
+```
+
+Influence +2
+
+Attends meetings.
+
+Learns how the town functions.
+
+---
+
+### Tier 3
+
+```text
+Community Representative
+```
+
+Influence +2
+
+Town starts listening to the player's opinions.
+
+---
+
+## Treasury Path
+
+### Tier 1
+
+```text
+Treasury Apprentice
+```
+
+Trust +1
+
+### Tier 2
+
+```text
+Account Keeper
+```
+
+Trust +2
+
+People begin trusting the player with responsibilities.
+
+---
+
+### Tier 3
+
+```text
+Treasury Officer
+```
+
+Trust +2
+
+Recognized as one of the town's most dependable residents.
+
+---
+
+## Why This Works
+
+The promotion itself becomes a reward.
+
+Instead of:
+
+```text
+Scenario Complete
++1 Trust
+```
+
+you get:
+
+```text
+Months pass.
+
+Your work has not gone unnoticed.
+
+The treasury offers you a promotion.
+
+Trust +2
+```
+
+That feels much more meaningful.
+
+---
+
+## How I'd Space It
+
+```text
+6  Job Selection
+
+10 or 11
+↓
+First Promotion
+
+14
+↓
+Second Promotion
+```
+
+Nice progression.
+
+Not rushed.
+
+Not stagnant.
+
+---
+
+## Extra Benefit
+
+Now you can write special scenes:
+
+```python
+if player["job"] == "archivist":
+```
+
+or
+
+```python
+if player["job"] == "council_assistant":
+```
+
+without creating entirely separate routes.
+
+That's the sweet spot.
+
+Different flavor.
+
+Same overall story.
+
+Very little extra coding.
+
+For v0.4 I'd add:
+
+```python
+player["job_rank"] = 1
+```
+
+alongside:
+
+```python
+player["job"]
+```
+
+Future-you can then upgrade:
+
+```text
+1 → 2 → 3
+```
+
+without redesigning the system later. That's the kind of tiny addition that saves headaches when Scenario 12 suddenly needs to know whether the player is filing books or managing half the archive.
