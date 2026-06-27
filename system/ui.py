@@ -415,4 +415,20 @@ def draw_game_stat_bar(screen, player, rect):
         midright=(rect.right - 16, rect.y + rect.height // 2)
     )
     screen.blit(right_surface, right_rect) 
- 
+
+def center_rect(width, height, screen):
+    return pygame.Rect(
+        (screen.get_width() - width) // 2,
+        (screen.get_height() - height) // 2,
+        width,
+        height
+    )
+
+def draw_separator(screen, rect, y_offset):
+    pygame.draw.line(
+        screen,
+        PANEL_BORDER,
+        (rect.x + 24, rect.y + y_offset),
+        (rect.right - 24, rect.y + y_offset),
+        2
+    ) 

@@ -161,96 +161,6 @@ def _show_confirmation_popup(title, text, confirm_text="Yes", cancel_text="No"):
         clock.tick(ui.FPS)
 
 
-def _show_save_slot_popup(player, current_scenario):
-    clock = pygame.time.Clock()
-
-    while True:
-        screen_width = screen.get_width()
-        screen_height = screen.get_height()
-
-        panel_rect = pygame.Rect(
-            screen_width // 2 - 340,
-            screen_height // 2 - 220,
-            680,
-            440
-        )
-
-        slot_buttons = [
-            ui.Button((panel_rect.centerx - 110, panel_rect.y + 140, 220, 48), "Save to Slot 1", style="menu"),
-            ui.Button((panel_rect.centerx - 110, panel_rect.y + 205, 220, 48), "Save to Slot 2", style="menu"),
-            ui.Button((panel_rect.centerx - 110, panel_rect.y + 270, 220, 48), "Save to Slot 3", style="menu"),
-        ]
-
-        cancel_button = ui.Button(
-            (panel_rect.centerx - 90, panel_rect.bottom - 64, 180, 42),
-            "Cancel",
-            style="small"
-        )
-
-        mouse_pos = pygame.mouse.get_pos()
-        for button in slot_buttons:
-            button.update(mouse_pos)
-        cancel_button.update(mouse_pos)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                raise SystemExit
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    return 1
-                if event.key == pygame.K_2:
-                    return 2
-                if event.key == pygame.K_3:
-                    return 3
-                if event.key in (pygame.K_ESCAPE, pygame.K_BACKSPACE):
-                    return None
-
-            for index, button in enumerate(slot_buttons, start=1):
-                if button.handle_event(event):
-                    return index
-
-            if cancel_button.handle_event(event):
-                return None
-
-        ui.draw_background(screen, mode="node")
-        ui.draw_panel(screen, panel_rect)
-
-        ui.draw_text(
-            screen,
-            "SAVE GAME",
-            ui.HEADING_FONT,
-            ui.GOLD,
-            panel_rect.centerx,
-            panel_rect.y + 48,
-            center=True
-        )
-
-        preview = (
-            f"{player['name']} | Node: {current_scenario} | "
-            f"HP: {player['current_hp']}/{player['max_hp']}"
-        )
-
-        ui.draw_text(
-            screen,
-            preview,
-            ui.SMALL_FONT,
-            ui.MUTED,
-            panel_rect.centerx,
-            panel_rect.y + 92,
-            center=True
-        )
-
-        for button in slot_buttons:
-            button.draw(screen)
-
-        cancel_button.draw(screen)
-
-        pygame.display.flip()
-        clock.tick(ui.FPS)
-
-
 def show_message(title, text, title_color=None):
     clock = pygame.time.Clock()
     scroll_y = 0
@@ -627,24 +537,13 @@ def show_scenario(player, node, current_scenario):
             52
         )
 
-        # right-side persistent action panel
-        action_panel_width = 210
-        gap_between_main_and_side = 16
-
-        main_width = screen_width - outer_margin * 2 - action_panel_width - gap_between_main_and_side
+        main_width = screen_width - outer_margin * 2
 
         story_panel_rect = pygame.Rect(
             outer_margin,
             stat_bar_rect.bottom + 14,
             main_width,
             390
-        )
-
-        action_panel_rect = pygame.Rect(
-            story_panel_rect.right + gap_between_main_and_side,
-            story_panel_rect.y,
-            action_panel_width,
-            screen_height - story_panel_rect.y - 20
         )
 
         title_rect = pygame.Rect(
@@ -695,18 +594,6 @@ def show_scenario(player, node, current_scenario):
             choice_view_rect.height - (total_choice_content_height - 44)
         )
 
-        save_button = ui.Button(
-            (action_panel_rect.x + 20, action_panel_rect.y + 80, action_panel_rect.width - 40, 52),
-            "Save Game",
-            style="menu"
-        )
-
-        exit_button = ui.Button(
-            (action_panel_rect.x + 20, action_panel_rect.y + 150, action_panel_rect.width - 40, 52),
-            "Exit Game",
-            style="menu"
-        )
-
         mouse_pos = pygame.mouse.get_pos()
 
         scrolled_buttons = []
@@ -723,9 +610,6 @@ def show_scenario(player, node, current_scenario):
                 and choice_view_rect.collidepoint(mouse_pos)
             )
             scrolled_buttons.append(temp_button)
-
-        save_button.update(mouse_pos)
-        exit_button.update(mouse_pos)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -752,13 +636,9 @@ def show_scenario(player, node, current_scenario):
                     else:
                         choice_scroll_y -= 35
 
-                elif event.key == pygame.K_BACKSPACE:
-                    confirmed = _show_confirmation_popup(
-                        "Exit Game?",
-                        "Leave the current run and return to the main menu?",
-                        confirm_text="Exit",
-                        cancel_text="Stay"
-                    )
+                elif event.key == pygame.K_ESCAPE:
+                    return {"action": "pause"}
+
                     if confirmed:
                         return {"action": "exit"}
 
@@ -778,21 +658,7 @@ def show_scenario(player, node, current_scenario):
                     story_scroll_y += event.y * 35
                 else:
                     choice_scroll_y += event.y * 35
-
-            if save_button.handle_event(event):
-                slot_id = _show_save_slot_popup(player, current_scenario)
-                if slot_id is not None:
-                    return {"action": "save", "slot_id": slot_id}
-
-            if exit_button.handle_event(event):
-                confirmed = _show_confirmation_popup(
-                    "Exit Game?",
-                    "Leave the current run and return to the main menu?",
-                    confirm_text="Exit",
-                    cancel_text="Stay"
-                )
-                if confirmed:
-                    return {"action": "exit"}
+                    
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 for index, button in enumerate(scrolled_buttons, start=1):
@@ -844,7 +710,7 @@ def show_scenario(player, node, current_scenario):
             scroll_y=story_scroll_y
         )
 
-        story_hint = "TAB: switch panel | ↑ ↓: scroll"
+        story_hint = "TAB: Switch Panel | ↑↓ Scroll | ESC Pause"
         story_hint_surface = ui.SMALL_FONT.render(story_hint, True, ui.MUTED)
         screen.blit(
             story_hint_surface,
@@ -878,25 +744,7 @@ def show_scenario(player, node, current_scenario):
             button.draw(screen)
 
         screen.set_clip(old_clip)
-
-        # ACTION PANEL
-        ui.draw_panel(screen, action_panel_rect, fill_color=ui.PANEL_ALT, border_color=ui.PANEL_BORDER)
-
-        ui.draw_text(
-            screen,
-            "Menu",
-            ui.HEADING_FONT,
-            ui.TITLE,
-            action_panel_rect.centerx,
-            action_panel_rect.y + 34,
-            center=True
-        )
-
-        save_button.draw(screen)
-        exit_button.draw(screen)
-
-        pygame.display.flip()
-        clock.tick(ui.FPS)
+        
 
 
 def show_event(event):

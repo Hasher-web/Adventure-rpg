@@ -31,12 +31,17 @@ def create_player():
 
 def register_job_result(player, is_aligned):
     player["job_checks"] += 1
+
     if is_aligned:
         player["job_success"] += 1
 
-def determine_explorer_class(player):
 
-    stats = {
+def is_dead(player):
+    return player["current_hp"] <= 0
+
+
+def determine_explorer_class(player):
+    classes = {
         "Chronicler": player["knowledge"],
         "Emissary": player["trust"],
         "Kingmaker": player["influence"],
@@ -44,7 +49,4 @@ def determine_explorer_class(player):
         "Pathfinder": player["skill"]
     }
 
-    return max(stats, key=stats.get)
-
-def is_dead(player):
-    return player["current_hp"] <= 0
+    return max(classes, key=classes.get)

@@ -88,99 +88,129 @@ def play_node(player, node_id):
 
 
 def handle_scenario(player, node, node_id):
-    scenario_result = display.show_scenario(player, node, node_id)
-    choices = node.get("choices", [])
+    from system import pause_menu
 
-    if scenario_result is None:
-        return node_id
+    while True:
 
-    # -----------------------------------
-    # Phase 2 action handling
-    # -----------------------------------
-    if isinstance(scenario_result, dict):
-        action = scenario_result.get("action")
+        scenario_result = display.show_scenario(
+            player,
+            node,
+            node_id
+        )
 
-        if action == "choice":
-            choice_number = scenario_result.get("value")
+        choices = node.get("choices", [])
 
-        elif action == "save":
-            # save handled inside display, stay on same node
+        if scenario_result is None:
             return node_id
 
-        elif action == "exit":
-            return "EXIT"
+        if isinstance(scenario_result, dict):
+
+            action = scenario_result.get("action")
+
+            if action == "pause":
+
+                pause_result = pause_menu.show_pause_menu(
+                    player,
+                    node_id
+                )
+
+                if pause_result == "RESUME":
+                    continue
+
+                if pause_result == "EXIT":
+                    return "EXIT"
+
+                continue
+
+            elif action == "choice":
+                choice_number = scenario_result.get("value")
+
+            elif action == "save":
+                pause_menu.show_save_menu(
+                    player,
+                    node_id
+                )
+                continue
+
+            elif action == "exit":
+                return "EXIT"
+
+            else:
+                print("[UNKNOWN SCENARIO ACTION]", scenario_result)
+                return node_id
 
         else:
-            print("[UNKNOWN SCENARIO ACTION]", scenario_result)
+            choice_number = scenario_result
+
+        if choice_number is None:
             return node_id
 
-    else:
-        # fallback if show_scenario still returns raw int sometimes
-        choice_number = scenario_result
+        if not isinstance(choice_number, int):
+            print("[INVALID CHOICE RETURN]", choice_number)
+            return node_id
 
-    if choice_number is None:
-        return node_id
+        if choice_number < 1 or choice_number > len(choices):
+            print("Invalid choice")
+            return node_id
 
-    if not isinstance(choice_number, int):
-        print("[INVALID CHOICE RETURN]", choice_number)
-        return node_id
+        selected_choice = choices[choice_number - 1]
 
-    if choice_number < 1 or choice_number > len(choices):
-        print("Invalid choice")
-        return node_id
+        artifact = selected_choice.get("artifact")
+        if artifact:
+            player["artifact"] = artifact
 
-    selected_choice = choices[choice_number - 1]
+        if selected_choice.get("job_focus"):
+            is_aligned = (
+                selected_choice["job_focus"] ==
+                player["job_focus"]
+            )
+            player_manager.register_job_result(
+                player,
+                is_aligned
+            )
 
-    # Artifact selection
-    artifact = selected_choice.get("artifact")
-    if artifact:
-        player["artifact"] = artifact
+        stat = selected_choice.get("stat")
+        amount = selected_choice.get("amount", 0)
 
-    # Job tracking
-    if selected_choice.get("job_focus"):
-        is_aligned = selected_choice["job_focus"] == player["job_focus"]
-        player_manager.register_job_result(player, is_aligned)
+        stat_manager.apply_stat(
+            player,
+            stat,
+            amount
+        )
 
-    # Stat gains
-    stat = selected_choice.get("stat")
-    amount = selected_choice.get("amount", 0)
-    stat_manager.apply_stat(player, stat, amount)
+        job = selected_choice.get("job")
 
-    # Job assignment
-    job = selected_choice.get("job")
-    if job:
-        player["job"] = job
-        player["job_focus"] = job
+        if job:
+            player["job"] = job
+            player["job_focus"] = job
 
-    if stat:
-        display.show_stat_gain(stat, amount)
+        if stat:
+            display.show_stat_gain(stat, amount)
 
-    # Death check
-    if player_manager.is_dead(player):
-        return "DEATH"
+        if player_manager.is_dead(player):
+            return "DEATH"
 
-    # Normal result
-    result = selected_choice.get("result")
-    if result:
-        display.show_result(result)
+        result = selected_choice.get("result")
 
-    # Artifact-specific result from SQLite table
-    artifact_text = node_repository.get_artifact_result(
-    selected_choice["id"],
-    player.get("artifact")
-    )
+        if result:
+            display.show_result(result)
 
-    if artifact_text:
-        display.show_artifact_result(artifact_text)
+        artifact_text = node_repository.get_artifact_result(
+            selected_choice["id"],
+            player.get("artifact")
+        )
+
+        if artifact_text:
+            display.show_artifact_result(
+                artifact_text
+            )
 
         next_node = selected_choice.get("next")
 
-    print("[TRACE NEXT]", node_id, "->", next_node)
+        if next_node is None:
+            print("[BROKEN DATA DETECTED]")
+            print("Choice was:", selected_choice)
+            print("Node was:", node_id)
+            return node_id
 
-    if next_node is None:
-        print("[BROKEN DATA DETECTED]")
-        print("Choice was:", selected_choice)
-        print("Node was:", node_id)
-        return node_id
-
-    return next_node
+        return next_node

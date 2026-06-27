@@ -23,10 +23,8 @@ def get_choices_for_node(node_id):
 
         rows = cursor.fetchall()
 
-    choices = []
-
-    for row in rows:
-        choices.append({
+    choices = [
+        {
             "id": row["id"],
             "text": row["text"],
             "stat": row["stat"],
@@ -36,7 +34,9 @@ def get_choices_for_node(node_id):
             "job": row["job"],
             "job_focus": row["job_focus"],
             "artifact": row["artifact_granted"]
-        })
+        }
+        for row in rows
+    ]
 
     return choices
 
