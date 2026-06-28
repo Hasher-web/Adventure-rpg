@@ -744,6 +744,8 @@ def show_scenario(player, node, current_scenario):
             button.draw(screen)
 
         screen.set_clip(old_clip)
+        pygame.display.flip()
+        clock.tick(ui.FPS)
         
 
 

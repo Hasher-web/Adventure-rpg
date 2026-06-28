@@ -52,7 +52,6 @@ def new_game():
     player["save_slot"] = slot
 
 def load_game():
-    player = new_game.player
     slot = menu.show_load_menu()
 
     if slot == "BACK":
@@ -60,7 +59,11 @@ def load_game():
 
     save = save_repository.load_game(slot)
 
-    if not save:
+    if save is None:
+        display.show_message(
+            "No Save Found",
+            f"Save Slot {slot} is empty."
+        )
         return
 
     display.show_save_preview(
@@ -72,8 +75,6 @@ def load_game():
         save["player"],
         save["current_scenario"]
     )
-
-    player["save_slot"] = slot
 
 
 def run():

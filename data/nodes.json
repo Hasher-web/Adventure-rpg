@@ -711,18 +711,18 @@
     ]
   },
 
-  "11_explorer_event": {
-    "type": "event",
-    "title": "Someone Is Ahead",
-    "text": "Morning arrives beneath a grey sky.\n\nThe watchtower falls silent once more.\n\nBefore leaving, you discover something carved into the inside of the doorway.\n\nNot a name.\n\nNot a warning.\n\nJust three words.\n\n'You're still behind.'\n\nThe carving is fresh.\n\nWhoever left it wanted the next traveler to read it.\n\nYou glance toward the eastern road.\n\nThe footprints continue.\n\nSo does your journey.",
-    "next": "12_explorer"
-  },
-
   "11_settler_event": {
     "type": "event",
     "title": "The Head's Position",
     "text": "The Head attends the meeting.\n\nHe listens more than he speaks.\n\nEventually he makes a decision.\n\nExpansion will begin slowly.\n\nControlled.\n\nMeasured.\n\nNobody leaves completely satisfied.\n\nYet nobody leaves angry either.\n\nThe Head notices you watching.\n\nFor a moment, it almost seems like he's evaluating you.",
     "next": "12_settler"
+  },
+
+  "11_explorer_event": {
+    "type": "event",
+    "title": "Someone Is Ahead",
+    "text": "Morning arrives beneath a grey sky.\n\nThe watchtower falls silent once more.\n\nBefore leaving, you discover something carved into the inside of the doorway.\n\nNot a name.\n\nNot a warning.\n\nJust three words.\n\n'You're still behind.'\n\nThe carving is fresh.\n\nWhoever left it wanted the next traveler to read it.\n\nYou glance toward the eastern road.\n\nThe footprints continue.\n\nSo does your journey.",
+    "next": "12_explorer"
   },
 
   "12_settler": {
@@ -759,46 +759,72 @@
 
   "12_explorer": {
     "type": "scenario",
-    "title": "The Silent Settlement",
-    "text": "Following the trail leads you to an abandoned settlement.\n\nThe buildings remain standing.\n\nThe roads remain visible.\n\nNothing suggests violence.\n\nNothing suggests disaster.\n\nThe people simply left.\n\nYears ago.\n\nPerhaps decades.\n\nAmong the abandoned structures, you discover the symbol once again.\n\nCarved into stone near the settlement's center.",
+    "title": "Echoes Beneath the Ruins",
+    "text": "The footprints lead you beneath the hills into a forgotten underground complex.\n\nThe air grows colder with every step.\n\nAncient stone walls surround a circular chamber unlike anything you've seen before.\n\nStrange mechanisms line the room.\n\nMost have long since rusted away.\n\nOne still hums quietly.\n\nYour artifact suddenly reacts.\n\nIt pulls your attention toward hidden markings carved into the stone.\n\nThe chamber wasn't built to keep people out.\n\nIt was built to test those worthy of entering.\n\nSomewhere beyond this room lies whatever your mysterious predecessor was searching for.\n\nThe mechanism slowly begins moving on its own.\n\nYou only have moments to decide how to proceed.",
     "choices": [
       {
-        "text": "Study surviving records",
+        "text": "Study the mechanism before touching anything.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "12_explorer_event",
-        "result": "You search for written explanations behind the settlement's disappearance."
+        "next": "12_event",
+        "result": "You patiently examine every moving piece until the mechanism's purpose becomes clear. Knowledge succeeds where haste would have failed.",
+        "artifact_result": {
+          "journal": "A faded sketch inside your journal perfectly matches the mechanism's hidden design. Whoever owned it had seen this chamber before.",
+          "ring": "As your ring brushes the ancient stone, several hidden symbols illuminate across the walls, revealing instructions invisible moments earlier.",
+          "chicken": "The wooden chicken suddenly rattles violently beside one loose stone. Removing it exposes a concealed locking mechanism."
+        }
       },
       {
-        "text": "Look for personal stories",
+        "text": "Allow your companions to help solve the chamber together.",
         "stat": "trust",
         "amount": 1,
-        "next": "12_explorer_event",
-        "result": "You search for letters and traces left behind by former residents."
+        "next": "12_event",
+        "result": "Everyone contributes a small observation. Alone none would have solved the puzzle, but together the answer becomes obvious.",
+        "artifact_result": {
+          "journal": "One companion recognizes a symbol copied inside your journal from an old legend their family once preserved.",
+          "ring": "A companion quietly admits they've seen nobles wearing rings identical to yours, though never outside forgotten history.",
+          "chicken": "The chicken rolls toward one nervous companion, calming them enough to notice a hidden pressure plate everyone else overlooked."
+        }
       },
       {
-        "text": "Examine leadership records",
+        "text": "Take command before uncertainty spreads.",
         "stat": "influence",
         "amount": 1,
         "next": "12_explorer_event",
-        "result": "You investigate the people who guided the settlement."
+        "result": "Your confidence keeps panic from taking hold. Every instruction is followed without hesitation as the chamber slowly awakens.",
+        "artifact_result": {
+          "journal": "The journal describes an ancient expedition leader whose decisions eerily mirror your own in this very chamber.",
+          "ring": "The mechanisms respond almost respectfully once your ring becomes visible, as though recognizing forgotten authority.",
+          "chicken": "The chicken somehow ends up standing perfectly upright atop a control pedestal, drawing everyone's attention to the correct sequence."
+        }
       },
       {
-        "text": "Search beyond the settlement",
+        "text": "Push through the chamber's dangerous trial.",
         "stat": "hp_stat",
         "amount": 1,
         "next": "12_explorer_event",
-        "result": "You expand the search into the surrounding wilderness."
+        "result": "Ancient defenses spring to life. Every step tests your endurance, but you refuse to retreat.",
+        "artifact_result": {
+          "journal": "Several blank pages suddenly fill with unfamiliar handwriting describing how previous explorers survived this exact trial.",
+          "ring": "A volley of stone darts suddenly changes direction after striking your ring, leaving only shallow wounds behind.",
+          "chicken": "The wooden chicken tumbles ahead of you, accidentally triggering nearly every trap before you reach them."
+        }
       },
       {
-        "text": "Trace where the people went",
+        "text": "Search for another path hidden within the walls.",
         "stat": "skill",
         "amount": 1,
         "next": "12_explorer_event",
-        "result": "You follow the routes used during the settlement's final days."
+        "result": "Tiny cracks reveal maintenance passages forgotten centuries ago. Precision uncovers what brute force never could.",
+        "artifact_result": {
+          "journal": "One page unfolds into a hidden map showing narrow maintenance tunnels omitted from every official blueprint.",
+          "ring": "Your ring catches on an old stone lever disguised as decoration, opening a passage no one noticed.",
+          "chicken": "The chicken slips from your pack and disappears through a narrow gap. Following it leads directly into a hidden corridor."
+        }
       }
     ]
   },
+
 
   "12_settler_event": {
     "type": "event",
@@ -809,8 +835,8 @@
 
   "12_explorer_event": {
     "type": "event",
-    "title": "Gone Searching",
-    "text": "Fragments of evidence begin forming a picture.\n\nThe settlement did not collapse.\n\nIt departed.\n\nGroups left in stages.\n\nEach one following the same direction.\n\nEach one searching for something.\n\nNo record explains what they hoped to find.\n\nOnly that they believed it was important enough to leave everything behind.",
+    "title": "The First Door",
+    "text": "The chamber falls silent.\n\nOne by one, the ancient mechanisms grind to a halt.\n\nDust drifts through the air.\n\nThen a deep rumble shakes the stone beneath your feet.\n\nAcross the room, an enormous circular doorway slowly begins to rise.\n\nNo one speaks.\n\nBeyond the opening stretches a corridor untouched by time.\n\nFresh footprints continue through it.\n\nWhoever you've been following solved this trial before you.\n\nYet something else catches your attention.\n\nThe walls beyond the doorway are covered with strange carvings.\n\nNot warnings.\n\nNot history.\n\nNames.\n\nHundreds of them.\n\nEvery explorer who reached this place carved their name into the stone.\n\nMany continue no farther.\n\nThe carvings simply stop.\n\nAs though the corridor swallowed everyone who entered.\n\nYour artifact grows warm.\n\nSomewhere deeper within these ruins...\n\nSomething has finally noticed your arrival.",
     "next": "13_explorer"
   },
 
@@ -845,43 +871,68 @@
 
   "13_explorer": {
     "type": "scenario",
-    "title": "The Missing Expedition",
-    "text": "Old archives reference an expedition that vanished years ago.\n\nExperienced explorers.\n\nWell supplied.\n\nWell prepared.\n\nThey departed with a clear objective.\n\nNone returned.\n\nRecently, however, travelers have reported signs that the expedition may have reached its destination.\n\nThe reports are impossible to verify.\n\nYet one detail appears repeatedly.\n\nThe symbol.",
+    "title": "The Hall of Names",
+    "text": "The corridor stretches farther than anyone expected.\n\nThe walls remain covered with names.\n\nThousands of them.\n\nSome are carefully carved.\n\nOthers look as though they were scratched into the stone by trembling hands.\n\nNone continue beyond the end of the hall.\n\nAt its center stands an enormous stone archive.\n\nShelves filled with sealed tablets disappear into darkness.\n\nMost remain untouched.\n\nOne pedestal stands empty.\n\nWhatever belonged there was taken long ago.\n\nYour artifact grows warmer with every step.\n\nSomeone removed more than an object.\n\nThey removed part of this place itself.",
     "choices": [
       {
-        "text": "Research the expedition",
+        "text": "Study the ancient records.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "13_explorer_event",
-        "result": "You gather everything known about the missing explorers."
+        "next": "13_event",
+        "result": "The tablets describe expeditions spanning centuries. Every account ends at this archive.",
+        "artifact_result": {
+          "journal": "Your journal contains page numbers matching several missing tablets.",
+          "ring": "A record identifies a forgotten bloodline carrying a ring identical to yours.",
+          "chicken": "The chicken tips over beside a cracked shelf, revealing a hidden tablet behind it."
+        }
       },
       {
-        "text": "Speak with witnesses",
+        "text": "Work together to translate the inscriptions.",
         "stat": "trust",
         "amount": 1,
-        "next": "13_explorer_event",
-        "result": "You collect stories from travelers who claim to have seen evidence."
+        "next": "13_event",
+        "result": "Everyone contributes fragments until the forgotten language finally begins making sense.",
+        "artifact_result": {
+          "journal": "Your journal fills gaps in the damaged inscriptions.",
+          "ring": "One companion recognizes your crest inside the carvings.",
+          "chicken": "The chicken's strange noises accidentally reveal a loose floor tile hiding additional inscriptions."
+        }
       },
       {
-        "text": "Investigate who funded them",
+        "text": "Organize the expedition before moving deeper.",
         "stat": "influence",
         "amount": 1,
         "next": "13_explorer_event",
-        "result": "You search for the people who supported the expedition."
+        "result": "Clear leadership keeps fear from spreading through the group.",
+        "artifact_result": {
+          "journal": "The journal speaks of leaders who vanished after reaching this chamber.",
+          "ring": "The stone doors respond only after your ring is held forward.",
+          "chicken": "The chicken somehow blocks a collapsing stone slab before anyone is crushed."
+        }
       },
       {
-        "text": "Follow their trail",
+        "text": "Force open the sealed archive.",
         "stat": "hp_stat",
         "amount": 1,
         "next": "13_explorer_event",
-        "result": "You travel along the same dangerous route they once followed."
+        "result": "Dust explodes into the air as ancient stone finally gives way.",
+        "artifact_result": {
+          "journal": "A hidden compartment contains pages torn from your journal centuries ago.",
+          "ring": "Your ring protects your hand from a deadly sealing mechanism.",
+          "chicken": "The chicken wedges into a crack, preventing the heavy door from crushing you."
+        }
       },
       {
-        "text": "Predict their destination",
+        "text": "Search for hidden passages behind the archive.",
         "stat": "skill",
         "amount": 1,
         "next": "13_explorer_event",
-        "result": "You reconstruct the expedition's likely objective."
+        "result": "You discover maintenance corridors winding beneath the archive itself.",
+        "artifact_result": {
+          "journal": "A faded map inside the journal perfectly matches the hidden corridor.",
+          "ring": "Your ring presses against a disguised lock that silently opens.",
+          "chicken": "The chicken rolls through a narrow gap, exposing the secret entrance."
+        }
       }
     ]
   },
@@ -895,8 +946,8 @@
 
   "13_explorer_event": {
     "type": "event",
-    "title": "The Same Trail",
-    "text": "The evidence leaves little room for doubt.\n\nThe expedition was investigating the symbol.\n\nJust like you.\n\nTheir notes become increasingly focused as they approach their final destination.\n\nThen the records stop.\n\nNo explanation.\n\nNo conclusion.\n\nOnly silence.",
+    "title": "The Missing Record",
+    "text": "One shelf remains empty.\n\nEvery nearby inscription has been deliberately erased.\n\nOnly a single sentence survives.\n\n'The one who remembers shall never be remembered.'\n\nYour artifact pulses.\n\nSomebody didn't steal knowledge.\n\nThey erased an entire person from history.",
     "next": "14_explorer"
   },
 
@@ -931,43 +982,43 @@
 
   "14_explorer": {
     "type": "scenario",
-    "title": "The Watchers",
-    "text": "As your investigation continues, a strange pattern emerges.\n\nPeople begin appearing wherever you travel.\n\nDifferent faces.\n\nDifferent names.\n\nYet the questions remain similar.\n\nWhat have you found?\n\nWhere are you going?\n\nWhat do you know about the symbol?\n\nThey never threaten you.\n\nThey never reveal who they work for.\n\nBut someone is paying attention.",
+    "title": "The Silent Observatory",
+    "text": "Beyond the archive rises an enormous circular chamber.\n\nBroken lenses point toward a ceiling that no longer exists.\n\nAncient instruments continue moving without anyone touching them.\n\nThe stars above have changed.\n\nYet the machinery still follows patterns from another age.\n\nSomething here has been watching the world for centuries.\n\nIt never stopped.",
     "choices": [
       {
-        "text": "Learn who they are",
+        "text": "Study the celestial machinery.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "14_explorer_event",
-        "result": "You focus on gathering information about the mysterious observers."
+        "next": "14_event",
+        "result": "The observatory predicts events long before they occur."
       },
       {
-        "text": "Build trust with them",
+        "text": "Compare everyone's observations.",
         "stat": "trust",
         "amount": 1,
-        "next": "14_explorer_event",
-        "result": "You attempt to earn their confidence."
+        "next": "14_event",
+        "result": "Different viewpoints reveal patterns no individual could notice."
       },
       {
-        "text": "Investigate their motives",
+        "text": "Direct repairs to the ancient machine.",
         "stat": "influence",
         "amount": 1,
         "next": "14_explorer_event",
-        "result": "You search for the purpose behind their actions."
+        "result": "The observatory slowly comes alive under your guidance."
       },
       {
-        "text": "Ignore them and continue",
+        "text": "Climb the unstable structure.",
         "stat": "hp_stat",
         "amount": 1,
         "next": "14_explorer_event",
-        "result": "You refuse to be distracted from the investigation."
+        "result": "The climb nearly kills you, but the view changes everything."
       },
       {
-        "text": "Avoid their surveillance",
+        "text": "Navigate the moving machinery.",
         "stat": "skill",
         "amount": 1,
         "next": "14_explorer_event",
-        "result": "You move carefully to prevent them from tracking your progress."
+        "result": "Perfect timing carries you safely through impossible obstacles."
       }
     ]
   },
@@ -981,8 +1032,8 @@
 
   "14_explorer_event": {
     "type": "event",
-    "title": "Questions Without Answers",
-    "text": "You never learn everything.\n\nBut one fact becomes clear.\n\nThe watchers are searching for the same truth.\n\nThey know about the symbol.\n\nThey know about the missing expedition.\n\nAnd they know far more than they admit.\n\nYou are not the only person following this trail.",
+    "title": "An Impossible Sky",
+    "text": "The machine finally stops.\n\nEvery lens turns toward you.\n\nFor a single moment the ceiling disappears.\n\nYou do not see today's sky.\n\nYou see stars that have not existed for thousands of years.\n\nThen everything returns to normal.\n\nThe observatory wasn't watching the heavens.\n\nIt was remembering them.",
     "next": "15_explorer"
   },
 
@@ -1020,43 +1071,43 @@
 
   "15_explorer": {
     "type": "scenario",
-    "title": "The First Fragment",
-    "text": "The trail finally leads somewhere tangible.\n\nHidden beneath ruins older than any map, you discover a fragment.\n\nStone.\n\nCovered in symbols.\n\nIncluding the one you have been following.\n\nFor the first time, all the clues connect.\n\nThe abandoned settlement.\n\nThe missing expedition.\n\nThe watchers.\n\nNone of them were separate mysteries.\n\nThey were pieces of the same puzzle.",
+    "title": "The Keeper's Trial",
+    "text": "At the observatory's center stands a lone stone figure.\n\nIt has no face.\n\nNo weapon.\n\nNo inscription.\n\nAs you approach, every artifact begins reacting at once.\n\nThe statue slowly raises one hand.\n\nThe trial has begun.\n\nNot of strength.\n\nOf worth.",
     "choices": [
       {
-        "text": "Study the fragment",
+        "text": "Answer with knowledge.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "15_explorer_event",
-        "result": "You focus on understanding the fragment's meaning."
+        "next": "EXPLORER_CLASS_CHECK",
+        "result": "You search for understanding before acting."
       },
       {
-        "text": "Share the discovery",
+        "text": "Answer with compassion.",
         "stat": "trust",
         "amount": 1,
-        "next": "15_explorer_event",
-        "result": "You believe important discoveries should not remain hidden."
+        "next": "EXPLORER_CLASS_CHECK",
+        "result": "You place people above certainty."
       },
       {
-        "text": "Consider its implications",
+        "text": "Answer with leadership.",
         "stat": "influence",
         "amount": 1,
-        "next": "15_explorer_event",
-        "result": "You focus on what this discovery could mean for the world."
+        "next": "EXPLORER_CLASS_CHECK",
+        "result": "You accept responsibility without hesitation."
       },
       {
-        "text": "Protect the fragment",
+        "text": "Answer through endurance.",
         "stat": "hp_stat",
         "amount": 1,
-        "next": "15_explorer_event",
-        "result": "You prioritize keeping the fragment safe."
+        "next": "EXPLORER_CLASS_CHECK",
+        "result": "You endure what others cannot."
       },
       {
-        "text": "Search for additional pieces",
+        "text": "Answer through action.",
         "stat": "skill",
         "amount": 1,
-        "next": "15_explorer_event",
-        "result": "You immediately begin searching for more fragments."
+        "next": "EXPLORER_CLASS_CHECK",
+        "result": "You trust movement over words."
       }
     ]
   },
@@ -1092,9 +1143,384 @@
 
   "15_explorer_event": {
     "type": "event",
-    "title": "A Name",
-    "text": "The fragment is incomplete.\n\nMost of its message has been lost.\n\nOnly fragments remain.\n\nYet one phrase survives.\n\nA name.\n\nThe Final Horizon.\n\nThe missing expedition searched for it.\n\nThe abandoned settlement pursued it.\n\nThe watchers seek it.\n\nAnd now...\n\nSo do you.",
-    "next": "explorer_v05_end"
+    "title": "Judgment",
+    "text": "The stone figure lowers its hand.\n\nThe chamber falls completely silent.\n\nYour artifact shines brighter than ever before.\n\nSomething ancient studies every decision you've made since leaving civilization.\n\nNot your victories.\n\nNot your failures.\n\nYour choices.\n\nA voice echoes through the ruins.\n\n'Every path leaves its mark.'\n\nThe trial is complete.",
+    "next": "16_explorer"
+  },
+
+  "16_explorer": {
+    "type": "scenario",
+    "title": "The Engine Below",
+    "text": "The hidden passage descends deeper than any map could have predicted.\n\nThe air grows warmer.\n\nThe stone beneath your feet changes.\n\nThe ancient blocks become smooth metal unlike anything crafted today.\n\nAt the end of the tunnel stands a chamber so vast your torch cannot reveal its ceiling.\n\nAn enormous structure rests at its center.\n\nCountless rings surround a motionless core.\n\nThousands of engraved symbols cover its surface.\n\nNo rust.\n\nNo decay.\n\nOnly silence.\n\nYour artifact suddenly reacts.\n\nFor a brief moment, the entire chamber vibrates.\n\nA faint light travels across the machine before fading once more.\n\nWhatever this place truly is...\n\nIt has not died.\n\nIt has merely been sleeping.",
+    "choices": [
+      {
+        "text": "Study the machine's inscriptions.",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "16_explorer_event",
+        "result": "Ancient symbols begin revealing fragments of a forgotten language unlike anything recorded.",
+        "artifact_result": {
+          "journal": "Several symbols perfectly match unfinished sketches inside your journal.",
+          "ring": "The machine briefly glows whenever your ring nears its surface.",
+          "chicken": "The chicken lands beside a loose panel, exposing hidden inscriptions underneath."
+        }
+      },
+      {
+        "text": "Work together to inspect the surrounding mechanisms.",
+        "stat": "trust",
+        "amount": 1,
+        "next": "16_explorer_event",
+        "result": "Careful teamwork uncovers maintenance paths surrounding the enormous machine.",
+        "artifact_result": {
+          "journal": "Your journal helps identify markings that safely guide the expedition.",
+          "ring": "The ring prevents one mechanism from activating unexpectedly.",
+          "chicken": "The chicken rolls beneath exposed gears, revealing a concealed access hatch."
+        }
+      },
+      {
+        "text": "Take command of the investigation.",
+        "stat": "influence",
+        "amount": 1,
+        "next": "16_explorer_event",
+        "result": "The expedition remains calm as everyone follows your direction through the chamber.",
+        "artifact_result": {
+          "journal": "Several diagrams describe leaders assigned to oversee the machine.",
+          "ring": "Your ring is recognized by ancient sensors before anyone else notices.",
+          "chicken": "The chicken distracts everyone long enough for you to prevent a dangerous mistake."
+        }
+      },
+      {
+        "text": "Approach the dormant core.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "16_explorer_event",
+        "result": "Every step feels heavier as invisible energy fills the chamber.",
+        "artifact_result": {
+          "journal": "The journal's pages briefly glow before returning to normal.",
+          "ring": "The ring shields you from a sudden burst of energy.",
+          "chicken": "The chicken bounces harmlessly into the energy field while you remain untouched."
+        }
+      },
+      {
+        "text": "Search for the machine's power source.",
+        "stat": "skill",
+        "amount": 1,
+        "next": "16_explorer_event",
+        "result": "Hidden maintenance tunnels reveal how impossibly vast the structure truly is.",
+        "artifact_result": {
+          "journal": "A forgotten maintenance route perfectly matches a rough sketch inside your journal.",
+          "ring": "The ring unlocks a concealed maintenance door.",
+          "chicken": "The chicken slips into a narrow opening, exposing a hidden passage."
+        }
+      }
+    ]
+  },
+
+  "16_explorer_event": {
+    "type": "event",
+    "title": "The Sleeping Heart",
+    "text": "Without warning, your artifact pulses.\n\nThe dormant machine answers.\n\nAncient rings slowly begin turning.\n\nLight races across symbols untouched for centuries.\n\nThe entire chamber trembles.\n\nThen...\n\nSilence.\n\nWhatever awakened only lasted a few seconds.\n\nBut it was enough.\n\nSomething deep beneath the ruins has noticed your arrival.",
+    "next": "17_explorer"
+  },
+
+  "17_explorer": {
+    "type": "scenario",
+    "title": "The Forgotten Purpose",
+    "text": "Beyond the machine lies an untouched archive.\n\nUnlike every record before, these tablets remain complete.\n\nHours of translation slowly reveal the impossible.\n\nThe civilization whose ruins cover the land did not build the machine.\n\nThey inherited it.\n\nGeneration after generation they served as its guardians.\n\nTheir greatest cities existed for only one purpose.\n\nMaintenance.\n\nProtection.\n\nContainment.\n\nEvery monument.\n\nEvery law.\n\nEvery sacrifice.\n\nAll dedicated to ensuring one thing beneath the earth never awakened.\n\nYour expedition has misunderstood these ruins from the very beginning.",
+    "choices": [
+      {
+        "text": "Translate every remaining record.",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "17_explorer_event",
+        "result": "Each completed tablet fills another gap in humanity's forgotten history.",
+        "artifact_result": {
+          "journal": "Entire passages appear where blank pages once existed.",
+          "ring": "The ring's crest is listed among the ancient guardians.",
+          "chicken": "A loose tablet hidden beneath the chicken completes the final translation."
+        }
+      },
+      {
+        "text": "Share the discovery with the expedition.",
+        "stat": "trust",
+        "amount": 1,
+        "next": "17_explorer_event",
+        "result": "Fear gives way to determination as everyone finally understands their mission.",
+        "artifact_result": {
+          "journal": "Your journal helps convince the others the records are genuine.",
+          "ring": "The ring becomes undeniable proof of the archive's claims.",
+          "chicken": "The chicken's familiar absurdity briefly eases the expedition's growing tension."
+        }
+      },
+      {
+        "text": "Assume responsibility for the expedition's next decision.",
+        "stat": "influence",
+        "amount": 1,
+        "next": "17_explorer_event",
+        "result": "Everyone looks to you before taking another step.",
+        "artifact_result": {
+          "journal": "Ancient leaders recorded the same burden you now carry.",
+          "ring": "The ring silently confirms your authority.",
+          "chicken": "The chicken somehow keeps morale from collapsing during the debate."
+        }
+      },
+      {
+        "text": "Inspect the guardian chambers.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "17_explorer_event",
+        "result": "The abandoned quarters still contain signs of the civilization's final days.",
+        "artifact_result": {
+          "journal": "One final diary matches the handwriting inside your journal.",
+          "ring": "The ring opens a chamber untouched since the civilization vanished.",
+          "chicken": "The chicken uncovers hidden supplies left by the last guardians."
+        }
+      },
+      {
+        "text": "Search for evidence of the civilization's downfall.",
+        "stat": "skill",
+        "amount": 1,
+        "next": "17_explorer_event",
+        "result": "Subtle clues reveal that the guardians never truly failed by accident.",
+        "artifact_result": {
+          "journal": "Your journal highlights symbols pointing toward the final chamber.",
+          "ring": "The ring reacts near a sealed emergency passage.",
+          "chicken": "The chicken finds a concealed switch no one noticed."
+        }
+      }
+    ]
+  },
+
+  "17_explorer_event": {
+    "type": "event",
+    "title": "Inheritance",
+    "text": "One final inscription remains.\n\n'We were never its creators.\n\nOnly its keepers.\n\nWhen we are gone...\n\nAnother must take our place.'\n\nFor the first time, the expedition realizes the ruins were never meant to preserve history.\n\nThey were waiting for successors.",
+    "next": "18_explorer"
+  },
+
+  "18_explorer": {
+    "type": "scenario",
+    "title": "The Price of Silence",
+    "text": "The deeper chambers no longer sleep.\n\nDoors begin opening on their own.\n\nAncient lights illuminate forgotten halls.\n\nMachines awaken one after another.\n\nStone guardians slowly shift where they have stood for centuries.\n\nThe archive never activated because of time.\n\nIt activated because of you.\n\nEvery step.\n\nEvery discovery.\n\nEvery artifact.\n\nTogether they have restarted the ancient complex.\n\nFar ahead, an enormous sealed gateway begins moving.\n\nThe sound echoes through the ruins.\n\nSomething beyond it is waiting.",
+    "choices": [
+      {
+        "text": "Analyze the awakening systems.",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "18_explorer_event",
+        "result": "Patterns emerge showing the entire complex functions as one enormous mechanism.",
+        "artifact_result": {
+          "journal": "The journal predicts each activation moments before it happens.",
+          "ring": "Your ring identifies control symbols hidden among the machinery.",
+          "chicken": "The chicken lands on a pressure plate that safely reveals another mechanism."
+        }
+      },
+      {
+        "text": "Keep the expedition united.",
+        "stat": "trust",
+        "amount": 1,
+        "next": "18_explorer_event",
+        "result": "Panic spreads quickly, but steady leadership keeps everyone moving together.",
+        "artifact_result": {
+          "journal": "Your journal contains reassuring notes left by earlier explorers.",
+          "ring": "The ring calms fears as the group recognizes its significance.",
+          "chicken": "The chicken somehow makes everyone laugh during the worst possible moment."
+        }
+      },
+      {
+        "text": "Take charge during the awakening.",
+        "stat": "influence",
+        "amount": 1,
+        "next": "18_explorer_event",
+        "result": "Quick decisions prevent chaos as ancient systems continue activating.",
+        "artifact_result": {
+          "journal": "The journal records emergency procedures nearly identical to your own commands.",
+          "ring": "The ring grants access to a secure command platform.",
+          "chicken": "The chicken distracts an awakening guardian long enough for everyone to escape."
+        }
+      },
+      {
+        "text": "Push forward despite the danger.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "18_explorer_event",
+        "result": "The expedition endures collapsing pathways to stay ahead of the awakening complex.",
+        "artifact_result": {
+          "journal": "The journal reveals a safer escape route moments before disaster strikes.",
+          "ring": "Your ring absorbs a dangerous surge of energy.",
+          "chicken": "The chicken's unexpected detour saves you from falling debris."
+        }
+      },
+      {
+        "text": "Reach the great gateway before it fully opens.",
+        "stat": "skill",
+        "amount": 1,
+        "next": "18_explorer_event",
+        "result": "Swift movement carries you across ancient bridges as the ruins come alive.",
+        "artifact_result": {
+          "journal": "The journal marks hidden shortcuts toward the gateway.",
+          "ring": "The ring unlocks barriers that would otherwise slow the expedition.",
+          "chicken": "The chicken discovers a maintenance path leading directly to the gate."
+        }
+      }
+    ]
+  },
+
+  "18_explorer_event": {
+    "type": "event",
+    "title": "The First Alarm",
+    "text": "The gateway opens only a few feet.\n\nThat is enough.\n\nA deep tone echoes throughout the entire complex.\n\nEvery dormant machine answers.\n\nThe lights brighten.\n\nThe guardians awaken.\n\nFor the first time in centuries...\n\nThe ancient system declares an intruder.\n\nThe final path now lies before you.\n\nThere is no returning the ruins to silence.",
+    "next": "19_explorer"
+  },
+
+  "19_explorer": {
+    "type": "scenario",
+    "title": "The Final Seal",
+    "text": "The gateway now stands before the expedition.\n\nIts doors tower over every monument you've encountered.\n\nThousands of interlocking rings cover its surface.\n\nEach slowly turns as ancient mechanisms awaken beneath the earth.\n\nBeyond the narrow opening lies only darkness.\n\nThe guardians did not build this place to keep people out.\n\nThey built it to keep something inside.\n\nYour artifact grows warmer.\n\nThe gateway answers.\n\nSymbols race across the stone.\n\nOne by one, enormous locks begin releasing.\n\nThe expedition falls silent.\n\nNo one questions what comes next.\n\nWhatever waits beyond this seal has waited longer than history itself.",
+    "choices": [
+      {
+        "text": "Study the locking mechanisms before opening the gate.",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "19_explorer_event",
+        "result": "Every mechanism reveals remarkable engineering far beyond modern understanding.",
+        "artifact_result": {
+          "journal": "Your journal contains diagrams matching the gateway's intricate design.",
+          "ring": "The ring identifies symbols marking the gateway's original builders.",
+          "chicken": "The chicken lands atop a loose stone, exposing an overlooked locking mechanism."
+        }
+      },
+      {
+        "text": "Prepare the expedition for what lies ahead.",
+        "stat": "trust",
+        "amount": 1,
+        "next": "19_explorer_event",
+        "result": "Confidence replaces fear as everyone commits to crossing the threshold together.",
+        "artifact_result": {
+          "journal": "The journal recounts guardians placing their trust in one another before the final passage.",
+          "ring": "The ring reassures the expedition that they have reached the correct path.",
+          "chicken": "The chicken somehow eases the growing tension with its familiar absurdity."
+        }
+      },
+      {
+        "text": "Lead the expedition to the gateway.",
+        "stat": "influence",
+        "amount": 1,
+        "next": "19_explorer_event",
+        "result": "No one hesitates as you take the first step toward the ancient seal.",
+        "artifact_result": {
+          "journal": "The journal speaks of one chosen to lead the final descent.",
+          "ring": "The gateway acknowledges your ring before anyone else approaches.",
+          "chicken": "The chicken unexpectedly avoids a hidden pressure plate that would have delayed the expedition."
+        }
+      },
+      {
+        "text": "Place your hand upon the ancient seal.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "19_explorer_event",
+        "result": "A surge of ancient energy courses through the gateway as it accepts your presence.",
+        "artifact_result": {
+          "journal": "The journal's final blank page briefly fills with glowing symbols.",
+          "ring": "The ring shields you from the gateway's overwhelming energy.",
+          "chicken": "The chicken remains perfectly calm despite the violent tremors around it."
+        }
+      },
+      {
+        "text": "Search for another entrance before opening the gate.",
+        "stat": "skill",
+        "amount": 1,
+        "next": "19_explorer_event",
+        "result": "Every hidden passage ultimately leads back to the same colossal gateway.",
+        "artifact_result": {
+          "journal": "Your journal confirms there has never been another path.",
+          "ring": "The ring quietly guides you back toward the true entrance.",
+          "chicken": "The chicken wanders into a forgotten corridor that circles back to the gateway."
+        }
+      }
+    ]
+  },
+
+  "19_explorer_event": {
+    "type": "event",
+    "title": "The Chosen Key",
+    "text": "Your artifact begins to shine.\n\nThe gateway answers.\n\nMassive locks disengage one after another.\n\nAncient gears roar back to life.\n\nDust falls from the ceiling as the enormous doors slowly separate.\n\nThe path ahead illuminates for the first time in centuries.\n\nThe expedition finally understands.\n\nThe artifact was never a relic.\n\nIt was always meant to open this place.\n\nThe final chamber now awaits.",
+    "next": "20_explorer"
+  },
+
+  "20_explorer": {
+    "type": "scenario",
+    "title": "Beyond the Threshold",
+    "text": "Beyond the gateway lies absolute silence.\n\nThe chamber stretches beyond the reach of your torch.\n\nAncient machines line the walls.\n\nNone are damaged.\n\nNone are abandoned.\n\nEverything still functions exactly as intended.\n\nAt the chamber's center stands a single platform surrounded by countless records.\n\nTheir message is unmistakable.\n\nThe guardians never destroyed what they sealed.\n\nThey only delayed its return.\n\nThe burden was never theirs alone.\n\nOne day another would arrive.\n\nOne day another would choose.\n\nA final doorway slowly begins to open.\n\nCold air pours from the darkness beyond.\n\nWhatever waits there has been expecting someone.",
+    "choices": [
+      {
+        "text": "Read the guardians' final records.",
+        "stat": "knowledge",
+        "amount": 1,
+        "next": "20_explorer_event",
+        "result": "The final records reveal that every generation sacrificed itself to preserve the seal.",
+        "artifact_result": {
+          "journal": "Your journal's missing pages complete themselves with the guardians' final testimony.",
+          "ring": "The ring is identified as a symbol of those entrusted with the final decision.",
+          "chicken": "The chicken uncovers one last hidden record overlooked for centuries."
+        }
+      },
+      {
+        "text": "Stand beside your companions before moving forward.",
+        "stat": "trust",
+        "amount": 1,
+        "next": "20_explorer_event",
+        "result": "No one speaks. The silence alone is enough to strengthen everyone's resolve.",
+        "artifact_result": {
+          "journal": "A final entry reminds every guardian that no burden should be carried alone.",
+          "ring": "The ring glows softly as the expedition stands united.",
+          "chicken": "The chicken settles quietly beside the group, breaking the unbearable silence."
+        }
+      },
+      {
+        "text": "Accept responsibility for what comes next.",
+        "stat": "influence",
+        "amount": 1,
+        "next": "20_explorer_event",
+        "result": "The ancient systems recognize your decision without hesitation.",
+        "artifact_result": {
+          "journal": "The journal names those who once stood where you now stand.",
+          "ring": "The ring activates the platform at the center of the chamber.",
+          "chicken": "The chicken confidently walks toward the final doorway before anyone else."
+        }
+      },
+      {
+        "text": "Step toward the opening despite the danger.",
+        "stat": "hp_stat",
+        "amount": 1,
+        "next": "20_explorer_event",
+        "result": "Every instinct warns you to stop, yet you continue forward.",
+        "artifact_result": {
+          "journal": "The journal's final sentence simply reads: 'Do not fear the truth.'",
+          "ring": "The ring protects you as invisible energy surrounds the doorway.",
+          "chicken": "The chicken crosses safely, proving the path itself is not the danger."
+        }
+      },
+      {
+        "text": "Inspect the final chamber before entering.",
+        "stat": "skill",
+        "amount": 1,
+        "next": "20_explorer_event",
+        "result": "Careful observation reveals that every mechanism points toward the final doorway.",
+        "artifact_result": {
+          "journal": "The journal confirms there are no remaining secrets behind you.",
+          "ring": "The ring reveals the safest route across the chamber.",
+          "chicken": "The chicken discovers a hidden bridge leading directly to the final entrance."
+        }
+      }
+    ]
+  },
+
+  "20_explorer_event": {
+    "type": "event",
+    "title": "No Turning Back",
+    "text": "The expedition crosses the threshold.\n\nWithout warning...\n\nThe gateway behind you closes.\n\nThe sound echoes throughout the ancient complex.\n\nEvery path back disappears.\n\nOne final inscription slowly appears upon the stone.\n\n'Those who walk beyond this point shall decide the fate of all who follow.'\n\nThe darkness ahead begins to stir.\n\nThe final journey has begun.",
+    "next": "21_explorer"
   },
 
   "settler_scholar_ending":{

@@ -200,35 +200,40 @@ def show_save_menu(player, current_scenario):
                 if event.key == pygame.K_ESCAPE:
                     return
 
-            for button, value in buttons:
+                if event.key == pygame.K_1:
+                    value = 1
+                elif event.key == pygame.K_2:
+                    value = 2
+                elif event.key == pygame.K_3:
+                    value = 3
+                else:
+                    continue
 
-                if button.handle_event(event):
+                existing = save_repository.load_game(value)
 
-                    if value == "BACK":
-                        return
-
-                    existing = save_repository.load_game(value)
-
-                    if existing:
-                        confirm = display.confirm_overwrite(
-                            existing["player"]["name"]
-                        )
-
-                        if not confirm:
-                            break
-
-                    save_repository.save_game(
-                        player,
-                        current_scenario,
-                        value
+                if existing:
+                    confirm = display._show_confirmation_popup(
+                        "Overwrite Save?",
+                        f"Slot {value} already contains {existing['player']['name']}.\n\nOverwrite this save?",
+                        confirm_text="Overwrite",
+                        cancel_text="Cancel"
                     )
 
-                    display.show_message(
-                        "Game Saved",
-                        f"Saved to Slot {value}"
-                    )
+                    if not confirm:
+                        continue
 
-                    return
+                save_repository.save_game(
+                    player,
+                    current_scenario,
+                    value
+                )
+
+                display.show_message(
+                    "Game Saved",
+                    f"Saved to Slot {value}"
+                )
+
+                return
 
         ui.draw_background(screen, "menu")
 
