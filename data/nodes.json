@@ -652,7 +652,7 @@
         "text": "Search the remaining books for overlooked clues.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "11_event",
+        "next": "11_explorer_event",
         "result": "You carefully examine every damaged page. Whoever came before worked quickly. They missed more than they realized.",
         "artifact_result": {
           "journal": "One symbol burned into your journal perfectly matches a faded mark hidden inside a surviving book margin. Someone tried to erase it.",
@@ -664,7 +664,7 @@
         "text": "Examine the campsite for signs of its previous occupants.",
         "stat": "trust",
         "amount": 1,
-        "next": "11_event",
+        "next": "11_explorer_event",
         "result": "The fire has only been out for a few hours. Whoever stayed here expected company but left in a hurry.",
         "artifact_result": {
           "journal": "Among the ashes you find a scrap reading, 'The journal still exists.' The remaining sentence has burned away.",
@@ -766,7 +766,7 @@
         "text": "Study the mechanism before touching anything.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "12_event",
+        "next": "12_explorer_event",
         "result": "You patiently examine every moving piece until the mechanism's purpose becomes clear. Knowledge succeeds where haste would have failed.",
         "artifact_result": {
           "journal": "A faded sketch inside your journal perfectly matches the mechanism's hidden design. Whoever owned it had seen this chamber before.",
@@ -778,7 +778,7 @@
         "text": "Allow your companions to help solve the chamber together.",
         "stat": "trust",
         "amount": 1,
-        "next": "12_event",
+        "next": "12_explorer_event",
         "result": "Everyone contributes a small observation. Alone none would have solved the puzzle, but together the answer becomes obvious.",
         "artifact_result": {
           "journal": "One companion recognizes a symbol copied inside your journal from an old legend their family once preserved.",
@@ -878,7 +878,7 @@
         "text": "Study the ancient records.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "13_event",
+        "next": "13_explorer_event",
         "result": "The tablets describe expeditions spanning centuries. Every account ends at this archive.",
         "artifact_result": {
           "journal": "Your journal contains page numbers matching several missing tablets.",
@@ -890,7 +890,7 @@
         "text": "Work together to translate the inscriptions.",
         "stat": "trust",
         "amount": 1,
-        "next": "13_event",
+        "next": "13_explorer_event",
         "result": "Everyone contributes fragments until the forgotten language finally begins making sense.",
         "artifact_result": {
           "journal": "Your journal fills gaps in the damaged inscriptions.",
@@ -989,14 +989,14 @@
         "text": "Study the celestial machinery.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "14_event",
+        "next": "14_explorer_event",
         "result": "The observatory predicts events long before they occur."
       },
       {
         "text": "Compare everyone's observations.",
         "stat": "trust",
         "amount": 1,
-        "next": "14_event",
+        "next": "14_explorer_event",
         "result": "Different viewpoints reveal patterns no individual could notice."
       },
       {
@@ -1523,6 +1523,394 @@
     "next": "21_explorer"
   },
 
+  "21_explorer": {
+  "type": "scenario",
+  "title": "The Forgotten Warden",
+  "text": "The darkness ahead slowly begins to breathe.\n\nHeavy footsteps echo through the endless chamber.\n\nOne.\n\nThen another.\n\nAncient lights awaken one by one.\n\nA colossal figure emerges from the shadows.\n\nStone plates cover its body.\n\nGolden veins pulse beneath countless cracks.\n\nIts eyes remain closed.\n\nIt does not attack.\n\nIt simply waits.\n\nThe final guardian still carries out the command it was given thousands of years ago.\n\nNo weapon is raised.\n\nNo words are spoken.\n\nOnly a single inscription appears before you.\n\n'Prove that this age deserves the truth.'",
+  "choices": [
+    {
+      "text": "Study the guardian's construction.",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "21_explorer_event",
+      "result": "Every symbol carved into the guardian matches the records left by the ancient civilization.",
+      "artifact_result": {
+        "journal": "Your journal reveals notes describing the guardian's original purpose.",
+        "ring": "The ring resonates with the guardian as though recognizing an old companion.",
+        "chicken": "The chicken discovers faded symbols hidden beneath the guardian's massive foot."
+      }
+    },
+    {
+      "text": "Show the guardian peaceful intentions.",
+      "stat": "trust",
+      "amount": 1,
+      "next": "21_explorer_event",
+      "result": "The guardian remains perfectly still, acknowledging your decision without hostility.",
+      "artifact_result": {
+        "journal": "A forgotten entry explains that trust once prevented countless wars.",
+        "ring": "The ring emits a gentle glow that causes the guardian to lower its head.",
+        "chicken": "The chicken confidently approaches the guardian, breaking the overwhelming tension."
+      }
+    },
+    {
+      "text": "Speak as humanity's representative.",
+      "stat": "influence",
+      "amount": 1,
+      "next": "21_explorer_event",
+      "result": "Your voice echoes across the chamber as the guardian silently considers your resolve.",
+      "artifact_result": {
+        "journal": "The journal lists every individual who once stood before the guardian.",
+        "ring": "The ring projects an ancient crest recognized by the guardian.",
+        "chicken": "The chicken proudly stands beside you as though supporting your declaration."
+      }
+    },
+    {
+      "text": "Stand your ground without fear.",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "21_explorer_event",
+      "result": "The guardian's overwhelming presence fails to shake your determination.",
+      "artifact_result": {
+        "journal": "Your journal records one final lesson: courage is measured by conviction.",
+        "ring": "The ring shields you from the guardian's immense aura.",
+        "chicken": "The chicken remains completely calm despite the impossible pressure."
+      }
+    },
+    {
+      "text": "Search for the guardian's hidden weakness.",
+      "stat": "skill",
+      "amount": 1,
+      "next": "21_explorer_event",
+      "result": "Careful observation reveals the guardian was designed to judge, not destroy.",
+      "artifact_result": {
+        "journal": "The journal identifies several mechanisms hidden beneath the guardian's armor.",
+        "ring": "The ring reveals an ancient seal embedded within the guardian's chest.",
+        "chicken": "The chicken slips behind the guardian, exposing a concealed passage."
+      }
+    }
+  ]
+},
+
+"21_explorer_event": {
+  "type": "event",
+  "title": "The Final Trial Begins",
+  "text": "The guardian slowly opens its eyes.\n\nAncient light fills the chamber.\n\nIt studies every member of the expedition.\n\nThen...\n\nIt kneels.\n\nThe entire chamber trembles.\n\nThe path beyond begins to open.\n\nOne final message echoes throughout the ruins.\n\n'The seal has endured.\n\nNow let your hearts be judged.'\n\nBeyond the opening...\n\nSomething far older than the guardian awakens.",
+  "next": "22_explorer"
+},
+
+"22_explorer": {
+  "type": "scenario",
+  "title": "The Chamber of Truth",
+  "text": "The guardian remains kneeling behind you.\n\nThe newly opened passage leads into a chamber unlike any before it.\n\nThere are no machines.\n\nNo weapons.\n\nNo defenses.\n\nOnly countless crystal pillars stretching endlessly into darkness.\n\nWithin every crystal...\n\nLives unfold.\n\nEntire civilizations rise.\n\nEntire civilizations fall.\n\nYou witness wars.\n\nPeace.\n\nDiscovery.\n\nExtinction.\n\nEvery possible future exists before your eyes.\n\nAt the center of the chamber floats a single crystal.\n\nUnlike the others...\n\nIt shows your own world.\n\nIts future has not yet been decided.",
+  "choices": [
+    {
+      "text": "Study the countless futures.",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "22_explorer_event",
+      "result": "Each vision teaches that every decision shapes countless unseen consequences.",
+      "artifact_result": {
+        "journal": "The journal fills with impossible events that have yet to occur.",
+        "ring": "The ring pulses differently beside every crystal you approach.",
+        "chicken": "The chicken repeatedly stops before the same crystal as though sensing something important."
+      }
+    },
+    {
+      "text": "Remain beside your companions.",
+      "stat": "trust",
+      "amount": 1,
+      "next": "22_explorer_event",
+      "result": "You refuse to face the endless visions alone, strengthening everyone's resolve.",
+      "artifact_result": {
+        "journal": "A forgotten passage reminds future guardians that truth is easier to bear together.",
+        "ring": "The ring glows brighter whenever your companions stand nearby.",
+        "chicken": "The chicken gathers everyone around the central crystal."
+      }
+    },
+    {
+      "text": "Accept the responsibility of choosing humanity's future.",
+      "stat": "influence",
+      "amount": 1,
+      "next": "22_explorer_event",
+      "result": "The central crystal begins responding only to your presence.",
+      "artifact_result": {
+        "journal": "The journal recognizes you as the next keeper of the final choice.",
+        "ring": "The ring projects an ancient symbol above the crystal.",
+        "chicken": "The chicken quietly watches as though waiting for your decision."
+      }
+    },
+    {
+      "text": "Touch the central crystal.",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "22_explorer_event",
+      "result": "An overwhelming surge of memories floods your mind, yet you endure every vision.",
+      "artifact_result": {
+        "journal": "Its pages remain untouched despite the immense energy surrounding you.",
+        "ring": "The ring shields your body from the crystal's overwhelming power.",
+        "chicken": "The chicken pecks the crystal once before casually stepping away."
+      }
+    },
+    {
+      "text": "Inspect the chamber before making any decision.",
+      "stat": "skill",
+      "amount": 1,
+      "next": "22_explorer_event",
+      "result": "Hidden markings reveal that the chamber itself is one final test.",
+      "artifact_result": {
+        "journal": "A concealed diagram explains how each crystal records an entire civilization.",
+        "ring": "The ring reveals invisible pathways between the crystal pillars.",
+        "chicken": "The chicken uncovers a hidden inscription beneath the central platform."
+      }
+    }
+  ]
+},
+
+"22_explorer_event": {
+  "type": "event",
+  "title": "The Chosen Future",
+  "text": "The central crystal begins to crack.\n\nOne by one...\n\nEvery surrounding vision disappears.\n\nOnly your world's future remains.\n\nA distant heartbeat echoes throughout the chamber.\n\nNot your own.\n\nNot the guardian's.\n\nSomething far below has sensed the crystal's awakening.\n\nThe floor slowly opens.\n\nA staircase descends into absolute darkness.\n\nThe final truth waits below.",
+  "next": "23_explorer"
+},
+
+"23_explorer": {
+  "type": "scenario",
+  "title": "The Origin",
+  "text": "The staircase descends deeper than any civilization should have reached.\n\nNo walls.\n\nNo ceiling.\n\nOnly darkness.\n\nAt its end...\n\nA single sphere of pale light floats above an endless abyss.\n\nIt is impossibly small.\n\nYet every ancient machine.\n\nEvery guardian.\n\nEvery seal.\n\nWas built around it.\n\nAs you step closer, countless voices begin whispering together.\n\nNot in anger.\n\nNot in fear.\n\nBut in sorrow.\n\nThe ancient civilization never imprisoned a monster.\n\nThey imprisoned something that once protected the world.\n\nAnd humanity forgot why.",
+  "choices": [
+    {
+      "text": "Study the ancient memories.",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "23_explorer_event",
+      "result": "Fragments of forgotten history finally reveal why the seal was created.",
+      "artifact_result": {
+        "journal": "The journal's final blank pages fill with the world's true history.",
+        "ring": "The ring projects memories recorded thousands of years ago.",
+        "chicken": "The chicken discovers an overlooked memory crystal beneath the platform."
+      }
+    },
+    {
+      "text": "Trust the forgotten guardian.",
+      "stat": "trust",
+      "amount": 1,
+      "next": "23_explorer_event",
+      "result": "You believe the ancient protectors acted with reasons long forgotten.",
+      "artifact_result": {
+        "journal": "A final testimony speaks of faith surviving even after history fades.",
+        "ring": "The ring shines softly as though approving your decision.",
+        "chicken": "The chicken quietly rests beside the sphere without fear."
+      }
+    },
+    {
+      "text": "Accept the burden left behind.",
+      "stat": "influence",
+      "amount": 1,
+      "next": "23_explorer_event",
+      "result": "The chamber recognizes your willingness to inherit humanity's responsibility.",
+      "artifact_result": {
+        "journal": "The journal records your name beside every guardian before you.",
+        "ring": "The ring accepts you as the next bearer of the ancient oath.",
+        "chicken": "The chicken stands proudly at your side as the chamber responds."
+      }
+    },
+    {
+      "text": "Approach the sphere despite the danger.",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "23_explorer_event",
+      "result": "The unbearable pressure threatens to crush you, yet you continue forward.",
+      "artifact_result": {
+        "journal": "Its pages remain untouched despite the immense energy surrounding the sphere.",
+        "ring": "The ring shields you from the sphere's overwhelming presence.",
+        "chicken": "The chicken casually circles the sphere as if nothing is unusual."
+      }
+    },
+    {
+      "text": "Search for the sphere's true purpose.",
+      "stat": "skill",
+      "amount": 1,
+      "next": "23_explorer_event",
+      "result": "Careful inspection reveals the sphere was never a prison.\nIt was a choice waiting for someone worthy.",
+      "artifact_result": {
+        "journal": "Hidden diagrams explain the sphere's original function.",
+        "ring": "The ring reveals ancient mechanisms hidden beneath the abyss.",
+        "chicken": "The chicken scratches away loose stone, uncovering the final inscription."
+      }
+    }
+  ]
+},
+
+"23_explorer_event": {
+  "type": "event",
+  "title": "The Last Keeper",
+  "text": "The sphere slowly descends.\n\nThe abyss begins to glow.\n\nAn ancient figure rises from the light.\n\nNeither human.\n\nNor machine.\n\nIt opens its eyes.\n\n'I have waited...'\n\nIts voice echoes across the endless chamber.\n\n'...for the one who would decide whether this world still deserves its future.'\n\nThe final judgment has begun.",
+  "next": "24_explorer"
+},
+
+"24_explorer": {
+  "type": "scenario",
+  "title": "Humanity's Judgment",
+  "text": "The ancient keeper watches without expression.\n\nNo weapon rests in its hands.\n\nNo throne stands beneath it.\n\nOnly countless lights drift through the endless chamber.\n\nEach light carries a memory.\n\nEvery act of kindness.\n\nEvery betrayal.\n\nEvery discovery.\n\nEvery war.\n\nThe keeper raises one hand.\n\nThe lights gather around you.\n\n'Your journey is not what is being judged.'\n\n'Humanity is.'\n\n'You are merely its witness.'\n\nThe memories begin surrounding you.\n\nEach one asks the same silent question.\n\nWas this world worth saving?",
+  "choices": [
+    {
+      "text": "Remember humanity's greatest achievements.",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": "24_explorer_event",
+      "result": "You recall every discovery and sacrifice that allowed civilization to endure.",
+      "artifact_result": {
+        "journal": "Every page shines as the journal records humanity's finest moments.",
+        "ring": "The ring projects visions of civilizations rising through wisdom instead of war.",
+        "chicken": "The chicken stops beside memories filled with hope rather than conflict."
+      }
+    },
+    {
+      "text": "Place your faith in humanity.",
+      "stat": "trust",
+      "amount": 1,
+      "next": "24_explorer_event",
+      "result": "You believe people can still choose compassion over fear.",
+      "artifact_result": {
+        "journal": "The journal reveals countless ordinary people whose kindness changed history.",
+        "ring": "The ring glows brighter with every memory of unity.",
+        "chicken": "The chicken wanders between the lights, drawing forgotten memories together."
+      }
+    },
+    {
+      "text": "Accept humanity's failures as your own.",
+      "stat": "influence",
+      "amount": 1,
+      "next": "24_explorer_event",
+      "result": "You refuse to blame those who came before, accepting responsibility for what comes next.",
+      "artifact_result": {
+        "journal": "The final entry reminds every future leader that responsibility cannot be inherited without action.",
+        "ring": "The ring recognizes your resolve and burns with ancient light.",
+        "chicken": "The chicken quietly remains beside you as the keeper observes your choice."
+      }
+    },
+    {
+      "text": "Endure every painful memory.",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": "24_explorer_event",
+      "result": "You witness humanity's darkest moments without turning away.",
+      "artifact_result": {
+        "journal": "The journal survives the overwhelming flood of memories untouched.",
+        "ring": "The ring shields your mind as countless voices echo around you.",
+        "chicken": "The chicken somehow remains asleep despite the impossible pressure."
+      }
+    },
+    {
+      "text": "Search for the truth behind every memory.",
+      "stat": "skill",
+      "amount": 1,
+      "next": "24_explorer_event",
+      "result": "You realize every memory has been shown without judgment, only truth.",
+      "artifact_result": {
+        "journal": "Hidden writing appears, revealing no history was ever erased, only forgotten.",
+        "ring": "The ring uncovers one final concealed memory hidden from every previous visitor.",
+        "chicken": "The chicken scratches away dust, revealing the keeper's original oath."
+      }
+    }
+  ]
+},
+
+"24_explorer_event": {
+  "type": "event",
+  "title": "The Final Door",
+  "text": "The keeper closes its eyes.\n\nEvery floating memory slowly disappears.\n\nThe endless chamber grows silent.\n\nThen...\n\nA single doorway appears.\n\nUnlike every door before it...\n\nIt bears no lock.\n\nNo seal.\n\nNo guardian.\n\nOnly one inscription.\n\n'The final choice belongs not to us...'\n\n'...but to the one who stands here now.'\n\nThe keeper steps aside.\n\nBeyond the doorway...\n\nThe fate of the world awaits.",
+  "next": "25_explorer"
+},
+
+"25_explorer": {
+  "type": "scenario",
+  "title": "The Final Choice",
+  "text": "Beyond the doorway lies nothing.\n\nNo chamber.\n\nNo sky.\n\nNo ground.\n\nOnly endless white.\n\nThe ancient keeper remains behind you.\n\nIt will not follow.\n\nA single pedestal rises before you.\n\nUpon it rests a sphere of pure light.\n\nIt is neither alive...\n\nNor lifeless.\n\nWithin it exists every possible future.\n\nThe fate of humanity has never belonged to gods.\n\nNor guardians.\n\nNor ancient civilizations.\n\nIt has always belonged to the one willing to choose.\n\nThe keeper speaks one final time.\n\n'There is no correct answer.'\n\n'Only consequences.'\n\nThe sphere slowly descends into your hands.",
+  "choices": [
+    {
+      "text": "Preserve the ancient order.",
+      "stat": "knowledge",
+      "amount": 1,
+      "next": {
+        "journal": "ending_knowledge_lost_journal",
+        "ring": "ending_knowledge_silver_ring",
+        "chicken": "ending_knowledge_chicken"
+      },
+      "result": "You believe stability is worth preserving, even if change must wait.",
+      "artifact_result": {
+        "journal": "The journal records the beginning of humanity's next chapter.",
+        "ring": "The ring accepts the burden carried by every guardian before you.",
+        "chicken": "The chicken quietly settles beside the fading light."
+      }
+    },
+    {
+      "text": "Entrust humanity with its own future.",
+      "stat": "trust",
+      "amount": 1,
+      "next": {
+        "journal": "ending_trust_lost_journal",
+        "ring": "ending_trust_silver_ring",
+        "chicken": "ending_trust_chicken"
+      },
+      "result": "You believe people deserve the freedom to shape their own destiny.",
+      "artifact_result": {
+        "journal": "Its final page remains blank, waiting for humanity to write it.",
+        "ring": "The ring's ancient glow slowly fades, its duty complete.",
+        "chicken": "The chicken confidently walks toward the unknown future."
+      }
+    },
+    {
+      "text": "Accept the burden as the world's new guardian.",
+      "stat": "influence",
+      "amount": 1,
+      "next": {
+        "journal": "ending_influence_lost_journal",
+        "ring": "ending_influence_silver_ring",
+        "chicken": "ending_influence_chicken"
+      },
+      "result": "You willingly inherit the responsibility abandoned by history.",
+      "artifact_result": {
+        "journal": "Your name becomes the final entry in its endless record.",
+        "ring": "The ring seals itself around your hand forever.",
+        "chicken": "The chicken refuses to leave your side."
+      }
+    },
+    {
+      "text": "Destroy the ancient power forever.",
+      "stat": "hp_stat",
+      "amount": 1,
+      "next": {
+        "journal": "ending_hp_stat_lost_journal",
+        "ring": "ending_hp_stat_silver_ring",
+        "chicken": "ending_hp_stat_chicken"
+      },
+      "result": "Some burdens should never be carried again.",
+      "artifact_result": {
+        "journal": "Every page turns blank as the old history comes to an end.",
+        "ring": "The ring cracks before dissolving into light.",
+        "chicken": "The chicken watches silently as the ancient light disappears."
+      }
+    },
+    {
+      "text": "Create an entirely new future.",
+      "stat": "skill",
+      "amount": 1,
+      "next": {
+        "journal": "ending_skill_lost_journal",
+        "ring": "ending_skill_silver_ring",
+        "chicken": "ending_skill_chicken"
+      },
+      "result": "You reject every path laid before you and choose to forge your own.",
+      "artifact_result": {
+        "journal": "The journal begins writing pages that never existed before.",
+        "ring": "The ring transforms into something even the guardians never imagined.",
+        "chicken": "The chicken happily wanders into the unwritten future."
+      }
+    }
+  ]
+},
+
   "settler_scholar_ending":{
     "type": "ending",
     "title": "The Scholar of Greyhaven",
@@ -1539,5 +1927,95 @@
     "type": "ending",
     "title": "The Heart of Greyhaven",
     "text": "The review concludes.\n\nThe arguments fade.\n\nThe town heals.\n\nNot because everyone agrees.\n\nBecause people choose to move forward together.\n\nYears pass.\n\nGreyhaven grows steadily.\n\nChildren become adults.\n\nFamilies expand.\n\nNew faces arrive.\n\nOld faces disappear.\n\nThrough it all, one thing remains constant.\n\nYou.\n\nYou never seek authority.\n\nYou never chase recognition.\n\nYet nearly everyone knows your name.\n\nThe shopkeepers.\n\nThe workers.\n\nThe families.\n\nThe people who quietly keep Greyhaven alive.\n\nWhen disputes arise, people trust you.\n\nWhen celebrations begin, people invite you.\n\nWhen difficult times arrive, people rely on you.\n\nNot because of your position.\n\nBecause of your character.\n\nGreyhaven becomes more than a town.\n\nIt becomes a community.\n\nAnd in countless ways, you helped make that possible.\n\nYou left home searching for somewhere to live.\n\nYou found a place to call home.\n\nEnding Unlocked:\nThe Heart of Greyhaven"
+  },
+
+    "ending_knowledge_lost_journal": {
+    "type": "ending",
+    "title": "The Final Chronicle",
+    "text": "You preserve the ancient order.\n\nThe world never learns what truly rested beneath its foundations.\n\nThe forgotten chambers are sealed once more.\n\nThe guardians become nothing more than myth.\n\nOnly one record survives.\n\nThe Lost Journal.\n\nIts final pages are no longer blank.\n\nThey now contain the complete history of the ancient civilization.\n\nTheir sacrifices.\n\nTheir mistakes.\n\nTheir hope.\n\nYou spend the rest of your life safeguarding that knowledge.\n\nNever as a ruler.\n\nNever as a hero.\n\nBut as history's final witness.\n\nLong after your passing...\n\nThe journal waits for the next soul worthy enough to read the truth."
+  },
+
+  "ending_knowledge_silver_ring": {
+    "type": "ending",
+    "title": "The Last Guardian",
+    "text": "You preserve the ancient order.\n\nThe Silver Ring recognizes your decision.\n\nIts ancient power accepts you as the successor to every guardian before you.\n\nThe hidden complex awakens once more.\n\nIts machines begin another endless watch.\n\nThe world above continues unaware.\n\nPeace remains.\n\nNot because danger disappeared...\n\nBut because someone chose to bear it.\n\nGenerations come and go.\n\nYour name is forgotten.\n\nYet beneath the earth...\n\nThe Last Guardian never abandons the watch.\n\nThe seal endures.\n\nBecause you do."
+  },
+
+  "ending_knowledge_chicken": {
+    "type": "ending",
+    "title": "The Quiet Tomorrow",
+    "text": "You preserve the ancient order.\n\nThe chambers fall silent once again.\n\nThe ancient keeper offers a final nod before fading into light.\n\nNothing spectacular follows.\n\nNo statues are built.\n\nNo songs are written.\n\nYou simply return home.\n\nThe chicken faithfully follows beside you.\n\nYears pass.\n\nChildren laugh.\n\nHarvests flourish.\n\nThe world continues without ever knowing how close it came to losing everything.\n\nPerhaps that is how true heroes are remembered.\n\nNot through glory...\n\nBut through the ordinary tomorrows they quietly protect."
+  },
+
+  "ending_trust_lost_journal": {
+    "type": "ending",
+    "title": "The Shared Truth",
+    "text": "You entrust humanity with its own future.\n\nThe ancient order comes to an end.\n\nThe hidden chambers are opened.\n\nThe Lost Journal is no longer hidden from the world.\n\nIts pages reveal every triumph.\n\nEvery failure.\n\nEvery sacrifice made by the civilization that came before.\n\nPeople argue.\n\nSome reject the truth.\n\nOthers embrace it.\n\nBut for the first time...\n\nHumanity is allowed to learn from its own past.\n\nKnowledge is no longer guarded.\n\nIt is shared.\n\nThe future belongs to everyone."
+  },
+
+  "ending_trust_silver_ring": {
+    "type": "ending",
+    "title": "The Broken Oath",
+    "text": "You entrust humanity with its own future.\n\nThe Silver Ring grows dim.\n\nIts purpose has finally ended.\n\nThere will be no more guardians.\n\nNo secret keepers.\n\nNo hidden protectors.\n\nThe ring crumbles into silver dust before disappearing forever.\n\nThe burden carried across thousands of years is finally lifted.\n\nHumanity now stands alone.\n\nIts future will no longer be decided by ancient promises.\n\nOnly by its own choices."
+  },
+
+  "ending_trust_chicken": {
+    "type": "ending",
+    "title": "A World Worth Trusting",
+    "text": "You entrust humanity with its own future.\n\nThe ancient keeper smiles for the first time.\n\nWithout another word...\n\nIt vanishes.\n\nThe hidden world slowly fades into history.\n\nYou leave the ruins with nothing except your companions...\n\nAnd the chicken faithfully walking beside you.\n\nLife continues.\n\nKingdoms rise.\n\nPeople laugh.\n\nChildren play.\n\nThe future is uncertain.\n\nBut perhaps uncertainty was never something to fear.\n\nIt was simply proof that the world finally belonged to those living in it."
+  },
+
+  "ending_influence_lost_journal": {
+    "type": "ending",
+    "title": "The Eternal Record",
+    "text": "You accept the burden as the world's new guardian.\n\nThe Lost Journal opens one final time.\n\nYour journey becomes its last written chapter.\n\nThen...\n\nIt begins writing once more.\n\nNot about the past.\n\nBut about the future.\n\nEvery generation that follows.\n\nEvery great leader.\n\nEvery terrible mistake.\n\nThe journal continues recording history through your eyes.\n\nThough the world never knows your name...\n\nIts story is never again forgotten.\n\nThe Chronicle continues.\n\nBecause you chose to remain."
+  },
+
+  "ending_influence_silver_ring": {
+    "type": "ending",
+    "title": "The Successor",
+    "text": "You accept the burden as the world's new guardian.\n\nThe Silver Ring seals itself upon your hand.\n\nIts ancient light burns brighter than ever before.\n\nThe keeper bows.\n\nIts duty has finally ended.\n\nNow...\n\nIt belongs to you.\n\nThe forgotten complex awakens under your command.\n\nIts guardians answer only to your will.\n\nYou become the silent protector of humanity.\n\nWatching.\n\nWaiting.\n\nEnsuring that the mistakes of the past are never repeated.\n\nYour name fades from history.\n\nBut your watch has only begun."
+  },
+
+  "ending_influence_chicken": {
+    "type": "ending",
+    "title": "The Unlikely Guardian",
+    "text": "You accept the burden as the world's new guardian.\n\nThe ancient keeper nods in approval.\n\nThe hidden world becomes your responsibility.\n\nEvery machine.\n\nEvery seal.\n\nEvery forgotten secret.\n\nYou remain beneath the earth while the world above continues unaware.\n\nOnly one companion refuses to leave.\n\nThe chicken settles beside the ancient throne.\n\nDays become years.\n\nYears become generations.\n\nTravelers sometimes speak of hearing quiet clucks echoing from forgotten ruins.\n\nNo one believes the stories.\n\nPerhaps that is for the best.\n\nEvery guardian deserves at least one loyal friend."
+  },
+
+  "ending_hp_stat_lost_journal": {
+    "type": "ending",
+    "title": "The Final Sacrifice",
+    "text": "You destroy the ancient power forever.\n\nThe sphere shatters.\n\nThe hidden complex begins collapsing.\n\nThe Lost Journal falls into your hands.\n\nIts pages slowly fade.\n\nOne by one...\n\nEvery record of the ancient civilization disappears.\n\nTheir history.\n\nTheir achievements.\n\nTheir mistakes.\n\nAll are erased.\n\nSome knowledge was never meant to survive.\n\nYou escape the ruins as the last chamber crumbles into darkness.\n\nThe world is safe.\n\nBut the truth is gone forever.\n\nOnly you remember what was sacrificed."
+  },
+
+  "ending_hp_stat_silver_ring": {
+    "type": "ending",
+    "title": "The Broken Legacy",
+    "text": "You destroy the ancient power forever.\n\nThe Silver Ring begins to crack.\n\nThe ancient keeper closes its eyes.\n\nIts purpose has ended.\n\nThe ring shatters into countless fragments.\n\nAcross the hidden complex...\n\nEvery machine powers down.\n\nEvery guardian falls silent.\n\nThe age of ancient protectors ends forever.\n\nThe burden carried across thousands of years finally comes to rest.\n\nYou leave the ruins carrying nothing.\n\nBecause nothing remains to carry."
+  },
+
+  "ending_hp_stat_chicken": {
+    "type": "ending",
+    "title": "The Last Sunrise",
+    "text": "You destroy the ancient power forever.\n\nLight consumes the endless chamber.\n\nThe keeper smiles peacefully before disappearing.\n\nThe ancient city collapses behind you.\n\nThe world above never learns what happened beneath its feet.\n\nAs the first sunrise breaks across the horizon...\n\nThe chicken hops onto your shoulder.\n\nYou laugh.\n\nFor the first time since entering the ruins.\n\nThe danger is over.\n\nNo more guardians.\n\nNo more ancient burdens.\n\nOnly a new day.\n\nAnd a world finally free to write its own future."
+  },
+
+  "ending_skill_lost_journal": {
+    "type": "ending",
+    "title": "The Unwritten Age",
+    "text": "You reject every path laid before you.\n\nThe ancient keeper watches in silence.\n\nThen...\n\nIt smiles.\n\nFor the first time in thousands of years.\n\nThe Lost Journal opens.\n\nIts pages begin tearing themselves free.\n\nOne by one.\n\nUntil nothing remains.\n\nNo prophecy.\n\nNo history.\n\nNo destiny.\n\nOnly blank pages.\n\nYou carry them back into the world.\n\nNot as a record of what was...\n\nBut as an invitation for humanity to write what comes next.\n\nThe future is no longer remembered.\n\nIt is finally unwritten."
+  },
+
+  "ending_skill_silver_ring": {
+    "type": "ending",
+    "title": "Beyond the Guardians",
+    "text": "You reject every path laid before you.\n\nThe Silver Ring glows brighter than ever before.\n\nThen...\n\nIt changes.\n\nThe ancient crest disappears.\n\nThe power once used to preserve the past becomes something entirely new.\n\nThe hidden complex awakens.\n\nNot to defend.\n\nNot to imprison.\n\nBut to build.\n\nThe keeper bows.\n\n'You have surpassed those who came before us.'\n\nThe age of guardians ends.\n\nThe age of pioneers begins.\n\nFor the first time...\n\nHumanity walks toward the future instead of hiding from it."
+  },
+
+  "ending_skill_chicken": {
+    "type": "ending",
+    "title": "The Path Nobody Expected",
+    "text": "You reject every path laid before you.\n\nThe ancient keeper laughs.\n\nA sound the forgotten chambers have not heard in ages.\n\n'Every soul before you chose one of the roads we prepared.'\n\n'You are the first to simply walk away.'\n\nThe endless white fades.\n\nThe ruins remain.\n\nThe world remains.\n\nBut the future is no longer bound by ancient choices.\n\nYou leave the hidden city with your companions.\n\nThe chicken happily races ahead.\n\nThere is no prophecy waiting.\n\nNo guardian watching.\n\nNo destiny demanding to be fulfilled.\n\nOnly an open road.\n\nAnd a future that belongs to those willing to create it."
   }
 }

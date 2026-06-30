@@ -22,6 +22,14 @@ def promotion_check(player, next_node):
 
     return next_node
 
+def get_next_node(player, selected_choice):
+    next_node = selected_choice.get("next")
+
+    if isinstance(next_node, dict):
+        artifact = player.get("artifact")
+        return next_node.get(artifact)
+
+    return next_node
 
 def play_node(player, node_id):
     if node_id == "SETTLER_PROMOTION_CHECK_11":
@@ -57,7 +65,9 @@ def play_node(player, node_id):
         display.show_class_unlock(player_class)
         return "class_event"
 
+    print(f"[LOADING NODE] {node_id}")
     node = node_repository.get_node(node_id)
+    print(node)
 
     if not node:
         print(f"[BROKEN NODE] {node_id}")
@@ -205,7 +215,7 @@ def handle_scenario(player, node, node_id):
                 artifact_text
             )
 
-        next_node = selected_choice.get("next")
+        next_node = get_next_node(player, selected_choice)
 
         if next_node is None:
             print("[BROKEN DATA DETECTED]")

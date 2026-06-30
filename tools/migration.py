@@ -67,6 +67,17 @@ def initialize_database():
         """)
 
         cursor.execute("""
+            CREATE TABLE IF NOT EXISTS choice_next_artifacts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                choice_id INTEGER NOT NULL,
+                artifact_name TEXT NOT NULL,
+                next_node TEXT NOT NULL,
+                FOREIGN KEY (choice_id) REFERENCES choices(id),
+                UNIQUE(choice_id, artifact_name)
+            )
+        """)
+
+        cursor.execute("""
             CREATE TABLE IF NOT EXISTS saves (
                 slot_id INTEGER PRIMARY KEY,
                 player_name TEXT NOT NULL,
