@@ -1078,35 +1078,35 @@
         "text": "Answer with knowledge.",
         "stat": "knowledge",
         "amount": 1,
-        "next": "EXPLORER_CLASS_CHECK",
+        "next": "15_explorer_event",
         "result": "You search for understanding before acting."
       },
       {
         "text": "Answer with compassion.",
         "stat": "trust",
         "amount": 1,
-        "next": "EXPLORER_CLASS_CHECK",
+        "next": "15_explorer_event",
         "result": "You place people above certainty."
       },
       {
         "text": "Answer with leadership.",
         "stat": "influence",
         "amount": 1,
-        "next": "EXPLORER_CLASS_CHECK",
+        "next": "15_explorer_event",
         "result": "You accept responsibility without hesitation."
       },
       {
         "text": "Answer through endurance.",
         "stat": "hp_stat",
         "amount": 1,
-        "next": "EXPLORER_CLASS_CHECK",
+        "next": "15_explorer_event",
         "result": "You endure what others cannot."
       },
       {
         "text": "Answer through action.",
         "stat": "skill",
         "amount": 1,
-        "next": "EXPLORER_CLASS_CHECK",
+        "next": "15_explorer_event",
         "result": "You trust movement over words."
       }
     ]

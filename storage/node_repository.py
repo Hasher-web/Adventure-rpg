@@ -23,7 +23,7 @@ def get_choices_for_node(node_id):
 
         rows = cursor.fetchall()
 
-    choices = [
+    return [
         {
             "id": row["id"],
             "text": row["text"],
@@ -38,12 +38,13 @@ def get_choices_for_node(node_id):
         for row in rows
     ]
 
-    return choices
-
 
 def get_node(node_id):
     with get_connection() as connection:
         cursor = connection.cursor()
+
+        cursor.execute("SELECT COUNT(*) FROM nodes")
+        print("[NODE COUNT]", cursor.fetchone()[0])
 
         cursor.execute("""
             SELECT
@@ -57,6 +58,9 @@ def get_node(node_id):
         """, (str(node_id),))
 
         row = cursor.fetchone()
+
+        print("[SEARCHING]", node_id)
+        print("[FOUND]", row)
 
     if row is None:
         return None
@@ -87,7 +91,8 @@ def get_artifact_result(choice_id, artifact_name):
         cursor.execute("""
             SELECT result_text
             FROM choice_artifact_results
-            WHERE choice_id = ? AND artifact_name = ?
+            WHERE choice_id = ?
+              AND artifact_name = ?
         """, (choice_id, artifact_name))
 
         row = cursor.fetchone()
@@ -96,3 +101,28 @@ def get_artifact_result(choice_id, artifact_name):
         return None
 
     return row["result_text"]
+
+
+def get_choice_next_node(choice_id, artifact_name):
+    if not artifact_name:
+        return None
+
+    with get_connection() as connection:
+        cursor = connection.cursor()
+
+        cursor.execute("""
+            SELECT next_node
+            FROM choice_next_artifacts
+            WHERE choice_id = ?
+              AND artifact_name = ?
+        """, (
+            choice_id,
+            artifact_name
+        ))
+
+        row = cursor.fetchone()
+
+    if row is None:
+        return None
+
+    return row["next_node"]

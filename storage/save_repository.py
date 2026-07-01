@@ -88,7 +88,8 @@ def load_game(slot_id=1):
         "artifact": row["artifact"],
         "class": row["class"],
         "promotion_return": row["promotion_return"],
-        "route": row["route"]
+        "route": row["route"],
+        "save_slot": row["slot_id"]
     }
 
     return {

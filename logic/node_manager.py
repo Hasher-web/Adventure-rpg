@@ -22,16 +22,9 @@ def promotion_check(player, next_node):
 
     return next_node
 
-def get_next_node(player, selected_choice):
-    next_node = selected_choice.get("next")
-
-    if isinstance(next_node, dict):
-        artifact = player.get("artifact")
-        return next_node.get(artifact)
-
-    return next_node
 
 def play_node(player, node_id):
+
     if node_id == "SETTLER_PROMOTION_CHECK_11":
         return promotion_check(player, "11_settler")
 
@@ -42,8 +35,6 @@ def play_node(player, node_id):
         return promotion_check(player, "head_conflict")
 
     if node_id == "PROMOTION_RETURN":
-        print("[PROMOTION RETURN HANDLER HIT]")
-        print(player["promotion_return"])
         return player["promotion_return"]
 
     if node_id == "settler_ending_check":
@@ -65,9 +56,7 @@ def play_node(player, node_id):
         display.show_class_unlock(player_class)
         return "class_event"
 
-    print(f"[LOADING NODE] {node_id}")
     node = node_repository.get_node(node_id)
-    print(node)
 
     if not node:
         print(f"[BROKEN NODE] {node_id}")
@@ -87,14 +76,7 @@ def play_node(player, node_id):
         display.show_ending(node)
         return "EXIT"
 
-    if node_type == "scenario":
-        result = handle_scenario(player, node, node_id)
-
-        if result is None:
-            print("[CRITICAL] play_node returned None, forcing EXIT")
-            return "EXIT"
-
-        return result
+    return handle_scenario(player, node, node_id)
 
 
 def handle_scenario(player, node, node_id):
@@ -164,6 +146,8 @@ def handle_scenario(player, node, node_id):
             return node_id
 
         selected_choice = choices[choice_number - 1]
+        print("[SELECTED CHOICE]")
+        print(selected_choice)
 
         artifact = selected_choice.get("artifact")
         if artifact:
@@ -174,6 +158,7 @@ def handle_scenario(player, node, node_id):
                 selected_choice["job_focus"] ==
                 player["job_focus"]
             )
+
             player_manager.register_job_result(
                 player,
                 is_aligned
@@ -215,12 +200,20 @@ def handle_scenario(player, node, node_id):
                 artifact_text
             )
 
-        next_node = get_next_node(player, selected_choice)
+        next_node = node_repository.get_choice_next_node(
+        selected_choice["id"],
+        player.get("artifact")
+        )
+
+        if next_node is None:
+            next_node = selected_choice.get("next")
+
+        print("[FINAL NEXT NODE]", next_node)
 
         if next_node is None:
             print("[BROKEN DATA DETECTED]")
-            print("Choice was:", selected_choice)
-            print("Node was:", node_id)
+            print("Choice:", selected_choice["id"])
+            print("Node:", node_id)
             return node_id
 
         return next_node

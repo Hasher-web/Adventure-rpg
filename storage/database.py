@@ -6,6 +6,7 @@ DB_PATH = Path(__file__).resolve().parent.parent / "data" / "game.db"
 
 
 def get_connection():
+
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys = ON")
@@ -34,7 +35,7 @@ def initialize_database():
                 node_id TEXT NOT NULL,
                 choice_order INTEGER NOT NULL,
                 text TEXT NOT NULL,
-                next_node TEXT NOT NULL,
+                next_node TEXT,
                 stat TEXT,
                 amount INTEGER DEFAULT 0,
                 result TEXT,
@@ -51,6 +52,17 @@ def initialize_database():
                 choice_id INTEGER NOT NULL,
                 artifact_name TEXT NOT NULL,
                 result_text TEXT NOT NULL,
+                FOREIGN KEY (choice_id) REFERENCES choices(id) ON DELETE CASCADE,
+                UNIQUE(choice_id, artifact_name)
+            )
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS choice_next_artifacts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                choice_id INTEGER NOT NULL,
+                artifact_name TEXT NOT NULL,
+                next_node TEXT NOT NULL,
                 FOREIGN KEY (choice_id) REFERENCES choices(id) ON DELETE CASCADE,
                 UNIQUE(choice_id, artifact_name)
             )

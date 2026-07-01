@@ -62,7 +62,8 @@ def initialize_database():
                 choice_id INTEGER NOT NULL,
                 artifact_name TEXT NOT NULL,
                 result_text TEXT NOT NULL,
-                FOREIGN KEY (choice_id) REFERENCES choices(id)
+                FOREIGN KEY (choice_id) REFERENCES choices(id),
+                UNIQUE(choice_id, artifact_name)
             )
         """)
 
@@ -111,10 +112,13 @@ def load_json(path):
 
 def clear_existing_data(connection):
     cursor = connection.cursor()
+
+    cursor.execute("DELETE FROM choice_next_artifacts")
     cursor.execute("DELETE FROM choice_artifact_results")
     cursor.execute("DELETE FROM choices")
     cursor.execute("DELETE FROM saves")
     cursor.execute("DELETE FROM nodes")
+
     connection.commit()
 
 
@@ -124,15 +128,23 @@ def migrate_nodes(connection, nodes_data):
     imported_nodes = 0
     imported_choices = 0
     imported_artifact_results = 0
+    imported_next_artifacts = 0
 
     for node_id, node in nodes_data.items():
+
         node_type = node.get("type")
         title = node.get("title", "")
         text = node.get("text", "")
         next_node = node.get("next")
 
         cursor.execute("""
-            INSERT INTO nodes (id, type, title, text, next_node)
+            INSERT INTO nodes (
+                id,
+                type,
+                title,
+                text,
+                next_node
+            )
             VALUES (?, ?, ?, ?, ?)
         """, (
             str(node_id),
@@ -141,13 +153,23 @@ def migrate_nodes(connection, nodes_data):
             text,
             next_node
         ))
+
         imported_nodes += 1
 
         choices = node.get("choices", [])
 
         for choice_index, choice in enumerate(choices, start=1):
+
             choice_text = choice.get("text", "")
+
             choice_next = choice.get("next")
+
+            next_artifacts = {}
+
+            if isinstance(choice_next, dict):
+                next_artifacts = choice_next
+                choice_next = None
+
             stat = choice.get("stat")
             amount = choice.get("amount", 0)
             result = choice.get("result")
@@ -181,12 +203,32 @@ def migrate_nodes(connection, nodes_data):
                 job_focus,
                 artifact_granted
             ))
+
             imported_choices += 1
 
             choice_id = cursor.lastrowid
 
+            for artifact_name, next_node in next_artifacts.items():
+
+                cursor.execute("""
+                    INSERT INTO choice_next_artifacts (
+                        choice_id,
+                        artifact_name,
+                        next_node
+                    )
+                    VALUES (?, ?, ?)
+                """, (
+                    choice_id,
+                    artifact_name,
+                    next_node
+                ))
+
+                imported_next_artifacts += 1
+
             artifact_results = choice.get("artifact_result", {})
+
             for artifact_name, result_text in artifact_results.items():
+
                 cursor.execute("""
                     INSERT INTO choice_artifact_results (
                         choice_id,
@@ -199,6 +241,7 @@ def migrate_nodes(connection, nodes_data):
                     artifact_name,
                     result_text
                 ))
+
                 imported_artifact_results += 1
 
     connection.commit()
@@ -206,7 +249,7 @@ def migrate_nodes(connection, nodes_data):
     print("[IMPORTED NODES]", imported_nodes)
     print("[IMPORTED CHOICES]", imported_choices)
     print("[IMPORTED ARTIFACT RESULTS]", imported_artifact_results)
-
+    print("[IMPORTED NEXT ARTIFACTS]", imported_next_artifacts)
 
 def migrate_save(connection, save_data):
     if not save_data:
@@ -280,6 +323,12 @@ def debug_database(connection):
     cursor.execute("SELECT COUNT(*) FROM choices")
     print("[DB CHOICE COUNT]", cursor.fetchone()[0])
 
+    cursor.execute("SELECT COUNT(*) FROM choice_artifact_results")
+    print("[DB ARTIFACT RESULT COUNT]", cursor.fetchone()[0])
+
+    cursor.execute("SELECT COUNT(*) FROM choice_next_artifacts")
+    print("[DB NEXT ARTIFACT COUNT]", cursor.fetchone()[0])
+
     cursor.execute("SELECT id FROM nodes ORDER BY id LIMIT 20")
     rows = cursor.fetchall()
     print("[FIRST 20 NODE IDS]", [row[0] for row in rows])
@@ -288,12 +337,31 @@ def debug_database(connection):
     row = cursor.fetchone()
     print("[NODE 1 EXISTS]", dict(row) if row else None)
 
+    cursor.execute("""
+        SELECT
+            choice_order,
+            next_node
+        FROM choices
+        WHERE node_id = '15_explorer'
+        ORDER BY choice_order
+    """)
+
+    print("[15_EXPLORER CHOICES]")
+    for row in cursor.fetchall():
+        print(dict(row))
+
+    
+
 
 def main():
     initialize_database()
 
     nodes_data = load_json(NODES_JSON_PATH)
-    save_data = load_json(SAVE_JSON_PATH) if SAVE_JSON_PATH.exists() else None
+    save_data = (
+        load_json(SAVE_JSON_PATH)
+        if SAVE_JSON_PATH.exists()
+        else None
+    )
 
     with get_connection() as connection:
         clear_existing_data(connection)
